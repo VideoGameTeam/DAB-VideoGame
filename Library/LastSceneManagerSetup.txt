@@ -1,0 +1,5 @@
+sceneSetups:
+- path: Assets/Resources/Particles/Elementals/Elementals/Demo/Scenes/Elementals Demo
+    (960x600px).unity
+  isLoaded: 1
+  isActive: 1
