@@ -5120,7 +5120,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 19900000, guid: a048118dd8dfa48c0856c340bc563efe, type: 2}
       propertyPath: m_MinParticleSize
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 19900000, guid: a048118dd8dfa48c0856c340bc563efe, type: 2}
       propertyPath: m_MaxParticleSize
