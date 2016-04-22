@@ -75,7 +75,9 @@ public class MainMenu : MonoBehaviour {
 
 	public void PressBtnMenuExExit()
 	{
-		Time.timeScale = 0;
+		//Time.timeScale = 0;
+		Application.Quit();
+
 
 	}
 

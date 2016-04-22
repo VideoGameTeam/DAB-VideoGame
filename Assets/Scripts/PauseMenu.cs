@@ -1,15 +1,38 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
+using UnityEngine.UI; // Required when Using UI elements.
+
 
 public class PauseMenu : MonoBehaviour {
 	public GameObject objectpause;
 	public GameObject objectOptions;
 	public GameObject objectExit;
-	public GameObject objectValorVol;
+
+
+
+
+	//public Slider SliVol;
+	public Slider SliVol;
+	public Text TextValorVol;
+
+
+	public Slider Slilight;
+	//public Light MainlLight;
+	public Text TextValorLight;
+
+
+
+	public float VolumeSet;
+	public float LightSet;
+
 
 
 	// Use this for initialization
 	void Start () {
+		///MainlLight= GetComponent<Light>();
+
+		/////CARGAR LUZ Y VOLUME
+		/// 
 	
 	}
 	
@@ -105,16 +128,33 @@ public class PauseMenu : MonoBehaviour {
 		Time.timeScale = 1;
 		Application.LoadLevel ("StartGame");
 
+	}
 
-		Application.Quit();
+	public void updateVol()
+	{
+		VolumeSet= SliVol.value;
+		TextValorVol.text = Mathf.Round( SliVol.value*100).ToString();
 
+
+		AudioListener.volume = SliVol.value;
 
 	}
 
-/*	public void updateVol()
+
+	public void updateLight()
 	{
-		objectValorVol.t
-	}*/
+		
+		LightSet= Slilight.value;
+		TextValorLight.text = Mathf.Round(Slilight.value).ToString();
+	///	MainlLight.intensity = LightSet / 16;
+
+		/*GameObject lightGameObject = new GameObject("MainlLight");
+        Light lightComp = lightGameObject.AddComponent<Light>();
+        lightComp.intensity = LightSet/16;
+        lightGameObject.transform.position = new Vector3(0, 5, 0);
+*/
+	}
+
 
 
 
