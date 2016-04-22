@@ -5,6 +5,8 @@ public class PauseMenu : MonoBehaviour {
 	public GameObject objectpause;
 	public GameObject objectOptions;
 	public GameObject objectExit;
+	public GameObject objectValorVol;
+
 
 	// Use this for initialization
 	void Start () {
@@ -103,7 +105,16 @@ public class PauseMenu : MonoBehaviour {
 		Time.timeScale = 1;
 		Application.LoadLevel ("StartGame");
 
+
+		Application.Quit();
+
+
 	}
+
+/*	public void updateVol()
+	{
+		objectValorVol.t
+	}*/
 
 
 
