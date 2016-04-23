@@ -10,7 +10,6 @@ public class PauseMenu : MonoBehaviour {
 
 
 
-
 	//public Slider SliVol;
 	public Slider SliVol;
 	public Text TextValorVol;
@@ -22,18 +21,11 @@ public class PauseMenu : MonoBehaviour {
 
 
 
-	public float VolumeSet;
-	public float LightSet;
-
-
-
 	// Use this for initialization
 	void Start () {
-		///MainlLight= GetComponent<Light>();
 
-		/////CARGAR LUZ Y VOLUME
-		/// 
-	
+		loadstate ();
+					
 	}
 	
 	// Update is called once per frame
@@ -96,29 +88,10 @@ public class PauseMenu : MonoBehaviour {
 		objectpause.SetActive (true);
 		objectOptions.SetActive (false);
 		objectExit.SetActive (false);
+		loadstate ();
+
 
 	}
-	public void PressBtnOpcOK()
-	{
-		objectpause.SetActive (false);
-		objectOptions.SetActive (false);
-		Time.timeScale = 1;
-		//Function Guardar Parametros
-	}
-
-	public void PressBtnOpcEasy()
-	{
-		//Function Parametros
-	}
-	public void PressBtnOpcMedium()
-	{
-		//Function Parametros
-	}
-	public void PressBtnOpcHard()
-	{
-		//Function Parametros
-	}
-
 	//BTN RETURN == FUNCTION CANCEL
 
 	public void PressBtnExEXIT()
@@ -130,12 +103,42 @@ public class PauseMenu : MonoBehaviour {
 
 	}
 
+
+
+	public void PressBtnOpcOK()
+	{
+		objectpause.SetActive (false);
+		objectOptions.SetActive (false);
+		Time.timeScale = 1;
+		//Function Guardar Parametros
+
+		Gamestate.EstadoJuego.VolumeSet = SliVol.value;
+		Gamestate.EstadoJuego.LightSet= Slilight.value;
+		Gamestate.EstadoJuego.SaveValue ();
+		loadstate ();
+			
+
+	}
+
+	void loadstate(){
+	
+
+		SliVol.value = Gamestate.EstadoJuego.VolumeSet;
+		Slilight.value = Gamestate.EstadoJuego.LightSet;
+
+		TextValorVol.text = Mathf.Round( SliVol.value*100).ToString();
+		TextValorLight.text = Mathf.Round(Slilight.value).ToString();
+		AudioListener.volume = SliVol.value;
+
+	
+	}
+
+
+
 	public void updateVol()
 	{
-		VolumeSet= SliVol.value;
+		
 		TextValorVol.text = Mathf.Round( SliVol.value*100).ToString();
-
-
 		AudioListener.volume = SliVol.value;
 
 	}
@@ -143,17 +146,12 @@ public class PauseMenu : MonoBehaviour {
 
 	public void updateLight()
 	{
-		
-		LightSet= Slilight.value;
 		TextValorLight.text = Mathf.Round(Slilight.value).ToString();
-	///	MainlLight.intensity = LightSet / 16;
+		///	MainlLight.intensity = LightSet / 16;
 
-		/*GameObject lightGameObject = new GameObject("MainlLight");
-        Light lightComp = lightGameObject.AddComponent<Light>();
-        lightComp.intensity = LightSet/16;
-        lightGameObject.transform.position = new Vector3(0, 5, 0);
-*/
 	}
+
+
 
 
 
