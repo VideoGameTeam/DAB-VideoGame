@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI; // Required when Using UI elements.
+
 
 public class MainMenu : MonoBehaviour {
 	public GameObject MenuPpal;
@@ -7,8 +9,24 @@ public class MainMenu : MonoBehaviour {
 	public GameObject MainExit;
 
 
+	//public Slider SliVol;
+	public Slider SliVol;
+	public Text TextValorVol;
+
+
+	public Slider Slilight;
+	//public Light MainlLight;
+	public Text TextValorLight;
+
+	public Slider SliDificult;
+	public 	Text TxtValDificult;
+
+
+
 	// Use this for initialization
 	void Start () {
+
+		loadstate ();
 	
 	}
 	
@@ -69,13 +87,16 @@ public class MainMenu : MonoBehaviour {
 		MainOption.SetActive (false);
 		MainExit.SetActive (false);
 		//objectExit.SetActive (false);
+		loadstate ();
 
 	}
 
 
 	public void PressBtnMenuExExit()
 	{
-		Time.timeScale = 0;
+		//Time.timeScale = 0;
+		Application.Quit();
+
 
 	}
 
@@ -86,9 +107,70 @@ public class MainMenu : MonoBehaviour {
 		MenuPpal.SetActive (true);
 		MainOption.SetActive (false);
 		///GUARDAR CAMBIOS
-		
+
+		Gamestate.EstadoJuego.VolumeSet = SliVol.value;
+		Gamestate.EstadoJuego.LightSet= Slilight.value;
+		Gamestate.EstadoJuego.Dificult=Mathf.FloorToInt( SliDificult.value);
+		Gamestate.EstadoJuego.SaveValue ();
+
+		loadstate ();
 
 	}
+
+	void loadstate()
+	{
+
+		SliVol.value = Gamestate.EstadoJuego.VolumeSet;
+		Slilight.value = Gamestate.EstadoJuego.LightSet;
+		SliDificult.value = Gamestate.EstadoJuego.Dificult;
+		updateDificult ();
+
+	TextValorVol.text = Mathf.Round( SliVol.value*100).ToString();
+	TextValorLight.text = Mathf.Round(Slilight.value).ToString();
+	AudioListener.volume = SliVol.value;
+
+	}
+
+	public void updateVol()
+	{
+
+		TextValorVol.text = Mathf.Round( SliVol.value*100).ToString();
+		AudioListener.volume = SliVol.value;
+
+	}
+
+
+	public void updateLight()
+	{
+		TextValorLight.text = Mathf.Round(Slilight.value).ToString();
+
+	}
+
+	public void updateDificult()
+	{
+		switch (Mathf.FloorToInt(SliDificult.value)) {
+		case 0:
+			TxtValDificult.text = "FACIL";
+			break;
+		case 1:
+			TxtValDificult.text = "MEDIO";
+			break;
+		case 2:
+			TxtValDificult.text = "DIFICIL";
+			break;
+
+		}
+
+
+
+
+
+	}
+
+
+
+
+
 
 
 }
