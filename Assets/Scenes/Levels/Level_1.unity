@@ -1209,7 +1209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1513bc1cf2d524d71872636d55aac61b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxJumpHeight: 60
+  maxJumpHeight: 65
   minJumpHeight: 1
   timeToJumpApex: 0.4
   moveSpeed: 80
@@ -1234,7 +1234,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   horizontalRayCount: 20
-  verticalRayCount: 10
+  verticalRayCount: 15
   horizontalRaySpacing: 0
   verticalRaySpacing: 0
   collider: {fileID: 0}
@@ -1278,8 +1278,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 667356051}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -858, y: 619, z: -1198}
-  m_LocalScale: {x: 31.254923, y: 31.2549, z: 31.2549}
+  m_LocalPosition: {x: -1693.9, y: 36.3, z: -1198}
+  m_LocalScale: {x: 18.810352, y: 18.810337, z: 18.810337}
   m_Children:
   - {fileID: 1549533798}
   - {fileID: 530667735}
@@ -1740,7 +1740,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1124618729
 Transform:
   m_ObjectHideFlags: 0
@@ -2047,15 +2047,15 @@ EdgeCollider2D:
   - {x: 2155.51, y: 104.05383}
   - {x: 2113.793, y: 68.1304}
   - {x: 2070.282, y: 26.27379}
-  - {x: 2025.8899, y: -27.483616}
-  - {x: 1985.6311, y: -36.911037}
+  - {x: 2035.987, y: -15.1915245}
+  - {x: 1985.6311, y: -31.642994}
   - {x: 1970.0754, y: -37.061165}
   - {x: 1944.0591, y: -23.44997}
   - {x: 1895.8044, y: -20.717924}
   - {x: 1860.417, y: -2.1982841}
   - {x: 1823.7133, y: 11.485788}
-  - {x: 1788.6791, y: 39.486835}
-  - {x: 1752.0396, y: 42.196068}
+  - {x: 1786.9231, y: 42.120853}
+  - {x: 1744.1375, y: 32.538}
   - {x: 1725.896, y: 41.547424}
   - {x: 1661.4915, y: 75.68681}
   - {x: 1613.9216, y: 74.5849}
@@ -2074,7 +2074,7 @@ EdgeCollider2D:
   - {x: 1105.6034, y: 38.831596}
   - {x: 1079.9857, y: 28.552452}
   - {x: 1044.758, y: 13.452372}
-  - {x: 1024.2157, y: 12.627585}
+  - {x: 1029.9227, y: 8.676556}
   - {x: 996.728, y: 23.080883}
   - {x: 970.8617, y: 24.069279}
   - {x: 913.23267, y: 34.120674}
@@ -2097,16 +2097,17 @@ EdgeCollider2D:
   - {x: 372.46472, y: 27.793518}
   - {x: 338.09705, y: 28.041672}
   - {x: 304.49744, y: 13.966562}
-  - {x: 243.23706, y: -27.58743}
+  - {x: 254.26819, y: -23.711613}
+  - {x: 239.86914, y: -33.7115}
   - {x: 193.81091, y: -12.965044}
   - {x: 126.874146, y: -6.3915405}
   - {x: 96.948975, y: 35.702587}
   - {x: 38.074585, y: 65.27557}
   - {x: 17.962524, y: 66.44212}
   - {x: 2.6376953, y: 42.234104}
-  - {x: -18.034424, y: -0.99954414}
-  - {x: -44.423584, y: -2.6023693}
-  - {x: -67.83594, y: 28.976183}
+  - {x: -32.431763, y: -4.5988865}
+  - {x: -48.02295, y: -2.6023712}
+  - {x: -78.63403, y: 26.576612}
   - {x: -128.30554, y: 49.34858}
   - {x: -159.98633, y: 52.09015}
   - {x: -185.65393, y: 46.219707}
@@ -2300,7 +2301,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 36ebb9a9e2bbff843b92cc95e0cdc972, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 36ebb9a9e2bbff843b92cc95e0cdc972, type: 2}
       propertyPath: m_Enabled
