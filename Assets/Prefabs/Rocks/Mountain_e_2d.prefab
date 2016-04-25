@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 451590}
   - 60: {fileID: 6048744}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mountain_e_2d
   m_TagString: Untagged
   m_Icon: {fileID: 0}

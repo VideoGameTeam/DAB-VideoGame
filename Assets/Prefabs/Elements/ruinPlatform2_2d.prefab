@@ -9,9 +9,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 437922}
   - 61: {fileID: 6143940}
+  - 114: {fileID: 11470526}
   m_Layer: 0
   m_Name: ruinPlatform2_2d
-  m_TagString: Untagged
+  m_TagString: Through
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,6 +106,33 @@ BoxCollider2D:
   m_Offset: {x: -0.0028815866, y: 0.011525869}
   serializedVersion: 2
   m_Size: {x: 2.1007185, y: 0.34302664}
+--- !u!114 &11470526
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 136f61bed4d4e4982b529d23ec837416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 256
+  horizontalRayCount: 4
+  verticalRayCount: 4
+  horizontalRaySpacing: 0
+  verticalRaySpacing: 0
+  collider: {fileID: 0}
+  passengerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  localWaypoints: []
+  speed: 0
+  cyclic: 0
+  waitTime: 0
+  easeAmount: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

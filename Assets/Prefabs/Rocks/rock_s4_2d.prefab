@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 448262}
   - 60: {fileID: 6067398}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: rock_s4_2d
   m_TagString: Untagged
   m_Icon: {fileID: 0}

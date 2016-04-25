@@ -26,7 +26,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 486158}
   - 58: {fileID: 5804932}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_s1_2d
   m_TagString: Untagged
   m_Icon: {fileID: 0}
