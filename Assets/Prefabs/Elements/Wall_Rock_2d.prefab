@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 472288}
   - 61: {fileID: 6173298}
   m_Layer: 8
-  m_Name: Wall_Rock
+  m_Name: Wall_Rock_2d
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
