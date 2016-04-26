@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour {
 	public GameObject MenuPpal;
 	public GameObject MainOption;
 	public GameObject MainExit;
-
+	public GameObject Credits;
 
 	//public Slider SliVol;
 	public Slider SliVol;
@@ -86,7 +86,9 @@ public class MainMenu : MonoBehaviour {
 		MenuPpal.SetActive (true);
 		MainOption.SetActive (false);
 		MainExit.SetActive (false);
+		Credits.SetActive (false);
 		//objectExit.SetActive (false);
+		Time.timeScale = 1;
 		loadstate ();
 
 	}
@@ -116,6 +118,20 @@ public class MainMenu : MonoBehaviour {
 		loadstate ();
 
 	}
+
+	public void PressBtnMenuCredits()
+	{
+
+		MenuPpal.SetActive (false);
+		MainOption.SetActive (false);
+		Credits.SetActive (true);
+		///GUARDAR CAMBIOS
+		/// 
+		Time.timeScale = 0;
+
+	
+	}
+
 
 	void loadstate()
 	{
