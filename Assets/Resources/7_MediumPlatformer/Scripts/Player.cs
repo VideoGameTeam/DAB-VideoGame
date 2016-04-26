@@ -4,13 +4,19 @@ using System.Collections;
 [RequireComponent (typeof (Controller2D))]
 public class Player : MonoBehaviour {
 
+    private enum playerStates
+    {
+        WALKING,
+        IDLE
+    };
+
 	public float maxJumpHeight = 4;
 	public float minJumpHeight = 1;
 	public float timeToJumpApex = .4f;
 	float accelerationTimeAirborne = .2f;
 	float accelerationTimeGrounded = .1f;
 	public float moveSpeed = 6;
-
+    
 	public Vector2 wallJumpClimb;
 	public Vector2 wallJumpOff;
 	public Vector2 wallLeap;
@@ -26,11 +32,19 @@ public class Player : MonoBehaviour {
 	float velocityXSmoothing;
 
 	Controller2D controller;
+    Animator anim;
+    private int walkHash;
+    private int idleHash;
+    playerStates pState;
 
-	void Start() {
+
+    void Start() {
 		controller = GetComponent<Controller2D> ();
+        anim = transform.GetChild(0).GetComponent<Animator>();
+        walkHash = Animator.StringToHash("Walking");
+        idleHash = Animator.StringToHash("Idle");
 
-		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
+        gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
 		print ("Gravity: " + gravity + "  Jump Velocity: " + maxJumpVelocity);
@@ -100,6 +114,18 @@ public class Player : MonoBehaviour {
 		if (controller.collisions.above || controller.collisions.below) {
 			velocity.y = 0;
 		}
+
+        print(velocity);
+
+        if(velocity.x > 0)
+        {
+
+            anim.SetTrigger(walkHash);
+        }
+        else
+        {
+            anim.SetTrigger(idleHash);
+        }
 
 	}
 }
