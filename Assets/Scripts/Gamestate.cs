@@ -15,6 +15,10 @@ public class Gamestate : MonoBehaviour {
 	public float VolumeSet;
 	public float LightSet;
 	public int Dificult=1;
+	//Variabnles Ingame
+	public float health;
+	public float mana;
+
 
 
 
