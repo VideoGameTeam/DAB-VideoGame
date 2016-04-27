@@ -11,37 +11,54 @@ public class Gamestate : MonoBehaviour {
 
 	public static Gamestate EstadoJuego;
 	private string filename;
-
+	private string Savegamepath;
 	public float VolumeSet;
 	public float LightSet;
-	public int Dificult=1;
+	public int LastDificult=1;
 	//Variabnles Ingame
+	//Las variables se modifican mediante la linea relacionada:
+	//Gamestate.EstadoJuego.VolumeSet = Valor;
+
+	public int NumberSavegame=0;
+
+	public int Dificult;
 	public float health;
 	public float mana;
+	public int GameLevel;
+	public int Checkpoint;
+	public int Admo;
+	public bool Trident;
+	public int Points;
+	public int UserLevel;
+
 
 
 
 
 	void Awake()
 	{
-		filename= Application.persistentDataPath +"/datadab.dat";
-		print (filename);
+		
 
 		if (EstadoJuego==null)
 		{	
 			EstadoJuego = this;
 			DontDestroyOnLoad (gameObject);
+
+			filename= Application.persistentDataPath +"/datadab.dat";
+
 		}
 		else if(EstadoJuego!=this)
 		{
 			Destroy(gameObject);
-
 		}
 	}
+
 	// Use this for initialization
 	void Start () {
 
-		LoadValue ();
+		LoadOptions ();
+		defaultValGame ();
+		//print ("Juego Initilised");
 	
 	}
 	
@@ -51,7 +68,54 @@ public class Gamestate : MonoBehaviour {
 	}
 
 
-	public void SaveValue()
+	public void SaveGame()
+	{
+		if (NumberSavegame != 0) {
+			Savegamepath = Application.persistentDataPath + "/Savegame_" + NumberSavegame + ".dat";
+
+			BinaryFormatter bf = new BinaryFormatter ();
+			FileStream file = File.Create (Savegamepath);
+
+			datasavegame data = new datasavegame (Dificult, health, mana);
+			data.Dificult = Dificult;
+			data.health = health;
+			data.mana = mana;
+
+			bf.Serialize (file, data);
+
+			file.Close ();
+		} else {
+			print ("Partida Invalida");
+		}
+	}
+
+	public void LoadGame()
+	{
+		Savegamepath= Application.persistentDataPath +"/Savegame_"+NumberSavegame+".dat";
+
+		if (File.Exists (Savegamepath)) {
+			BinaryFormatter bf = new BinaryFormatter ();
+			FileStream file = File.Open (Savegamepath, FileMode.Open);
+
+			datasavegame data = (datasavegame)bf.Deserialize (file);
+
+			Dificult = data.Dificult;
+			health = data.health;
+			mana = data.mana ;
+
+			bf.Serialize (file, data);
+			file.Close ();
+		} else
+		{
+			NumberSavegame = 0;
+
+			//No Existen Partidas Guardadas.
+
+		}
+	}
+
+
+	public void SaveOptions()
 	{
 		BinaryFormatter bf =new BinaryFormatter();
 		FileStream file=File.Create(filename);
@@ -65,7 +129,7 @@ public class Gamestate : MonoBehaviour {
 		file.Close ();
 	}
 
-	public void LoadValue()
+	public void LoadOptions()
 	{
 		if (File.Exists (filename)) {
 			BinaryFormatter bf = new BinaryFormatter ();
@@ -78,7 +142,6 @@ public class Gamestate : MonoBehaviour {
 
 
 			bf.Serialize (file, data);
-
 			file.Close ();
 		} else
 		{
@@ -86,11 +149,25 @@ public class Gamestate : MonoBehaviour {
 			LightSet=8;
 			VolumeSet = 1;
 
-			SaveValue ();
+			SaveOptions ();
 
 		}
 	}
 
+
+	public void defaultValGame()
+	{
+
+		Dificult=LastDificult;
+		health=100;
+		mana=50;
+		GameLevel=1;
+		Checkpoint=1;
+		Admo=20;
+		Trident=false;
+		Points=0;
+		UserLevel=1;
+	}
 
 
 }
@@ -107,6 +184,28 @@ class datatosave{
 		this.VolumeSet=VolumeSet;
 		this.LightSet = LightSet;
 
+		//Variables Savegame
+
+
 	}
+}
+[Serializable]
+class datasavegame{
+	
+	public int Dificult;
+	public float health;
+	public float mana;
+
+	public datasavegame(int Dificult,float health, float mana)
+	{
+		this.Dificult=Dificult;
+		this.health = health;
+		this.mana = mana;
+
+		//Variables Savegame
+
+
+	}
+
 
 }
