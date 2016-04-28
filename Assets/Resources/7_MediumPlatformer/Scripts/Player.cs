@@ -40,12 +40,16 @@ public class Player : MonoBehaviour {
 
     void Start() {
 		controller = GetComponent<Controller2D> ();
-        anim = transform.GetChild(0).GetComponent<Animator>();
-        walkHash = Animator.StringToHash("Walking");
-        idleHash = Animator.StringToHash("Idle");
 
-        gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
-		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+		Transform animTransform = FindTransform ("CyberSoldier");
+
+		if (animTransform != null) {
+			anim = transform.GetChild (0).GetComponent<Animator> ();
+			walkHash = Animator.StringToHash ("Walking");
+			idleHash = Animator.StringToHash ("Idle");
+		}
+		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
+		maxJumpVelocity = Mathf.Abs (gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
 		print ("Gravity: " + gravity + "  Jump Velocity: " + maxJumpVelocity);
 	}
@@ -117,7 +121,7 @@ public class Player : MonoBehaviour {
 
         print(velocity);
 
-        if(velocity.x > 0)
+		if(velocity.x > 0 && anim != null)
         {
 
             anim.SetTrigger(walkHash);
@@ -127,5 +131,15 @@ public class Player : MonoBehaviour {
             anim.SetTrigger(idleHash);
         }
 
+	}
+
+	Transform FindTransform(string name){
+		Component[] transforms = transform.GetComponentsInChildren<Transform>();
+		foreach(Transform t in transforms){
+			if (t.name == name) {
+				return t;
+			} 
+		}
+		return null;
 	}
 }

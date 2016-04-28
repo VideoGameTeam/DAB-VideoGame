@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour {
 	public GameObject objectExit;
 
 
+	public Text TextDificult;
 
 	//public Slider SliVol;
 	public Slider SliVol;
@@ -114,7 +115,7 @@ public class PauseMenu : MonoBehaviour {
 
 		Gamestate.EstadoJuego.VolumeSet = SliVol.value;
 		Gamestate.EstadoJuego.LightSet= Slilight.value;
-		Gamestate.EstadoJuego.SaveValue ();
+		Gamestate.EstadoJuego.SaveOptions ();
 		loadstate ();
 			
 
@@ -122,13 +123,32 @@ public class PauseMenu : MonoBehaviour {
 
 	void loadstate(){
 	
-
+		//OptionsStatus
 		SliVol.value = Gamestate.EstadoJuego.VolumeSet;
 		Slilight.value = Gamestate.EstadoJuego.LightSet;
 
 		TextValorVol.text = Mathf.Round( SliVol.value*100).ToString();
 		TextValorLight.text = Mathf.Round(Slilight.value).ToString();
 		AudioListener.volume = SliVol.value;
+
+		switch (Mathf.FloorToInt(Gamestate.EstadoJuego.Dificult)) {
+		case 0:
+			TextDificult.text = "FACIL";
+			break;
+		case 1:
+			TextDificult.text = "MEDIO";
+			break;
+		case 2:
+			TextDificult.text = "DIFICIL";
+			break;
+
+		}
+
+		//TextDificult.text=Gamestate.EstadoJuego.Dificult;
+		//Gamestatus
+
+
+
 
 	
 	}

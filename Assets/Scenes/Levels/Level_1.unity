@@ -1588,7 +1588,7 @@ Transform:
   - {fileID: 175695569}
   - {fileID: 1215515173}
   m_Father: {fileID: 667356057}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!95 &530667736
 Animator:
   serializedVersion: 3
@@ -1950,9 +1950,9 @@ Transform:
   m_LocalPosition: {x: -1693.9, y: 28.3, z: -1198}
   m_LocalScale: {x: 18.810352, y: 18.810337, z: 18.810337}
   m_Children:
-  - {fileID: 1549533798}
   - {fileID: 530667735}
   - {fileID: 264445115}
+  - {fileID: 1549533798}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!1 &683932411
@@ -3840,7 +3840,7 @@ Transform:
   m_LocalScale: {x: 0.03199496, y: 0.03199498, z: 0.031994984}
   m_Children: []
   m_Father: {fileID: 667356057}
-  m_RootOrder: 0
+  m_RootOrder: 2
 --- !u!1 &1553428198
 GameObject:
   m_ObjectHideFlags: 0
@@ -3971,7 +3971,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 443566, guid: 3b8a7c28c90514f6f864f8584715916e, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 443566, guid: 3b8a7c28c90514f6f864f8584715916e, type: 2}
       propertyPath: m_LocalScale.x
