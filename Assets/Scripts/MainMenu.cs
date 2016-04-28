@@ -7,7 +7,12 @@ public class MainMenu : MonoBehaviour {
 	public GameObject MenuPpal;
 	public GameObject MainOption;
 	public GameObject MainExit;
+	public GameObject MainLoadPart;
+
 	public GameObject Credits;
+
+	public Text PreviewPart;
+
 
 	//public Slider SliVol;
 	public Slider SliVol;
@@ -58,17 +63,28 @@ public class MainMenu : MonoBehaviour {
 
 	public void PressBtnNewGame()
 	{
+		Gamestate.EstadoJuego.defaultValGame ();
 		Time.timeScale = 1;
 		Application.LoadLevel ("InGame");
 
 	}
 
 
+	public void PressBtnMenuLoadPart()
+	{
+		Gamestate.EstadoJuego.LastDificult=Gamestate.EstadoJuego.Dificult;
+		MenuPpal.SetActive (false);
+		MainLoadPart.SetActive (true);
+		//objectExit.SetActive (false);
+
+	}
+
 	public void PressBtnMenuOpt()
 	{
 		MenuPpal.SetActive (false);
 		MainOption.SetActive (true);
 		//objectExit.SetActive (false);
+		Gamestate.EstadoJuego.LastDificult=Gamestate.EstadoJuego.Dificult;
 
 	}
 
@@ -86,10 +102,13 @@ public class MainMenu : MonoBehaviour {
 		MenuPpal.SetActive (true);
 		MainOption.SetActive (false);
 		MainExit.SetActive (false);
+		MainLoadPart.SetActive (false);
 		Credits.SetActive (false);
 		//objectExit.SetActive (false);
 		Time.timeScale = 1;
 		loadstate ();
+		Gamestate.EstadoJuego.defaultValGame();
+
 
 	}
 
@@ -113,9 +132,21 @@ public class MainMenu : MonoBehaviour {
 		Gamestate.EstadoJuego.VolumeSet = SliVol.value;
 		Gamestate.EstadoJuego.LightSet= Slilight.value;
 		Gamestate.EstadoJuego.Dificult=Mathf.FloorToInt( SliDificult.value);
-		Gamestate.EstadoJuego.SaveValue ();
+		Gamestate.EstadoJuego.SaveOptions();
 
 		loadstate ();
+
+	}
+
+	public void PressBtnMenuPreviewPart()
+	{
+		//Cargar Savegame Seleccionado
+	}
+
+	public void PressBtnMenuStartPart()
+	{
+		//Application.LoadLevel ("Level_"+ Gamestate.EstadoJuego.GameLevel);
+		Application.LoadLevel ("InGame");
 
 	}
 
@@ -125,8 +156,7 @@ public class MainMenu : MonoBehaviour {
 		MenuPpal.SetActive (false);
 		MainOption.SetActive (false);
 		Credits.SetActive (true);
-		///GUARDAR CAMBIOS
-		/// 
+
 		Time.timeScale = 0;
 
 	
@@ -138,7 +168,7 @@ public class MainMenu : MonoBehaviour {
 
 		SliVol.value = Gamestate.EstadoJuego.VolumeSet;
 		Slilight.value = Gamestate.EstadoJuego.LightSet;
-		SliDificult.value = Gamestate.EstadoJuego.Dificult;
+		SliDificult.value = Gamestate.EstadoJuego.Dificult; 
 		updateDificult ();
 
 	TextValorVol.text = Mathf.Round( SliVol.value*100).ToString();
@@ -177,16 +207,52 @@ public class MainMenu : MonoBehaviour {
 
 		}
 
-
-
-
-
 	}
 
 
+	public void GuadarJuego()
+	{
+		Gamestate.EstadoJuego.NumberSavegame = 2;
 
+		Gamestate.EstadoJuego.health = 40;
+		Gamestate.EstadoJuego.mana = 20;
+		Gamestate.EstadoJuego.Dificult= 0;
+			
 
+		Gamestate.EstadoJuego.SaveGame ();
+	}
 
+	public void PreviewGame1()
+	{
+		Gamestate.EstadoJuego.NumberSavegame = 1;
+		Gamestate.EstadoJuego.LoadGame ();
+		UpdatePreview ();
 
+	}
+	public void PreviewGame2()
+	{
+		Gamestate.EstadoJuego.NumberSavegame = 2;
+		Gamestate.EstadoJuego.LoadGame ();
+		UpdatePreview ();
+
+	}
+
+	public void PreviewGame3()
+	{
+		Gamestate.EstadoJuego.NumberSavegame = 3;
+		Gamestate.EstadoJuego.LoadGame ();
+		UpdatePreview ();
+
+	}
+
+	public void UpdatePreview()
+	{
+		if (Gamestate.EstadoJuego.NumberSavegame != 0) {
+			PreviewPart.text = "Partida " + Gamestate.EstadoJuego.NumberSavegame + " Dificult: " + Gamestate.EstadoJuego.Dificult + " Salud: " + Gamestate.EstadoJuego.health+" Mana: " + Gamestate.EstadoJuego.mana;
+		}else
+		{
+			PreviewPart.text = "No Existe Partida Guardada en este Slot";
+			}
+	}
 
 }
