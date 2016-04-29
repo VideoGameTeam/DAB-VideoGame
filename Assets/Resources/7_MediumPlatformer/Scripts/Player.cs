@@ -38,6 +38,7 @@ public class Player : MonoBehaviour {
 
 
 	bool forward;
+	float playerDir;
 
 	Transform animTransform;
 
@@ -60,6 +61,8 @@ public class Player : MonoBehaviour {
 	void Update() {
 		input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
 		int wallDirX = (controller.collisions.left) ? -1 : 1;
+
+		playerDir = (int)Mathf.Sign(input.x);
 
 		RotateCarl ();
 		Walking ();
@@ -143,11 +146,11 @@ public class Player : MonoBehaviour {
 	}
 
 	void Sprinting () {
-		if(Input.GetButton("Fire1")) {
+		if(Input.GetButton("Run")) {
 			sprint = 0.2F;
+			moveSpeed = moveSpeed *3.5;
 		}
 		else {
-
 			sprint = 0.0F;
 		}
 
@@ -163,6 +166,7 @@ public class Player : MonoBehaviour {
 	void Walking(){
 		if (input.x != 0) {
 			walk = Mathf.Abs (input.x);
+			moveSpeed = 30;
 		} else {
 			walk = 0;
 		}
@@ -170,11 +174,11 @@ public class Player : MonoBehaviour {
 
 	void RotateCarl(){
 
-		if (Input.GetButton("Horizontal") && controller.collisions.faceDir < 0 && forward) {
+		if (Input.GetButton("Horizontal") && playerDir < 0 && forward) {
 			print ("izquierda");
 			animTransform.Rotate (0, 180,0);
 			forward = false;
-		} else if(Input.GetButton("Horizontal") && controller.collisions.faceDir > 0 && !forward) {
+		} else if(Input.GetButton("Horizontal") && playerDir > 0 && !forward) {
 			print ("derecha");
 			animTransform.Rotate (0, 180,0);
 			forward = true;
