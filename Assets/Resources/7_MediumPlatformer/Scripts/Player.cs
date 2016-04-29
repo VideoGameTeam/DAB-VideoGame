@@ -43,7 +43,7 @@ public class Player : MonoBehaviour {
 
     void Start() {
 		controller = GetComponent<Controller2D> ();
-
+		forward = true;
 		animTransform = FindTransform ("Human");
 
 		if (animTransform != null) {
@@ -170,12 +170,14 @@ public class Player : MonoBehaviour {
 
 	void RotateCarl(){
 
-		if (controller.collisions.faceDir < 0) {
+		if (Input.GetButton("Horizontal") && controller.collisions.faceDir < 0 && forward) {
 			print ("izquierda");
-			animTransform.Rotate (Vector3.back * Time.deltaTime);
-		} else {
+			animTransform.Rotate (0, 180,0);
+			forward = false;
+		} else if(Input.GetButton("Horizontal") && controller.collisions.faceDir > 0 && !forward) {
 			print ("derecha");
-			animTransform.Rotate (Vector3.forward * Time.deltaTime);
+			animTransform.Rotate (0, 180,0);
+			forward = true;
 		}
 	}
 
