@@ -38,13 +38,18 @@ public class Player : MonoBehaviour {
     playerStates pState;
 
 
+	Vector2 input;
+	float sprint;
+	float jump;
+
+
     void Start() {
 		controller = GetComponent<Controller2D> ();
 
-		Transform animTransform = FindTransform ("CyberSoldier");
+		Transform animTransform = FindTransform ("Human");
 
 		if (animTransform != null) {
-			anim = transform.GetChild (0).GetComponent<Animator> ();
+			anim = animTransform.GetComponent<Animator> ();
 			walkHash = Animator.StringToHash ("Walking");
 			idleHash = Animator.StringToHash ("Idle");
 		}
@@ -55,8 +60,11 @@ public class Player : MonoBehaviour {
 	}
 
 	void Update() {
-		Vector2 input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
+		input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
 		int wallDirX = (controller.collisions.left) ? -1 : 1;
+
+		Sprinting();
+		Jumping ();
 
 		float targetVelocityX = input.x * moveSpeed;
 		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
@@ -121,17 +129,20 @@ public class Player : MonoBehaviour {
 
         print(velocity);
 
+
+
 		if(velocity.x > 0 && anim != null)
         {
 
-            anim.SetTrigger(walkHash);
+			anim.SetTrigger(idleHash);
         }
         else
         {
-            anim.SetTrigger(idleHash);
+			anim.SetTrigger(walkHash);
         }
-
 	}
+
+
 
 	Transform FindTransform(string name){
 		Component[] transforms = transform.GetComponentsInChildren<Transform>();
@@ -141,5 +152,31 @@ public class Player : MonoBehaviour {
 			} 
 		}
 		return null;
+	}
+
+	void Sprinting () {
+		if(Input.GetButton("Fire1")) {
+			sprint = 0.2F;
+		}
+		else {
+
+			sprint = 0.0F;
+		}
+
+	}
+	void Jumping(){
+		if (Input.GetButton("Jump")) {
+			jump = 0.2F;
+		} else {
+			jump = 0.0F;
+		}
+	}
+
+	void FixedUpdate () {
+
+		//set the "Walk" parameter to the v axis value
+		anim.SetFloat ("Walk", input.x);
+		anim.SetFloat("Sprint", sprint);
+		anim.SetFloat ("Jump", jump);
 	}
 }
