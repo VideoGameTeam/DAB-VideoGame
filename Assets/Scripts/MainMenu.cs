@@ -26,10 +26,13 @@ public class MainMenu : MonoBehaviour {
 	public Slider SliDificult;
 	public 	Text TxtValDificult;
 
+	private Light MainlLight;
 
 
 	// Use this for initialization
 	void Start () {
+
+		MainlLight =(Light)  FindObjectOfType (typeof(Light));
 
 		loadstate ();
 	
@@ -165,7 +168,7 @@ public class MainMenu : MonoBehaviour {
 
 	void loadstate()
 	{
-
+		
 		SliVol.value = Gamestate.EstadoJuego.VolumeSet;
 		Slilight.value = Gamestate.EstadoJuego.LightSet;
 		SliDificult.value = Gamestate.EstadoJuego.Dificult; 
@@ -174,6 +177,8 @@ public class MainMenu : MonoBehaviour {
 	TextValorVol.text = Mathf.Round( SliVol.value*100).ToString();
 	TextValorLight.text = Mathf.Round(Slilight.value).ToString();
 	AudioListener.volume = SliVol.value;
+	MainlLight.intensity = Gamestate.EstadoJuego.LightSet/14;
+
 
 	}
 
@@ -189,7 +194,7 @@ public class MainMenu : MonoBehaviour {
 	public void updateLight()
 	{
 		TextValorLight.text = Mathf.Round(Slilight.value).ToString();
-
+		MainlLight.intensity = Slilight.value / 14;
 	}
 
 	public void updateDificult()

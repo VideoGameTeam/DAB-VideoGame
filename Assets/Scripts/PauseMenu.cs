@@ -20,11 +20,11 @@ public class PauseMenu : MonoBehaviour {
 	//public Light MainlLight;
 	public Text TextValorLight;
 
-
+	private Light MainlLight;
 
 	// Use this for initialization
 	void Start () {
-
+		MainlLight =(Light)  FindObjectOfType (typeof(Light));
 		loadstate ();
 					
 	}
@@ -57,8 +57,12 @@ public class PauseMenu : MonoBehaviour {
 
 	public void PressBtnPause()
 	{
-		objectpause.SetActive (true);
-		Time.timeScale = 0;
+		//objectpause.SetActive (true);
+		//Time.timeScale = 0;
+		//TEST
+		Gamestate.EstadoJuego.health--;
+		//print (Gamestate.EstadoJuego.health.ToString ());
+		GameObject.Find ("PlayerStatus").SendMessage ("UpdateScreen"); 
 
 	}
 
@@ -130,6 +134,7 @@ public class PauseMenu : MonoBehaviour {
 		TextValorVol.text = Mathf.Round( SliVol.value*100).ToString();
 		TextValorLight.text = Mathf.Round(Slilight.value).ToString();
 		AudioListener.volume = SliVol.value;
+		MainlLight.intensity = Gamestate.EstadoJuego.LightSet/14;
 
 		switch (Mathf.FloorToInt(Gamestate.EstadoJuego.Dificult)) {
 		case 0:
@@ -146,10 +151,6 @@ public class PauseMenu : MonoBehaviour {
 
 		//TextDificult.text=Gamestate.EstadoJuego.Dificult;
 		//Gamestatus
-
-
-
-
 	
 	}
 
@@ -167,12 +168,9 @@ public class PauseMenu : MonoBehaviour {
 	public void updateLight()
 	{
 		TextValorLight.text = Mathf.Round(Slilight.value).ToString();
-		///	MainlLight.intensity = LightSet / 16;
+		MainlLight.intensity = Slilight.value / 14;
 
 	}
-
-
-
 
 
 

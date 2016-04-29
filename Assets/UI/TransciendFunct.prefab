@@ -39,8 +39,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c547fd8c06ba53144b4cc5ad2a878ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SetVolume: 0
-  SetLigth: 0
+  VolumeSet: 0
+  LightSet: 0
+  LastDificult: 1
+  NumberSavegame: 0
+  Dificult: 0
+  health: 0
+  mana: 0
+  GameLevel: 0
+  Checkpoint: 0
+  Admo: 0
+  Trident: 0
+  Points: 0
+  UserLevel: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -15,6 +15,7 @@ public class Gamestate : MonoBehaviour {
 	public float VolumeSet;
 	public float LightSet;
 	public int LastDificult=1;
+
 	//Variabnles Ingame
 	//Las variables se modifican mediante la linea relacionada:
 	//Gamestate.EstadoJuego.VolumeSet = Valor;
@@ -37,8 +38,6 @@ public class Gamestate : MonoBehaviour {
 
 	void Awake()
 	{
-		
-
 		if (EstadoJuego==null)
 		{	
 			EstadoJuego = this;
@@ -56,10 +55,12 @@ public class Gamestate : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+
 		LoadOptions ();
 		defaultValGame ();
 		//print ("Juego Initilised");
-	
+
+			
 	}
 	
 	// Update is called once per frame
