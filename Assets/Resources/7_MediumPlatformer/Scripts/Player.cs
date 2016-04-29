@@ -4,12 +4,6 @@ using System.Collections;
 [RequireComponent (typeof (Controller2D))]
 public class Player : MonoBehaviour {
 
-    private enum playerStates
-    {
-        WALKING,
-        IDLE
-    };
-
 	public float maxJumpHeight = 4;
 	public float minJumpHeight = 1;
 	public float timeToJumpApex = .4f;
@@ -35,18 +29,22 @@ public class Player : MonoBehaviour {
     Animator anim;
     private int walkHash;
     private int idleHash;
-    playerStates pState;
 
 
 	Vector2 input;
 	float sprint;
 	float jump;
+	float walk;
 
+
+	bool forward;
+
+	Transform animTransform;
 
     void Start() {
 		controller = GetComponent<Controller2D> ();
 
-		Transform animTransform = FindTransform ("Human");
+		animTransform = FindTransform ("Human");
 
 		if (animTransform != null) {
 			anim = animTransform.GetComponent<Animator> ();
@@ -63,8 +61,10 @@ public class Player : MonoBehaviour {
 		input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
 		int wallDirX = (controller.collisions.left) ? -1 : 1;
 
-		Sprinting();
+		RotateCarl ();
+		Walking ();
 		Jumping ();
+		Sprinting();
 
 		float targetVelocityX = input.x * moveSpeed;
 		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
@@ -126,20 +126,8 @@ public class Player : MonoBehaviour {
 		if (controller.collisions.above || controller.collisions.below) {
 			velocity.y = 0;
 		}
+			
 
-        print(velocity);
-
-
-
-		if(velocity.x > 0 && anim != null)
-        {
-
-			anim.SetTrigger(idleHash);
-        }
-        else
-        {
-			anim.SetTrigger(walkHash);
-        }
 	}
 
 
@@ -172,10 +160,29 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	void Walking(){
+		if (input.x != 0) {
+			walk = Mathf.Abs (input.x);
+		} else {
+			walk = 0;
+		}
+	}
+
+	void RotateCarl(){
+
+		if (controller.collisions.faceDir < 0) {
+			print ("izquierda");
+			animTransform.Rotate (Vector3.back * Time.deltaTime);
+		} else {
+			print ("derecha");
+			animTransform.Rotate (Vector3.forward * Time.deltaTime);
+		}
+	}
+
 	void FixedUpdate () {
 
 		//set the "Walk" parameter to the v axis value
-		anim.SetFloat ("Walk", input.x);
+		anim.SetFloat ("Walk", walk);
 		anim.SetFloat("Sprint", sprint);
 		anim.SetFloat ("Jump", jump);
 	}
