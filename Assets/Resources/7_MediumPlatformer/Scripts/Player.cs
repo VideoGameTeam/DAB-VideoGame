@@ -148,7 +148,7 @@ public class Player : MonoBehaviour {
 	void Sprinting () {
 		if(Input.GetButton("Run")) {
 			sprint = 0.2F;
-			moveSpeed = moveSpeed *3.5;
+			moveSpeed = moveSpeed *3.5F;
 		}
 		else {
 			sprint = 0.0F;
