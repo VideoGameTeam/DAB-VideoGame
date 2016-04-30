@@ -8,6 +8,7 @@ TagManager:
   - SF_Door
   - MagmaTrap
   - PoisonTrap
+  - WaterTrap
   layers:
   - Default
   - TransparentFX

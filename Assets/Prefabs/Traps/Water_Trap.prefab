@@ -25,10 +25,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 455016}
-  - 61: {fileID: 6155212}
-  m_Layer: 13
+  - 68: {fileID: 6848484}
+  m_Layer: 8
   m_Name: Water_Trap
-  m_TagString: Untagged
+  m_TagString: WaterTrap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,8 +40,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 156982}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1219, y: -20.6, z: -1195.3353}
+  m_LocalScale: {x: 12.228697, y: 7.028162, z: 7.028162}
   m_Children:
   - {fileID: 459024}
   m_Father: {fileID: 0}
@@ -53,13 +53,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 125190}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 3.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 455016}
   m_RootOrder: 0
---- !u!61 &6155212
-BoxCollider2D:
+--- !u!68 &6848484
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -69,9 +69,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -1, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 24.6, y: 1}
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: -12.220703, y: -0.11772919}
+  - {x: 15.080139, y: -0.11772156}
 --- !u!198 &19868788
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1228,7 +1229,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     curve:
-      scalar: 0.7853982
+      scalar: 0.7853981
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1524,8 +1525,8 @@ ParticleSystemRenderer:
   m_SortingOrder: 0
   m_RenderMode: 2
   m_SortMode: 1
-  m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MinParticleSize: 0.7
+  m_MaxParticleSize: 0.7
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2

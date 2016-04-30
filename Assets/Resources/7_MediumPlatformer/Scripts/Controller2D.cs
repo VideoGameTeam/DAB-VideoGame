@@ -94,12 +94,23 @@ public class Controller2D : RaycastController {
 				}
 			}
 
-		//Magma Trap 
+		//Poison Trap 
 		if(hit.collider.CompareTag("PoisonTrap")){
 			collisions.inTrap = true;
 			if (trapWaitingTime >= trapDamageDelay) {
 				trapWaitingTime = 0;
 				Gamestate.EstadoJuego.health -= Gamestate.EstadoJuego.Dificult * 15;
+			} else {
+				trapWaitingTime += Time.deltaTime; 
+			}
+		}
+
+		//Water Trap 
+		if(hit.collider.CompareTag("WaterTrap")){
+			collisions.inTrap = true;
+			if (trapWaitingTime >= trapDamageDelay) {
+				trapWaitingTime = 0;
+				Gamestate.EstadoJuego.health -= Gamestate.EstadoJuego.Dificult * 5;
 			} else {
 				trapWaitingTime += Time.deltaTime; 
 			}

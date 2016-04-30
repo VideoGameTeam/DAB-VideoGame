@@ -102,7 +102,7 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
   - {x: -15.882385, y: -0.33931732}
-  - {x: 23.799866, y: -0.113105774}
+  - {x: 24.50531, y: -1.1791077}
 --- !u!198 &19866640
 ParticleSystem:
   m_ObjectHideFlags: 1
