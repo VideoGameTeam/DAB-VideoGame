@@ -178,7 +178,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void Jumping(){
-		if (Input.GetButton("Jump") && controller.collisions.below) {
+		if (Input.GetButton("Jump") && controller.collisions.below && (input.x != 0 || input.x == 0)) {
 			jump = 0.2F;
 		} else {
 			jump = 0.0F;
@@ -186,7 +186,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void Walking(){
-		if (Input.GetButton("Walk") && controller.collisions.below) {
+		if (Input.GetButton("Walk") && controller.collisions.below && Input.GetButton("Horizontal")) {
 			walk = 0.2F;
 			sprint = 0.0F;
 			moveSpeed = 30;
