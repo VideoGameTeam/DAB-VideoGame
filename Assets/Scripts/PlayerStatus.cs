@@ -19,38 +19,64 @@ public class PlayerStatus : MonoBehaviour {
 	public GameObject Bot2;
 	public GameObject Bot3;
 
+	public GameObject PanGOver;
+	public Text TxtGameover;
 
+	private float timeh=0;
+	private float timeOver=0;
+	private float deltat=0;
 
 	// Use this for initialization
 	void Start () {
 		UpdateScreen ();
+		deltat=Time.deltaTime;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (Gamestate.EstadoJuego.health >= 1 && Gamestate.EstadoJuego.health <= 20) {
-			Gamestate.EstadoJuego.health--;
-			SliHealth.value = Gamestate.EstadoJuego.health;
-			//UpdateScreen ();
+		
+			if (timeh>=(5-Gamestate.EstadoJuego.Dificult)) {
+				timeh = 0;
+				Gamestate.EstadoJuego.health--;
+				SliHealth.value = Gamestate.EstadoJuego.health;
+			}
+			else
+			{
+				timeh=timeh + deltat;
+			}
+
 		} else if (Gamestate.EstadoJuego.health <= 0) {
 			Gamestate.EstadoJuego.health=0;
 			Time.timeScale = 0;
-			Gameover ();
+
+			if (timeOver>=(10)) {
+				timeOver = 0;
+				PanGOver.SetActive (false);
+				Time.timeScale = 1;
+				TolastCheckpoin ();
+			}
+			else
+			{
+				PanGOver.SetActive (true);
+				timeOver=timeOver + deltat;
+				TxtGameover.text = (10 - Mathf.FloorToInt (timeOver)).ToString();
+			}
+
+
+
 		}
 
 	}
 
-	public void Gameover(){
-	}
 
 	public void UpdateScreen(){
 
-			//SliHealth = GameObject.FindGameObjectWithTag("Player");
-			//SliHealth = GameObject.Find("SliderHealt");
-			//SliHealth = GameObject.Find("SliderMana");
-			//playerStatus = playerGO.GetComponent<PlayerStatus> ();
 
 		SliHealth.value = Gamestate.EstadoJuego.health;
+		if (Gamestate.EstadoJuego.health >= 1 && Gamestate.EstadoJuego.health <= 20) {
+			timeh = Time.time + 5-Gamestate.EstadoJuego.Dificult;
+		}
 		Slimana.value = Gamestate.EstadoJuego.mana;
 
 		if (Gamestate.EstadoJuego.Admo <= 0) {
@@ -93,6 +119,7 @@ public class PlayerStatus : MonoBehaviour {
 			break;
 
 		}
+
 		/*
 		public int Dificult;
 		public float health;
@@ -104,5 +131,11 @@ public class PlayerStatus : MonoBehaviour {
 		public int Points;
 		public int UserLevel;
 */
+	}
+
+	public void TolastCheckpoin ()
+	{
+		Gamestate.EstadoJuego.defaultValGame ();
+		UpdateScreen ();
 	}
 }

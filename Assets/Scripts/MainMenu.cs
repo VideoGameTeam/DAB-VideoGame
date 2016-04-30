@@ -28,14 +28,18 @@ public class MainMenu : MonoBehaviour {
 
 	private Light MainlLight;
 
+	void Awake()
+	{
+		MainlLight = (Light)FindObjectOfType (typeof(Light));
+	
+		loadstate ();
 
-
+	}
 	void Start () {
 
-		MainlLight =(Light)  FindObjectOfType (typeof(Light));
 
 		loadstate ();
-	
+
 	}
 	
 	// Update is called once per frame
