@@ -61,7 +61,22 @@ public class Controller2D : RaycastController {
 			Gamestate.EstadoJuego.Medicine += 1;
 			hit.collider.gameObject.SetActive (false);
 		}
+
+
+		//Detect Death Zone
+		hit = Physics2D.Raycast(rayOrigin,target, rayLength,collisionMask[3]);
+		if (hit) {
+			Gamestate.EstadoJuego.health = 0;
+		}
+
+
+		//Detect Magma Trap
+		hit = Physics2D.Raycast(rayOrigin,target, rayLength,collisionMask[4]);
+		if (hit) {
+			Gamestate.EstadoJuego.health -= Gamestate.EstadoJuego.Dificult * 2;
+		}
 			
+		//Actualizr interfaz	
 		GameObject.Find ("PlayerStatus").SendMessage ("UpdateScreen");
 
 
