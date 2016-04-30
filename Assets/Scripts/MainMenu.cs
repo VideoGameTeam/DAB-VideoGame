@@ -29,7 +29,7 @@ public class MainMenu : MonoBehaviour {
 	private Light MainlLight;
 
 
-	// Use this for initialization
+
 	void Start () {
 
 		MainlLight =(Light)  FindObjectOfType (typeof(Light));
@@ -174,10 +174,12 @@ public class MainMenu : MonoBehaviour {
 		SliDificult.value = Gamestate.EstadoJuego.Dificult; 
 		updateDificult ();
 
-	TextValorVol.text = Mathf.Round( SliVol.value*100).ToString();
-	TextValorLight.text = Mathf.Round(Slilight.value).ToString();
-	AudioListener.volume = SliVol.value;
-	MainlLight.intensity = Gamestate.EstadoJuego.LightSet/14;
+		TextValorVol.text = Mathf.Round( SliVol.value*100).ToString();
+		TextValorLight.text = Mathf.Round(Slilight.value).ToString();
+		AudioListener.volume = SliVol.value;
+
+		//	print(Gamestate.EstadoJuego.LightSet.ToString());
+		MainlLight.intensity = Gamestate.EstadoJuego.LightSet/14;
 
 
 	}

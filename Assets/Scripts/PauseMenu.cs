@@ -134,6 +134,7 @@ public class PauseMenu : MonoBehaviour {
 		TextValorVol.text = Mathf.Round( SliVol.value*100).ToString();
 		TextValorLight.text = Mathf.Round(Slilight.value).ToString();
 		AudioListener.volume = SliVol.value;
+			print(Gamestate.EstadoJuego.LightSet.ToString());
 		MainlLight.intensity = Gamestate.EstadoJuego.LightSet/14;
 
 		switch (Mathf.FloorToInt(Gamestate.EstadoJuego.Dificult)) {
