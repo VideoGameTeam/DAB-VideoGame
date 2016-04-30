@@ -975,7 +975,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11454536, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
       propertyPath: collisionMask.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 495448, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
       propertyPath: m_LocalPosition.x
@@ -4088,11 +4088,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 441344, guid: 4d9396abbefee4e8aac3c51824d75819, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 611.24255
+      value: 622.9
       objectReference: {fileID: 0}
     - target: {fileID: 441344, guid: 4d9396abbefee4e8aac3c51824d75819, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 759.00726
+      value: 756.9
       objectReference: {fileID: 0}
     - target: {fileID: 441344, guid: 4d9396abbefee4e8aac3c51824d75819, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4117,6 +4117,10 @@ Prefab:
     - target: {fileID: 441344, guid: 4d9396abbefee4e8aac3c51824d75819, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 173418, guid: 4d9396abbefee4e8aac3c51824d75819, type: 2}
+      propertyPath: m_TagString
+      value: MagmaTrap
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d9396abbefee4e8aac3c51824d75819, type: 2}

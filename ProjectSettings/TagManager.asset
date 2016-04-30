@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Through
   - SF_Door
+  - MagmaTrap
   layers:
   - Default
   - TransparentFX

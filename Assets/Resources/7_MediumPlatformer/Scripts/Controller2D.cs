@@ -48,6 +48,7 @@ public class Controller2D : RaycastController {
 			collisions.below = true;
 		}
 	}
+		
 
 	void DetectElement(Vector2 rayOrigin, Vector2 target, float rayLength){
 
@@ -73,26 +74,26 @@ public class Controller2D : RaycastController {
 		if (hit) {
 			Gamestate.EstadoJuego.health = 0;
 		}
-
-
-		//Detect Magma Trap
-		hit = Physics2D.Raycast(rayOrigin,target, rayLength,collisionMask[4]);
-		if (hit) {
-			if (trapWaitingTime >= trapDamageDelay) {
-				print ("Entro Trampa");
-				trapWaitingTime = 0;
-				Gamestate.EstadoJuego.health -= Gamestate.EstadoJuego.Dificult * 2;
-			} else {
-				print ("Aumenta tiempo para trampa");
-				trapWaitingTime += Time.deltaTime; 
-			}
-		}
-			
 		//Actualizr interfaz	
 		GameObject.Find ("PlayerStatus").SendMessage ("UpdateScreen");
 
 
 	} 
+
+	void DetectTrap(RaycastHit2D hit){
+
+		//Magma Trap 
+			if(hit.collider.CompareTag("MagmaTrap")){
+				if (trapWaitingTime >= trapDamageDelay) {
+					trapWaitingTime = 0;
+					Gamestate.EstadoJuego.health -= Gamestate.EstadoJuego.Dificult * 10;
+				} else {
+					trapWaitingTime += Time.deltaTime; 
+				}
+			}
+
+		
+	}
 
 	void HorizontalCollisions(ref Vector3 velocity) {
 		float directionX = collisions.faceDir;
@@ -112,10 +113,12 @@ public class Controller2D : RaycastController {
 			DetectElement (rayOrigin, Vector2.right * directionX, rayLength);
 
 			if (hit) {
-
+				
 				if (hit.distance == 0) {
 					continue;
 				}
+
+				DetectTrap (hit);
 
 				float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 
@@ -163,6 +166,9 @@ public class Controller2D : RaycastController {
 			Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLength,Color.red);
 
 			if (hit) {
+				
+				DetectTrap (hit);
+
 				if (hit.collider.tag == "Through") {
 					if (directionY == 1 || hit.distance == 0) {
 						continue;
@@ -256,6 +262,7 @@ public class Controller2D : RaycastController {
 		public Vector3 velocityOld;
 		public int faceDir;
 		public bool fallingThroughPlatform;
+
 
 		public void Reset() {
 			above = below = false;
