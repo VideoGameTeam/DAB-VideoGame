@@ -4,7 +4,7 @@ using System.Collections;
 [RequireComponent (typeof (BoxCollider2D))]
 public class RaycastController : MonoBehaviour {
 
-	public LayerMask collisionMask;
+	public LayerMask[] collisionMask;
 
 	public const float skinWidth = .015f;
 	public int horizontalRayCount = 4;

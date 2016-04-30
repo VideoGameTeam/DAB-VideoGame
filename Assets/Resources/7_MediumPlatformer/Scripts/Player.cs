@@ -142,9 +142,7 @@ public class Player : MonoBehaviour {
 		anim.SetFloat("Sprint", sprint);
 		anim.SetFloat ("Walk", walk);
 		anim.SetFloat ("Jump", jump);
-		animTransform.localPosition = Vector3.zero;
-		animTransform.localScale = Vector3.one;
-
+		animTransform.localPosition = Vector3.zero * Time.deltaTime;
 	}
 		
 
