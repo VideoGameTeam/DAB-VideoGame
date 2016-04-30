@@ -25,6 +25,8 @@ public class Gamestate : MonoBehaviour {
 	public int Dificult;
 	public float health;
 	public float mana;
+	public int Medicine;
+
 	public int GameLevel;
 	public int Checkpoint;
 	public int Admo;
@@ -160,8 +162,9 @@ public class Gamestate : MonoBehaviour {
 	{
 
 		Dificult=LastDificult;
-		health=100;
+		health=30;
 		mana=50;
+		Medicine = 3;
 		GameLevel=1;
 		Checkpoint=1;
 		Admo=20;

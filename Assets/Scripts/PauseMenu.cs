@@ -61,7 +61,14 @@ public class PauseMenu : MonoBehaviour {
 		//Time.timeScale = 0;
 		//TEST
 		Gamestate.EstadoJuego.health--;
+		Gamestate.EstadoJuego.mana--;
+
+		Gamestate.EstadoJuego.Admo--;
+		Gamestate.EstadoJuego.Medicine--;
+
 		//print (Gamestate.EstadoJuego.health.ToString ());
+		Gamestate.EstadoJuego.Trident = !Gamestate.EstadoJuego.Trident;
+
 		GameObject.Find ("PlayerStatus").SendMessage ("UpdateScreen"); 
 
 	}
