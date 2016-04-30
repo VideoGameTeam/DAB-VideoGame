@@ -1,24 +1,29 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI; // Required when Using UI elements.
-
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour {
 	public GameObject objectpause;
 	public GameObject objectOptions;
 	public GameObject objectExit;
+	public GameObject objectSave;
+	public GameObject objSaveOK;
 
 
 	public Text TextDificult;
 
-	//public Slider SliVol;
 	public Slider SliVol;
 	public Text TextValorVol;
 
 
 	public Slider Slilight;
-	//public Light MainlLight;
+
 	public Text TextValorLight;
+
+	public Text txtwarning;
+
+
 
 	private Light MainlLight;
 
@@ -59,18 +64,17 @@ public class PauseMenu : MonoBehaviour {
 	{
 		//objectpause.SetActive (true);
 		//Time.timeScale = 0;
+
 		//TEST
 		Gamestate.EstadoJuego.health=Gamestate.EstadoJuego.health-10;
 		Gamestate.EstadoJuego.mana--;
-
 		Gamestate.EstadoJuego.Admo--;
 		Gamestate.EstadoJuego.Medicine--;
-
-		//print (Gamestate.EstadoJuego.health.ToString ());
 		Gamestate.EstadoJuego.Trident = !Gamestate.EstadoJuego.Trident;
 
 		GameObject.Find ("PlayerStatus").SendMessage ("UpdateScreen"); 
 
+		GameObject.Find ("PlayerStatus").SendMessage ("FinishLevel"); 
 	}
 
 
@@ -104,6 +108,7 @@ public class PauseMenu : MonoBehaviour {
 
 
 	}
+
 	//BTN RETURN == FUNCTION CANCEL
 
 	public void PressBtnExEXIT()
@@ -111,8 +116,8 @@ public class PauseMenu : MonoBehaviour {
 		objectpause.SetActive (false);
 		objectExit.SetActive (false);
 		Time.timeScale = 1;
-		Application.LoadLevel ("StartGame");
-
+		//Application.LoadLevel ("StartGame");
+		SceneManager.LoadScene("StartGame");
 	}
 
 
@@ -157,9 +162,6 @@ public class PauseMenu : MonoBehaviour {
 
 		}
 
-		//TextDificult.text=Gamestate.EstadoJuego.Dificult;
-		//Gamestatus
-	
 	}
 
 
@@ -179,6 +181,75 @@ public class PauseMenu : MonoBehaviour {
 		MainlLight.intensity = Slilight.value / 14;
 
 	}
+
+	public void PressBtnpart1()
+	{
+		Gamestate.EstadoJuego.NumberSavegame = 1;
+		Gamestate.EstadoJuego.FindSavefile();
+		if (Gamestate.EstadoJuego.NumberSavegame == 0) {
+			Gamestate.EstadoJuego.NumberSavegame = 1;
+			txtwarning.text="";
+		} else {
+			txtwarning.text="Existen Datos Guardados en este Slot de Memoria.\nDesea Sobreescribirlos?";
+		}
+	}
+		
+
+	public void PressBtnpart2()
+	{
+		Gamestate.EstadoJuego.NumberSavegame = 2;
+		Gamestate.EstadoJuego.FindSavefile ();
+		if (Gamestate.EstadoJuego.NumberSavegame == 0) {
+			Gamestate.EstadoJuego.NumberSavegame = 2;
+
+			txtwarning.text="";
+		} else {
+			txtwarning.text="Existen Datos Guardados en este Slot de Memoria.\nDesea Sobreescribirlos?";
+		}
+	}
+
+
+	public void PressBtnpart3()
+	{
+		Gamestate.EstadoJuego.NumberSavegame = 3;
+		Gamestate.EstadoJuego.FindSavefile ();
+		if (Gamestate.EstadoJuego.NumberSavegame == 0) {
+			Gamestate.EstadoJuego.NumberSavegame = 3;
+			txtwarning.text="";
+		} else {
+			txtwarning.text="Existen Datos Guardados en este Slot de Memoria.\nDesea Sobreescribirlos?";
+		}
+	}
+
+
+	public void PressBtnSave()
+	{
+		print ("partida= " + Gamestate.EstadoJuego.NumberSavegame.ToString ());
+		
+		if (Gamestate.EstadoJuego.NumberSavegame==0)
+		{
+			txtwarning.text="ERROR... Seleccione un Slot para guardar la partida";
+		}
+		else
+		{
+			Gamestate.EstadoJuego.SaveGame ();
+			objectSave.SetActive (false);
+			Gamestate.EstadoJuego.NumberSavegame = 0;
+			objSaveOK.SetActive (true);
+
+		}
+
+	}
+
+	public void PressBtnSaveCancel()
+	{
+		objectSave.SetActive (false);
+		Gamestate.EstadoJuego.NumberSavegame = 0;
+		objSaveOK.SetActive (false);
+		SceneManager.LoadScene("Level_"+ Gamestate.EstadoJuego.GameLevel);
+		Time.timeScale = 1;
+	}
+
 
 
 

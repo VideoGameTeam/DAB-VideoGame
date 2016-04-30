@@ -20,11 +20,13 @@ public class PlayerStatus : MonoBehaviour {
 	public GameObject Bot3;
 
 	public GameObject PanGOver;
+	public GameObject PopSave;
+
 	public Text TxtGameover;
 
 	private float timeh=0;
 	private float timeOver=0;
-	private float deltat=0;
+	public float deltat=0;
 
 	// Use this for initialization
 	void Start () {
@@ -34,6 +36,7 @@ public class PlayerStatus : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+	//	deltat=Time.deltaTime;
 		if (Gamestate.EstadoJuego.health >= 1 && Gamestate.EstadoJuego.health <= 20) {
 		
 			if (timeh>=(5-Gamestate.EstadoJuego.Dificult)) {
@@ -120,17 +123,6 @@ public class PlayerStatus : MonoBehaviour {
 
 		}
 
-		/*
-		public int Dificult;
-		public float health;
-		public float mana;
-		public int GameLevel;
-		public int Checkpoint;
-		public int Admo;
-		public bool Trident;
-		public int Points;
-		public int UserLevel;
-*/
 	}
 
 	public void TolastCheckpoin ()
@@ -138,4 +130,16 @@ public class PlayerStatus : MonoBehaviour {
 		Gamestate.EstadoJuego.defaultValGame ();
 		UpdateScreen ();
 	}
+
+	public void FinishLevel()
+	{
+		Gamestate.EstadoJuego.health=100;
+		Gamestate.EstadoJuego.GameLevel++;
+		Time.timeScale = 0;
+		PopSave.SetActive (true);
+		//Gamestate.EstadoJuego.defaultValGame ();
+		//UpdateScreen ();
+	}
+
+
 }
