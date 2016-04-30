@@ -81,9 +81,11 @@ public class Controller2D : RaycastController {
 	} 
 
 	void DetectTrap(RaycastHit2D hit){
+		collisions.inTrap = false;
 
 		//Magma Trap 
 			if(hit.collider.CompareTag("MagmaTrap")){
+			collisions.inTrap = true;
 				if (trapWaitingTime >= trapDamageDelay) {
 					trapWaitingTime = 0;
 					Gamestate.EstadoJuego.health -= Gamestate.EstadoJuego.Dificult * 10;
@@ -262,6 +264,8 @@ public class Controller2D : RaycastController {
 		public Vector3 velocityOld;
 		public int faceDir;
 		public bool fallingThroughPlatform;
+
+		public bool inTrap;
 
 
 		public void Reset() {

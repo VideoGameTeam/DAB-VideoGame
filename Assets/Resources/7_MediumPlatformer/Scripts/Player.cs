@@ -4,7 +4,7 @@ using System.Collections;
 [RequireComponent (typeof (Controller2D))]
 public class Player : MonoBehaviour {
 
-	public float maxJumpHeight = 4;
+	public float maxJumpHeight = 50;
 	public float minJumpHeight = 1;
 	public float timeToJumpApex = .4f;
 	float accelerationTimeAirborne = .2f;
@@ -38,12 +38,16 @@ public class Player : MonoBehaviour {
 	float jumpIdle;
 	float walk;
 	float idle;
+	float wall;
+	float fall;
 
 
 	bool forward;
 	float playerDir;
 
 	Transform animTransform;
+
+	public Animation animSprint;
 
     void Start() {
 		controller = GetComponent<Controller2D> ();
@@ -74,6 +78,7 @@ public class Player : MonoBehaviour {
 		if (jump < 0.1) {
 			JumpingWall ();
 		}
+		Falling ();
 
 	
 
@@ -139,9 +144,21 @@ public class Player : MonoBehaviour {
 		}
 
 
-		anim.SetFloat("Sprint", sprint);
-		anim.SetFloat ("Walk", walk);
+		/*
+		animSprint ["Basic_Run_03"].speed = 1f;
+		if (controller.collisions.inTrap) {
+			animSprint ["Basic_Run_03"].speed = 0.5f;
+		} */
+
+		Quaternion currentRotation = animTransform.rotation;
+
 		anim.SetFloat ("Jump", jump);
+		anim.SetFloat ("Sprint", sprint);
+		anim.SetFloat ("Walk", walk);
+		anim.SetFloat ("Wall", wall);
+		anim.SetFloat ("Fall",fall);
+
+		animTransform.rotation = currentRotation;	
 		animTransform.localPosition = Vector3.zero * Time.deltaTime;
 	}
 		
@@ -157,10 +174,21 @@ public class Player : MonoBehaviour {
 		return null;
 	}
 
+	void Falling(){
+		if (!controller.collisions.below) {
+			fall = 0.1F;
+		} else {
+			fall = 0.0F;
+		}
+	}
+
 	void Sprinting () {
 		if( input.x !=0 && !(controller.collisions.left || controller.collisions.right) && !Input.GetButton("Walk")) {
 			sprint = Mathf.Abs (input.x);
 			moveSpeed = 90;
+			if (controller.collisions.inTrap) {
+				moveSpeed = 40;
+			}
 		}
 		else {
 			sprint = 0.0F;
@@ -171,8 +199,11 @@ public class Player : MonoBehaviour {
 		if (Input.GetButton("Jump") && (controller.collisions.left || controller.collisions.right)) {
 			jump = 0.2F;
 			sprint = 0.0F;
+			wall = 0.1F;
+
 		} else {
 			jump = 0.0F;
+			wall = 0.0F;
 		}
 	}
 
