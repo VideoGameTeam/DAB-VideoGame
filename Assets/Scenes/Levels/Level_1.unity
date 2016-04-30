@@ -2033,7 +2033,7 @@ MonoBehaviour:
   maxJumpHeight: 50
   minJumpHeight: 1
   timeToJumpApex: 0.4
-  moveSpeed: 80
+  moveSpeed: 6
   wallJumpClimb: {x: 7.5, y: 250}
   wallJumpOff: {x: 100, y: 100}
   wallLeap: {x: 250, y: 250}
@@ -3226,7 +3226,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 472288, guid: 2266076ba11a8426fb3bf92862194cdd, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -1122.9042
+      value: -1095.2
       objectReference: {fileID: 0}
     - target: {fileID: 472288, guid: 2266076ba11a8426fb3bf92862194cdd, type: 2}
       propertyPath: m_LocalRotation.x
@@ -5201,7 +5201,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 452522, guid: 1abeb3d39ecce4d1ea0eb8b83f1ab15e, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -1063.1
+      value: -1050.9
       objectReference: {fileID: 0}
     - target: {fileID: 452522, guid: 1abeb3d39ecce4d1ea0eb8b83f1ab15e, type: 2}
       propertyPath: m_LocalRotation.x

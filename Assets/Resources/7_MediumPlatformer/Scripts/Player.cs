@@ -34,6 +34,8 @@ public class Player : MonoBehaviour {
 	Vector2 input;
 	float sprint;
 	float jump;
+
+	float jumpIdle;
 	float walk;
 	float idle;
 
@@ -66,13 +68,14 @@ public class Player : MonoBehaviour {
 		playerDir = (int)Mathf.Sign(input.x);
 
 		RotateCarl ();
+		Sprinting();
 		Walking ();
 		Jumping ();
 		if (jump < 0.1) {
 			JumpingWall ();
 		}
-		Sprinting();
-		Iddling ();
+
+	
 
 		float targetVelocityX = input.x * moveSpeed;
 		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
@@ -134,6 +137,11 @@ public class Player : MonoBehaviour {
 		if (controller.collisions.above || controller.collisions.below) {
 			velocity.y = 0;
 		}
+
+
+		anim.SetFloat("Sprint", sprint);
+		anim.SetFloat ("Walk", walk);
+		anim.SetFloat ("Jump", jump);	
 			
 
 	}
@@ -151,9 +159,9 @@ public class Player : MonoBehaviour {
 	}
 
 	void Sprinting () {
-		if(Input.GetButton("Run") && controller.collisions.below) {
-			sprint = 0.2F;
-			moveSpeed = moveSpeed *3.5F;
+		if( input.x !=0 && !(controller.collisions.left || controller.collisions.right) && !Input.GetButton("Walk")) {
+			sprint = Mathf.Abs (input.x);
+			moveSpeed = 90;
 		}
 		else {
 			sprint = 0.0F;
@@ -163,6 +171,7 @@ public class Player : MonoBehaviour {
 	void JumpingWall(){
 		if (Input.GetButton("Jump") && (controller.collisions.left || controller.collisions.right)) {
 			jump = 0.2F;
+			sprint = 0.0F;
 		} else {
 			jump = 0.0F;
 		}
@@ -176,20 +185,13 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	void Iddling(){
-		if (input.x == 0) {
-			idle = 0.2F;
-		} else {
-			idle = 0.0F;
-		}
-	}
-
 	void Walking(){
-		if (input.x != 0 && controller.collisions.below) {
-			walk = Mathf.Abs (input.x);
+		if (Input.GetButton("Walk") && controller.collisions.below) {
+			walk = 0.2F;
+			sprint = 0.0F;
 			moveSpeed = 30;
 		} else {
-			walk = 0;
+			walk = 0.0F;
 		}
 	}
 
@@ -204,14 +206,5 @@ public class Player : MonoBehaviour {
 			animTransform.Rotate (0, 180,0);
 			forward = true;
 		}
-	}
-
-	void FixedUpdate () {
-
-		//set the "Walk" parameter to the v axis value
-		anim.SetFloat ("Walk", walk);
-		anim.SetFloat("Sprint", sprint);
-		anim.SetFloat ("Jump", jump);
-		//anim.SetFloat ("Idle", idle);
 	}
 }
