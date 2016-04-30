@@ -42,10 +42,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 470498}
-  - 61: {fileID: 6166694}
-  m_Layer: 11
+  - 68: {fileID: 6888084}
+  m_Layer: 8
   m_Name: Poison_Trap
-  m_TagString: Untagged
+  m_TagString: PoisonTrap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 169516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -854.10156, y: 112.32479, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 473042}
@@ -88,8 +88,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 470498}
   m_RootOrder: 0
---- !u!61 &6166694
-BoxCollider2D:
+--- !u!68 &6888084
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -99,9 +99,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0.89374924, y: 2.2165613}
-  serializedVersion: 2
-  m_Size: {x: 43.829735, y: 8.579222}
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: -15.882385, y: -0.33931732}
+  - {x: 23.799866, y: -0.113105774}
 --- !u!198 &19866640
 ParticleSystem:
   m_ObjectHideFlags: 1
