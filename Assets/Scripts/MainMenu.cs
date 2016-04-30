@@ -1,28 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI; // Required when Using UI elements.
-
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 	public GameObject MenuPpal;
 	public GameObject MainOption;
 	public GameObject MainExit;
 	public GameObject MainLoadPart;
-
 	public GameObject Credits;
 
 	public Text PreviewPart;
 
-
-	//public Slider SliVol;
 	public Slider SliVol;
 	public Text TextValorVol;
-
-
 	public Slider Slilight;
-	//public Light MainlLight;
 	public Text TextValorLight;
-
 	public Slider SliDificult;
 	public 	Text TxtValDificult;
 
@@ -51,8 +44,8 @@ public class MainMenu : MonoBehaviour {
 	{
 		Gamestate.EstadoJuego.defaultValGame ();
 		Time.timeScale = 1;
-		Application.LoadLevel ("Level_1");
-
+		SceneManager.LoadScene("Level_1");
+		//Application.LoadLevel ("Level_1");
 	}
 
 
@@ -61,7 +54,11 @@ public class MainMenu : MonoBehaviour {
 		Gamestate.EstadoJuego.LastDificult=Gamestate.EstadoJuego.Dificult;
 		MenuPpal.SetActive (false);
 		MainLoadPart.SetActive (true);
-		//objectExit.SetActive (false);
+
+		//Primer Partida
+		Gamestate.EstadoJuego.NumberSavegame = 1;
+		Gamestate.EstadoJuego.LoadGame ();
+		UpdatePreview ();
 
 	}
 
@@ -69,9 +66,8 @@ public class MainMenu : MonoBehaviour {
 	{
 		MenuPpal.SetActive (false);
 		MainOption.SetActive (true);
-		//objectExit.SetActive (false);
-		Gamestate.EstadoJuego.LastDificult=Gamestate.EstadoJuego.Dificult;
 
+		Gamestate.EstadoJuego.LastDificult=Gamestate.EstadoJuego.Dificult;
 	}
 
 
@@ -95,16 +91,12 @@ public class MainMenu : MonoBehaviour {
 		loadstate ();
 		Gamestate.EstadoJuego.defaultValGame();
 
-
 	}
 
 
 	public void PressBtnMenuExExit()
 	{
-		//Time.timeScale = 0;
 		Application.Quit();
-
-
 	}
 
 
@@ -133,8 +125,9 @@ public class MainMenu : MonoBehaviour {
 
 	public void PressBtnMenuStartPart()
 	{
+		SceneManager.LoadScene("Level_"+ Gamestate.EstadoJuego.GameLevel);
 		//Application.LoadLevel ("Level_"+ Gamestate.EstadoJuego.GameLevel);
-		Application.LoadLevel ("InGame");
+		//Application.LoadLevel ("InGame");
 
 	}
 
@@ -146,7 +139,6 @@ public class MainMenu : MonoBehaviour {
 		Credits.SetActive (true);
 
 		Time.timeScale = 0;
-
 	
 	}
 
@@ -165,7 +157,6 @@ public class MainMenu : MonoBehaviour {
 
 		//	print(Gamestate.EstadoJuego.LightSet.ToString());
 		MainlLight.intensity = Gamestate.EstadoJuego.LightSet/14;
-
 
 	}
 
@@ -198,48 +189,6 @@ public class MainMenu : MonoBehaviour {
 			break;
 
 		}
-
-	}
-
-	public void GuadarJuego1()
-	{
-		Gamestate.EstadoJuego.NumberSavegame = 1;
-
-		Gamestate.EstadoJuego.health = 30;
-		Gamestate.EstadoJuego.mana = 20;
-		Gamestate.EstadoJuego.Dificult= 1;
-
-		Gamestate.EstadoJuego.Medicine = 1;
-		Gamestate.EstadoJuego.Admo= 10;
-		Gamestate.EstadoJuego.Trident=false;
-		Gamestate.EstadoJuego.Points=111;
-
-		Gamestate.EstadoJuego.GameLevel=1;
-		Gamestate.EstadoJuego.Checkpoint=1;
-		Gamestate.EstadoJuego.UserLevel=1;
-
-		Gamestate.EstadoJuego.SaveGame ();
-
-	}
-
-	public void GuadarJuego2()
-	{
-		Gamestate.EstadoJuego.NumberSavegame = 2;
-
-		Gamestate.EstadoJuego.health = 50;
-		Gamestate.EstadoJuego.mana = 30;
-		Gamestate.EstadoJuego.Dificult= 1;
-
-		Gamestate.EstadoJuego.Medicine = 2;
-		Gamestate.EstadoJuego.Admo= 22;
-		Gamestate.EstadoJuego.Trident=true;
-		Gamestate.EstadoJuego.Points=222;
-
-		Gamestate.EstadoJuego.GameLevel=2;
-		Gamestate.EstadoJuego.Checkpoint=2;
-		Gamestate.EstadoJuego.UserLevel=2;
-
-		Gamestate.EstadoJuego.SaveGame ();
 
 	}
 
@@ -291,11 +240,11 @@ public class MainMenu : MonoBehaviour {
 	public void UpdatePreview()
 	{
 		if (Gamestate.EstadoJuego.NumberSavegame != 0) {
-			PreviewPart.text = "Partida " + Gamestate.EstadoJuego.NumberSavegame + " Dificult: " + Gamestate.EstadoJuego.Dificult + " Salud: " + Gamestate.EstadoJuego.health+" Mana: " + Gamestate.EstadoJuego.mana;
+			PreviewPart.text = "Partida " + Gamestate.EstadoJuego.NumberSavegame + "\nDificult: " + Gamestate.EstadoJuego.Dificult + ";   Nivel: " + Gamestate.EstadoJuego.GameLevel + ";   Player Rank: " + Gamestate.EstadoJuego.UserLevel;
 		}else
 		{
 			PreviewPart.text = "No Existe Partida Guardada en este Slot";
-			}
+		}
 	}
 
 }

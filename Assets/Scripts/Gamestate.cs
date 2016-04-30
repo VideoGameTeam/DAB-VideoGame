@@ -66,6 +66,14 @@ public class Gamestate : MonoBehaviour {
 	void Update () {
 	}
 
+	public void FindSavefile()
+	{
+		Savegamepath= Application.persistentDataPath +"/Savegame_"+NumberSavegame+".dat";
+
+		if (File.Exists (Savegamepath)==false) {
+			NumberSavegame = 0;
+		}
+	}
 
 	public void SaveGame()
 	{
@@ -92,8 +100,10 @@ public class Gamestate : MonoBehaviour {
 			bf.Serialize (file, data);
 
 			file.Close ();
+			//void (true);
 		} else {
 			print ("Partida Invalida");
+			//return(false);
 		}
 	}
 
