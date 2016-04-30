@@ -49,13 +49,22 @@ public class Controller2D : RaycastController {
 	void DetectElement(Vector2 rayOrigin, Vector2 target, float rayLength){
 
 		//Detect Ammo
-		RaycastHit2D hitAmmo = Physics2D.Raycast(rayOrigin,target, rayLength,collisionMask[1]);
-		if (hitAmmo) {
+		RaycastHit2D hit = Physics2D.Raycast(rayOrigin,target, rayLength,collisionMask[1]);
+		if (hit) {
 			Gamestate.EstadoJuego.Admo += 10;
-			hitAmmo.collider.gameObject.SetActive (false);
+			hit.collider.gameObject.SetActive (false);
 		}
 
+		//Detect FirstAid
+		hit = Physics2D.Raycast(rayOrigin,target, rayLength,collisionMask[2]);
+		if (hit) {
+			Gamestate.EstadoJuego.Medicine += 1;
+			hit.collider.gameObject.SetActive (false);
+		}
+			
 		GameObject.Find ("PlayerStatus").SendMessage ("UpdateScreen");
+
+
 	} 
 
 	void HorizontalCollisions(ref Vector3 velocity) {

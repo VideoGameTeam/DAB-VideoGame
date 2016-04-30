@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 421842}
   - 33: {fileID: 3316856}
   - 23: {fileID: 2348988}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: FirstAid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,8 +52,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -331.23694, y: 753.00726, z: -1037.3536}
+  m_LocalScale: {x: 20.794075, y: 20.794062, z: 20.794062}
   m_Children:
   - {fileID: 421842}
   m_Father: {fileID: 0}
