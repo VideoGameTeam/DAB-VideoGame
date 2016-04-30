@@ -80,7 +80,13 @@ public class Player : MonoBehaviour {
 		}
 		Falling ();
 
-	
+		if (Input.GetButton ("FirstAid")) {
+			if(Gamestate.EstadoJuego.Medicine>0){
+				Gamestate.EstadoJuego.Medicine -= 1;
+				Gamestate.EstadoJuego.health += 10* Gamestate.EstadoJuego.Dificult;
+				GameObject.Find ("PlayerStatus").SendMessage ("UpdateScreen");
+			}
+		}
 
 		float targetVelocityX = input.x * moveSpeed;
 		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
