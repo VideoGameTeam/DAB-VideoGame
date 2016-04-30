@@ -46,20 +46,24 @@ public class Gamestate : MonoBehaviour {
 			DontDestroyOnLoad (gameObject);
 
 			filename= Application.persistentDataPath +"/datadab.dat";
+			LoadOptions ();
+			defaultValGame ();
 
 		}
 		else if(EstadoJuego!=this)
 		{
 			Destroy(gameObject);
 		}
+			
+
 	}
 
 	// Use this for initialization
 	void Start () {
 
 
-		LoadOptions ();
-		defaultValGame ();
+	//	LoadOptions ();
+	//	defaultValGame ();
 		//print ("Juego Initilised");
 
 			
