@@ -45,6 +45,8 @@ public class Player : MonoBehaviour {
 	bool forward;
 	float playerDir;
 
+	float medicineDelay =0;
+
 	Transform animTransform;
 
 	public Animation animSprint;
@@ -80,12 +82,9 @@ public class Player : MonoBehaviour {
 		}
 		Falling ();
 
+		medicineDelay -= Time.deltaTime;
 		if (Input.GetButton ("FirstAid")) {
-			if(Gamestate.EstadoJuego.Medicine>0){
-				Gamestate.EstadoJuego.Medicine -= 1;
-				Gamestate.EstadoJuego.health += 10* Gamestate.EstadoJuego.Dificult;
-				GameObject.Find ("PlayerStatus").SendMessage ("UpdateScreen");
-			}
+			consumeMedicine ();
 		}
 
 		float targetVelocityX = input.x * moveSpeed;
@@ -241,6 +240,15 @@ public class Player : MonoBehaviour {
 			print ("derecha");
 			animTransform.Rotate (0, 180,0);
 			forward = true;
+		}
+	}
+
+	void consumeMedicine(){
+		if(Gamestate.EstadoJuego.Medicine>0 && medicineDelay <= 0){
+			medicineDelay = 3;
+			Gamestate.EstadoJuego.Medicine -= 1;
+			Gamestate.EstadoJuego.health += 10* Gamestate.EstadoJuego.Dificult;
+			GameObject.Find ("PlayerStatus").SendMessage ("UpdateScreen");
 		}
 	}
 }
