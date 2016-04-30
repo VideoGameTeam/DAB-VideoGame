@@ -60,7 +60,7 @@ public class PauseMenu : MonoBehaviour {
 		//objectpause.SetActive (true);
 		//Time.timeScale = 0;
 		//TEST
-		Gamestate.EstadoJuego.health--;
+		Gamestate.EstadoJuego.health=Gamestate.EstadoJuego.health-10;
 		Gamestate.EstadoJuego.mana--;
 
 		Gamestate.EstadoJuego.Admo--;

@@ -117,7 +117,9 @@ public class MainMenu : MonoBehaviour {
 
 		Gamestate.EstadoJuego.VolumeSet = SliVol.value;
 		Gamestate.EstadoJuego.LightSet= Slilight.value;
-		Gamestate.EstadoJuego.Dificult=Mathf.FloorToInt( SliDificult.value);
+		Gamestate.EstadoJuego.Dificult=Mathf.FloorToInt(SliDificult.value);
+		Gamestate.EstadoJuego.LastDificult=Gamestate.EstadoJuego.Dificult;
+
 		Gamestate.EstadoJuego.SaveOptions();
 
 		loadstate ();
@@ -199,18 +201,69 @@ public class MainMenu : MonoBehaviour {
 
 	}
 
+	public void GuadarJuego1()
+	{
+		Gamestate.EstadoJuego.NumberSavegame = 1;
 
-	public void GuadarJuego()
+		Gamestate.EstadoJuego.health = 30;
+		Gamestate.EstadoJuego.mana = 20;
+		Gamestate.EstadoJuego.Dificult= 1;
+
+		Gamestate.EstadoJuego.Medicine = 1;
+		Gamestate.EstadoJuego.Admo= 10;
+		Gamestate.EstadoJuego.Trident=false;
+		Gamestate.EstadoJuego.Points=111;
+
+		Gamestate.EstadoJuego.GameLevel=1;
+		Gamestate.EstadoJuego.Checkpoint=1;
+		Gamestate.EstadoJuego.UserLevel=1;
+
+		Gamestate.EstadoJuego.SaveGame ();
+
+	}
+
+	public void GuadarJuego2()
 	{
 		Gamestate.EstadoJuego.NumberSavegame = 2;
 
-		Gamestate.EstadoJuego.health = 40;
-		Gamestate.EstadoJuego.mana = 20;
-		Gamestate.EstadoJuego.Dificult= 0;
-			
+		Gamestate.EstadoJuego.health = 50;
+		Gamestate.EstadoJuego.mana = 30;
+		Gamestate.EstadoJuego.Dificult= 1;
+
+		Gamestate.EstadoJuego.Medicine = 2;
+		Gamestate.EstadoJuego.Admo= 22;
+		Gamestate.EstadoJuego.Trident=true;
+		Gamestate.EstadoJuego.Points=222;
+
+		Gamestate.EstadoJuego.GameLevel=2;
+		Gamestate.EstadoJuego.Checkpoint=2;
+		Gamestate.EstadoJuego.UserLevel=2;
 
 		Gamestate.EstadoJuego.SaveGame ();
+
 	}
+
+	public void GuadarJuego3()
+	{
+		Gamestate.EstadoJuego.NumberSavegame = 3;
+
+		Gamestate.EstadoJuego.health = 70;
+		Gamestate.EstadoJuego.mana = 60;
+		Gamestate.EstadoJuego.Dificult= 2;
+
+		Gamestate.EstadoJuego.Medicine = 3;
+		Gamestate.EstadoJuego.Admo= 333;
+		Gamestate.EstadoJuego.Trident=false;
+		Gamestate.EstadoJuego.Points=3333;
+
+		Gamestate.EstadoJuego.GameLevel=3;
+		Gamestate.EstadoJuego.Checkpoint=3;
+		Gamestate.EstadoJuego.UserLevel=3;
+
+		Gamestate.EstadoJuego.SaveGame ();
+
+	}
+
 
 	public void PreviewGame1()
 	{

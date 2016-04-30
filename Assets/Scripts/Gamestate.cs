@@ -60,18 +60,10 @@ public class Gamestate : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-
-	//	LoadOptions ();
-	//	defaultValGame ();
-		//print ("Juego Initilised");
-
-			
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
 
 
@@ -83,10 +75,19 @@ public class Gamestate : MonoBehaviour {
 			BinaryFormatter bf = new BinaryFormatter ();
 			FileStream file = File.Create (Savegamepath);
 
-			datasavegame data = new datasavegame (Dificult, health, mana);
+			datasavegame data = new datasavegame (Dificult,health,mana, Medicine, Admo, Trident, Points,GameLevel,Checkpoint,UserLevel);
 			data.Dificult = Dificult;
 			data.health = health;
 			data.mana = mana;
+
+			data.Medicine = Medicine;
+			data.Admo= Admo;
+			data.Trident=Trident;
+			data.Points=Points;
+
+			data.GameLevel=GameLevel;
+			data.Checkpoint=Checkpoint;
+			data.UserLevel=UserLevel;
 
 			bf.Serialize (file, data);
 
@@ -110,12 +111,21 @@ public class Gamestate : MonoBehaviour {
 			health = data.health;
 			mana = data.mana ;
 
+			Medicine= data.Medicine;
+			Admo=data.Admo;
+			Trident=data.Trident;
+			Points=data.Points;
+
+			GameLevel = data.GameLevel;
+			Checkpoint=data.Checkpoint;
+			UserLevel=data.UserLevel;
+
+
 			bf.Serialize (file, data);
 			file.Close ();
 		} else
 		{
 			NumberSavegame = 0;
-
 			//No Existen Partidas Guardadas.
 
 		}
@@ -166,12 +176,12 @@ public class Gamestate : MonoBehaviour {
 	{
 
 		Dificult=LastDificult;
-		health=30;
-		mana=50;
-		Medicine = 3;
+		health=100;
+		mana=50+15*(2-Dificult);
+		Medicine = 2-Dificult;
 		GameLevel=1;
 		Checkpoint=1;
-		Admo=20;
+		Admo=50*(2-Dificult);
 		Trident=false;
 		Points=0;
 		UserLevel=1;
@@ -203,14 +213,30 @@ class datasavegame{
 	public int Dificult;
 	public float health;
 	public float mana;
+	public int Medicine;
+	public int Admo;
+	public bool Trident;
+	public int Points;
 
-	public datasavegame(int Dificult,float health, float mana)
+	public int GameLevel;
+	public int Checkpoint;
+	public int UserLevel;
+
+
+	public datasavegame(int Dificult,float health, float mana, int Medicine, int Admo, bool Trident, int Points, int GameLevel,	int Checkpoint, int UserLevel)
 	{
+		//Variables Savegame
 		this.Dificult=Dificult;
 		this.health = health;
 		this.mana = mana;
+		this.Medicine = Medicine;
+		this.Admo= Admo;
+		this.Trident=Trident;
+		this.Points=Points;
 
-		//Variables Savegame
+		this.GameLevel=GameLevel;
+		this.Checkpoint=Checkpoint;
+		this.UserLevel=UserLevel;
 
 
 	}
