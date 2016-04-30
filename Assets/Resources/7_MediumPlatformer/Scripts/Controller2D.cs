@@ -10,10 +10,13 @@ public class Controller2D : RaycastController {
 	[HideInInspector]
 	public Vector2 playerInput;
 
+	float trapDamageDelay = 5;
+	float trapWaitingTime = 0;
+
+
 	public override void Start() {
 		base.Start ();
-		collisions.faceDir = 1;
-
+		collisions.faceDir = 1;	
 	}
 
 	public void Move(Vector3 velocity, bool standingOnPlatform) {
@@ -48,6 +51,8 @@ public class Controller2D : RaycastController {
 
 	void DetectElement(Vector2 rayOrigin, Vector2 target, float rayLength){
 
+
+
 		//Detect Ammo
 		RaycastHit2D hit = Physics2D.Raycast(rayOrigin,target, rayLength,collisionMask[1]);
 		if (hit) {
@@ -73,7 +78,14 @@ public class Controller2D : RaycastController {
 		//Detect Magma Trap
 		hit = Physics2D.Raycast(rayOrigin,target, rayLength,collisionMask[4]);
 		if (hit) {
-			Gamestate.EstadoJuego.health -= Gamestate.EstadoJuego.Dificult * 2;
+			if (trapWaitingTime >= trapDamageDelay) {
+				print ("Entro Trampa");
+				trapWaitingTime = 0;
+				Gamestate.EstadoJuego.health -= Gamestate.EstadoJuego.Dificult * 2;
+			} else {
+				print ("Aumenta tiempo para trampa");
+				trapWaitingTime += Time.deltaTime; 
+			}
 		}
 			
 		//Actualizr interfaz	
