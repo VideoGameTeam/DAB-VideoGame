@@ -35,6 +35,7 @@ public class Player : MonoBehaviour {
 	float sprint;
 	float jump;
 	float walk;
+	float idle;
 
 
 	bool forward;
@@ -67,7 +68,11 @@ public class Player : MonoBehaviour {
 		RotateCarl ();
 		Walking ();
 		Jumping ();
+		if (jump < 0.1) {
+			JumpingWall ();
+		}
 		Sprinting();
+		Iddling ();
 
 		float targetVelocityX = input.x * moveSpeed;
 		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
@@ -146,7 +151,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void Sprinting () {
-		if(Input.GetButton("Run")) {
+		if(Input.GetButton("Run") && controller.collisions.below) {
 			sprint = 0.2F;
 			moveSpeed = moveSpeed *3.5F;
 		}
@@ -155,16 +160,32 @@ public class Player : MonoBehaviour {
 		}
 
 	}
-	void Jumping(){
-		if (Input.GetButton("Jump")) {
+	void JumpingWall(){
+		if (Input.GetButton("Jump") && (controller.collisions.left || controller.collisions.right)) {
 			jump = 0.2F;
 		} else {
 			jump = 0.0F;
 		}
 	}
 
+	void Jumping(){
+		if (Input.GetButton("Jump") && controller.collisions.below) {
+			jump = 0.2F;
+		} else {
+			jump = 0.0F;
+		}
+	}
+
+	void Iddling(){
+		if (input.x == 0) {
+			idle = 0.2F;
+		} else {
+			idle = 0.0F;
+		}
+	}
+
 	void Walking(){
-		if (input.x != 0) {
+		if (input.x != 0 && controller.collisions.below) {
 			walk = Mathf.Abs (input.x);
 			moveSpeed = 30;
 		} else {
@@ -191,5 +212,6 @@ public class Player : MonoBehaviour {
 		anim.SetFloat ("Walk", walk);
 		anim.SetFloat("Sprint", sprint);
 		anim.SetFloat ("Jump", jump);
+		//anim.SetFloat ("Idle", idle);
 	}
 }
