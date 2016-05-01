@@ -72,7 +72,8 @@ public class Controller2D : RaycastController {
 		//Detect Death Zone
 		hit = Physics2D.Raycast(rayOrigin,target, rayLength,collisionMask[3]);
 		if (hit) {
-			Gamestate.EstadoJuego.ChangeHealth (0);
+			print ("muerto");
+			Gamestate.EstadoJuego.health = 0;
 		}
 		//Actualizr interfaz	
 		GameObject.Find ("PlayerStatus").SendMessage ("UpdateScreen");
