@@ -84,7 +84,11 @@ public class Player : MonoBehaviour {
 
 		medicineDelay -= Time.deltaTime;
 		if (Input.GetButton ("FirstAid")) {
-			consumeMedicine ();
+			if (Gamestate.EstadoJuego.Medicine > 0) {
+				Gamestate.EstadoJuego.Medicine --;	
+				Gamestate.EstadoJuego.ChangeHealth (10 + 5 * (2 - Gamestate.EstadoJuego.Dificult));
+			}
+
 		}
 
 		float targetVelocityX = input.x * moveSpeed;
@@ -243,15 +247,5 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	void consumeMedicine(){
-		if(Gamestate.EstadoJuego.Medicine>0 && medicineDelay <= 0){
-			medicineDelay = 3;
-			Gamestate.EstadoJuego.Medicine -= 1;
-			Gamestate.EstadoJuego.health += (100 / Gamestate.EstadoJuego.Dificult);
-			if (Gamestate.EstadoJuego.health > 100) {
-				Gamestate.EstadoJuego.health = 100;
-			}
-			GameObject.Find ("PlayerStatus").SendMessage ("UpdateScreen");
-		}
-	}
+
 }
