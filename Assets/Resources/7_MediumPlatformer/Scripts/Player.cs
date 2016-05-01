@@ -87,9 +87,10 @@ public class Player : MonoBehaviour {
 
 
 		medicineDelay -= Time.deltaTime;
-		if (Input.GetButton ("FirstAid")) {
+		if (Input.GetButton ("FirstAid") && medicineDelay <=0) {
+			medicineDelay = 2;
 			if (Gamestate.EstadoJuego.Medicine > 0) {
-				Gamestate.EstadoJuego.Medicine --;	
+				Gamestate.EstadoJuego.Medicine -=1;	
 				Gamestate.EstadoJuego.ChangeHealth (10 + 5 * (2 - Gamestate.EstadoJuego.Dificult));
 			}
 
@@ -155,6 +156,7 @@ public class Player : MonoBehaviour {
 
 		if (controller.collisions.above || controller.collisions.below) {
 			velocity.y = 0;
+			jump = 0.0F;
 		}
 
 
