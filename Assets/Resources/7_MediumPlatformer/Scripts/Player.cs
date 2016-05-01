@@ -119,6 +119,7 @@ public class Player : MonoBehaviour {
 			}
 			else {
 				timeToWallUnstick = wallStickTime;
+				jump = 0.2F;
 			}
 
 		}
