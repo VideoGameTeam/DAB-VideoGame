@@ -2491,7 +2491,7 @@ Transform:
   m_Children:
   - {fileID: 2110902544}
   m_Father: {fileID: 2000219798}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &803012447
 GameObject:
   m_ObjectHideFlags: 0
@@ -2681,7 +2681,7 @@ Transform:
   - {fileID: 526718933}
   - {fileID: 821295626}
   m_Father: {fileID: 2000219798}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &925380800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2709,7 +2709,7 @@ Transform:
   m_Children:
   - {fileID: 1854027768}
   m_Father: {fileID: 2000219798}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!1001 &939993477
 Prefab:
   m_ObjectHideFlags: 0
@@ -4576,7 +4576,7 @@ Transform:
   - {fileID: 289061946}
   - {fileID: 100792664}
   m_Father: {fileID: 2000219798}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1001 &1643142515
 Prefab:
   m_ObjectHideFlags: 0
@@ -5462,47 +5462,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 266e222cb0747495889e018b0301036c, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1955754023
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1955754024}
-  - 182: {fileID: 1955754025}
-  m_Layer: 0
-  m_Name: WindZone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1955754024
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1955754023}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1476, y: 335, z: -1224}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2000219798}
-  m_RootOrder: 3
---- !u!182 &1955754025
-WindZone:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1955754023}
-  m_Enabled: 1
-  m_Mode: 0
-  m_Radius: 20
-  m_WindMain: 1
-  m_WindTurbulence: 1
-  m_WindPulseMagnitude: 10
-  m_WindPulseFrequency: 0.01
 --- !u!1 &1971358254
 GameObject:
   m_ObjectHideFlags: 0
@@ -5575,7 +5534,6 @@ Transform:
   - {fileID: 634985813}
   - {fileID: 1459726497}
   - {fileID: 1046186071}
-  - {fileID: 1955754024}
   - {fileID: 1617753404}
   - {fileID: 921184212}
   - {fileID: 798565019}
