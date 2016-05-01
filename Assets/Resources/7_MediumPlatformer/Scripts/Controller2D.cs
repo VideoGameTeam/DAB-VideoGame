@@ -119,6 +119,17 @@ public class Controller2D : RaycastController {
 			}
 		}
 
+		//Energy Trap 
+		if(hit.collider.CompareTag("EnergyTrap")){
+			collisions.inTrap = true;
+			if (trapWaitingTime >= trapDamageDelay) {
+				trapWaitingTime = 0;
+				Gamestate.EstadoJuego.ChangeHealth (-4 + 2*(2 - Gamestate.EstadoJuego.Dificult));
+			} else {
+				trapWaitingTime += Time.deltaTime; 
+			}
+		}
+
 		
 	}
 
