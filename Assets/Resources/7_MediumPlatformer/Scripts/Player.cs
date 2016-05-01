@@ -77,12 +77,13 @@ public class Player : MonoBehaviour {
 		RotateCarl ();
 		Sprinting();
 		Walking ();
+		Sticking ();
 		Jumping ();
 		if (jump < 0.1) {
 			JumpingWall ();
 		}
 		Falling ();
-		Sticking ();
+
 
 
 
@@ -159,6 +160,10 @@ public class Player : MonoBehaviour {
 			jump = 0.0F;
 		}
 
+		if ((controller.collisions.left || controller.collisions.right) && stick > 0.1F) {
+			jump = 0.0F;
+		}
+
 
 		/*
 		animSprint ["Basic_Run_03"].speed = 1f;
@@ -217,7 +222,6 @@ public class Player : MonoBehaviour {
 			jump = 0.2F;
 			sprint = 0.0F;
 			wall = 0.1F;
-
 		} else {
 			jump = 0.0F;
 			wall = 0.0F;

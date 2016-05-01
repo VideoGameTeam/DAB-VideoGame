@@ -95,6 +95,13 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _waternormal
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
           name: _Fresnel
         second:
           m_Texture: {fileID: 0}
@@ -117,13 +124,6 @@ Material:
       data:
         first:
           name: _RefractionTex
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _waternormal
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -196,7 +196,7 @@ Material:
       data:
         first:
           name: _opacity
-        second: 0.534
+        second: 0.61
       data:
         first:
           name: _tile1
@@ -225,7 +225,11 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0.39215687}
+        second: {r: 0.6911765, g: 0.8338743, b: 1, a: 0.39215687}
+      data:
+        first:
+          name: _emmis
+        second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
       data:
         first:
           name: _RefrColor
@@ -238,7 +242,3 @@ Material:
         first:
           name: _HorizonColor
         second: {r: 0.172, g: 0.463, b: 0.435, a: 1}
-      data:
-        first:
-          name: _emmis
-        second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
