@@ -10,7 +10,7 @@ public class Controller2D : RaycastController {
 	[HideInInspector]
 	public Vector2 playerInput;
 
-	float trapDamageDelay = 5;
+	float trapDamageDelay = 3;
 	float trapWaitingTime = 0;
 
 
@@ -83,6 +83,7 @@ public class Controller2D : RaycastController {
 	void DetectTrap(RaycastHit2D hit){
 		collisions.inTrap = false;
 
+
 		//Magma Trap 
 			if(hit.collider.CompareTag("MagmaTrap")){
 			collisions.inTrap = true;
@@ -99,7 +100,7 @@ public class Controller2D : RaycastController {
 			collisions.inTrap = true;
 			if (trapWaitingTime >= trapDamageDelay) {
 				trapWaitingTime = 0;
-				Gamestate.EstadoJuego.health -= Gamestate.EstadoJuego.Dificult * 15;
+				Gamestate.EstadoJuego.health -= Gamestate.EstadoJuego.Dificult * 10;
 			} else {
 				trapWaitingTime += Time.deltaTime; 
 			}

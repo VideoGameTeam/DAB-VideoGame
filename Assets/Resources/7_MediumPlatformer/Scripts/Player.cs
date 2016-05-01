@@ -247,7 +247,10 @@ public class Player : MonoBehaviour {
 		if(Gamestate.EstadoJuego.Medicine>0 && medicineDelay <= 0){
 			medicineDelay = 3;
 			Gamestate.EstadoJuego.Medicine -= 1;
-			Gamestate.EstadoJuego.health += 10* Gamestate.EstadoJuego.Dificult;
+			Gamestate.EstadoJuego.health += (100 / Gamestate.EstadoJuego.Dificult);
+			if (Gamestate.EstadoJuego.health > 100) {
+				Gamestate.EstadoJuego.health = 100;
+			}
 			GameObject.Find ("PlayerStatus").SendMessage ("UpdateScreen");
 		}
 	}

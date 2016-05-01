@@ -1803,9 +1803,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1448504538}
-  - {fileID: 2125507105}
   - {fileID: 1273761721}
   - {fileID: 145533252}
+  - {fileID: 2137376547}
   m_Father: {fileID: 2068398105}
   m_RootOrder: 2
 --- !u!1001 &631606150
@@ -2793,6 +2793,10 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11472618, guid: 8f5f7140ca06449499b8c2573c5ef40a, type: 2}
+      propertyPath: deltat
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f5f7140ca06449499b8c2573c5ef40a, type: 2}
   m_IsPrefabParent: 0
@@ -3128,7 +3132,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 442648, guid: cd5dc354e8f3d47cfad344c330e467d8, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 442648, guid: cd5dc354e8f3d47cfad344c330e467d8, type: 2}
       propertyPath: m_LocalScale.x
@@ -3185,6 +3189,48 @@ Transform:
   - {fileID: 311954600}
   m_Father: {fileID: 7596910}
   m_RootOrder: 2
+--- !u!1001 &1089727086
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 602305838}
+    m_Modifications:
+    - target: {fileID: 457458, guid: a960f58266f4a4a9bb2e995ee0801e88, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 944
+      objectReference: {fileID: 0}
+    - target: {fileID: 457458, guid: a960f58266f4a4a9bb2e995ee0801e88, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 743.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 457458, guid: a960f58266f4a4a9bb2e995ee0801e88, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -1044.9042
+      objectReference: {fileID: 0}
+    - target: {fileID: 457458, guid: a960f58266f4a4a9bb2e995ee0801e88, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 457458, guid: a960f58266f4a4a9bb2e995ee0801e88, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 457458, guid: a960f58266f4a4a9bb2e995ee0801e88, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 457458, guid: a960f58266f4a4a9bb2e995ee0801e88, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 457458, guid: a960f58266f4a4a9bb2e995ee0801e88, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a960f58266f4a4a9bb2e995ee0801e88, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1124618728
 GameObject:
   m_ObjectHideFlags: 0
@@ -3683,7 +3729,7 @@ EdgeCollider2D:
   - {x: 996.728, y: 23.080883}
   - {x: 970.8617, y: 24.069279}
   - {x: 913.23267, y: 34.120674}
-  - {x: 870.93585, y: 22.550224}
+  - {x: 875.04297, y: 1.7985458}
   - {x: 843.2759, y: 30.724226}
   - {x: 779.97943, y: 31.011587}
   - {x: 750.25885, y: 39.788208}
@@ -4968,7 +5014,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 455016, guid: 8b36be6608e1d4ff3be69b0f43d99ead, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 459024, guid: 8b36be6608e1d4ff3be69b0f43d99ead, type: 2}
       propertyPath: m_LocalPosition.y
@@ -5190,52 +5236,6 @@ Transform:
   - {fileID: 798372688}
   m_Father: {fileID: 1971358255}
   m_RootOrder: 0
---- !u!1001 &1895574780
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 602305838}
-    m_Modifications:
-    - target: {fileID: 470498, guid: a960f58266f4a4a9bb2e995ee0801e88, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 920.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 470498, guid: a960f58266f4a4a9bb2e995ee0801e88, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 747.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 470498, guid: a960f58266f4a4a9bb2e995ee0801e88, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -1048.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 470498, guid: a960f58266f4a4a9bb2e995ee0801e88, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470498, guid: a960f58266f4a4a9bb2e995ee0801e88, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470498, guid: a960f58266f4a4a9bb2e995ee0801e88, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 470498, guid: a960f58266f4a4a9bb2e995ee0801e88, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470498, guid: a960f58266f4a4a9bb2e995ee0801e88, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 470498, guid: a960f58266f4a4a9bb2e995ee0801e88, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.637525
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: a960f58266f4a4a9bb2e995ee0801e88, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &1904976906
 Prefab:
   m_ObjectHideFlags: 0
@@ -5835,7 +5835,7 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 482608, guid: a0a511126f5f6f4449ec80434dc3dfe8, type: 2}
   m_PrefabInternal: {fileID: 1684428111}
---- !u!4 &2125507105 stripped
+--- !u!4 &2137376547 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 470498, guid: a960f58266f4a4a9bb2e995ee0801e88, type: 2}
-  m_PrefabInternal: {fileID: 1895574780}
+  m_PrefabParentObject: {fileID: 457458, guid: a960f58266f4a4a9bb2e995ee0801e88, type: 2}
+  m_PrefabInternal: {fileID: 1089727086}
