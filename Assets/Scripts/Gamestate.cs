@@ -36,7 +36,8 @@ public class Gamestate : MonoBehaviour {
 
 
 
-
+	private float HealthMod=0;
+	private float ManaMod=0;
 
 	void Awake()
 	{
@@ -64,6 +65,53 @@ public class Gamestate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (HealthMod > 0) {
+			health++;
+			HealthMod--;
+			if (health > 100) {
+				health = 100;
+				HealthMod = 0;
+			}
+			GameObject.Find ("PlayerStatus").SendMessage ("UpdateScreen");
+		} else if (HealthMod < 0) {
+			health--;
+			HealthMod++;
+			if (health <0) {
+				health = 0;
+				HealthMod = 0;
+			}
+			GameObject.Find ("PlayerStatus").SendMessage ("UpdateScreen");
+		}
+		if (ManaMod > 0) {
+			mana++;
+			ManaMod--;
+			if (mana> 100) {
+				mana= 100;
+				ManaMod = 0;
+			}
+			GameObject.Find ("PlayerStatus").SendMessage ("UpdateScreen");
+		} else if (ManaMod < 0) {
+			mana--;
+			ManaMod++;
+			if (mana<0) {
+				mana = 0;
+				ManaMod = 0;
+			}
+			GameObject.Find ("PlayerStatus").SendMessage ("UpdateScreen");
+		}
+
+
+	}
+
+	public void ChangeHealth(float value)
+	{
+		HealthMod = value;
+	}
+
+
+	public void ChangeMana(float value)
+	{
+		ManaMod = value;
 	}
 
 	public void FindSavefile()

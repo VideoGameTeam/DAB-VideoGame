@@ -12,15 +12,10 @@ public class PauseMenu : MonoBehaviour {
 
 
 	public Text TextDificult;
-
 	public Slider SliVol;
 	public Text TextValorVol;
-
-
 	public Slider Slilight;
-
 	public Text TextValorLight;
-
 	public Text txtwarning;
 
 
@@ -66,15 +61,17 @@ public class PauseMenu : MonoBehaviour {
 		//Time.timeScale = 0;
 
 		//TEST
-		Gamestate.EstadoJuego.health=Gamestate.EstadoJuego.health-10;
-		Gamestate.EstadoJuego.mana--;
+	//	Gamestate.EstadoJuego.health=Gamestate.EstadoJuego.health-10;
+	//	Gamestate.EstadoJuego.mana--;
 		Gamestate.EstadoJuego.Admo--;
 		Gamestate.EstadoJuego.Medicine--;
 		Gamestate.EstadoJuego.Trident = !Gamestate.EstadoJuego.Trident;
 
 		GameObject.Find ("PlayerStatus").SendMessage ("UpdateScreen"); 
 
-		GameObject.Find ("PlayerStatus").SendMessage ("FinishLevel"); 
+		//GameObject.Find ("PlayerStatus").SendMessage ("FinishLevel"); 
+		Gamestate.EstadoJuego.ChangeHealth(-20);
+		Gamestate.EstadoJuego.ChangeMana(+20);
 	}
 
 

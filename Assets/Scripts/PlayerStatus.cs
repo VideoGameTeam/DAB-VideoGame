@@ -38,8 +38,8 @@ public class PlayerStatus : MonoBehaviour {
 	void Update () {
 	//	deltat=Time.deltaTime;
 		if (Gamestate.EstadoJuego.health >= 1 && Gamestate.EstadoJuego.health <= 20) {
-		
-			if (timeh>=(5-Gamestate.EstadoJuego.Dificult)) {
+
+		 if (timeh>=(5-Gamestate.EstadoJuego.Dificult)) {
 				timeh = 0;
 				Gamestate.EstadoJuego.health--;
 				SliHealth.value = Gamestate.EstadoJuego.health;
@@ -66,8 +66,6 @@ public class PlayerStatus : MonoBehaviour {
 				TxtGameover.text = (10 - Mathf.FloorToInt (timeOver)).ToString();
 			}
 
-
-
 		}
 
 	}
@@ -77,9 +75,6 @@ public class PlayerStatus : MonoBehaviour {
 
 
 		SliHealth.value = Gamestate.EstadoJuego.health;
-		if (Gamestate.EstadoJuego.health >= 1 && Gamestate.EstadoJuego.health <= 20) {
-			timeh = Time.time + 5-Gamestate.EstadoJuego.Dificult;
-		}
 		Slimana.value = Gamestate.EstadoJuego.mana;
 
 		if (Gamestate.EstadoJuego.Admo <= 0) {
