@@ -1047,6 +1047,14 @@ Prefab:
       value: 
       objectReference: {fileID: 11100000, guid: e4a00a4129fdc404faf634c619700370,
         type: 3}
+    - target: {fileID: 11458052, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
+      propertyPath: wallJumpClimb.y
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 11458052, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
+      propertyPath: wallSlideSpeedMax
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
   m_IsPrefabParent: 0
@@ -2783,15 +2791,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22475406, guid: 8f5f7140ca06449499b8c2573c5ef40a, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 22475406, guid: 8f5f7140ca06449499b8c2573c5ef40a, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22447928, guid: 8f5f7140ca06449499b8c2573c5ef40a, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11472618, guid: 8f5f7140ca06449499b8c2573c5ef40a, type: 2}
       propertyPath: deltat
@@ -5307,7 +5315,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 452522, guid: 1abeb3d39ecce4d1ea0eb8b83f1ab15e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 810.7
+      value: 805.8
       objectReference: {fileID: 0}
     - target: {fileID: 452522, guid: 1abeb3d39ecce4d1ea0eb8b83f1ab15e, type: 2}
       propertyPath: m_LocalPosition.z
