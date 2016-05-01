@@ -40,6 +40,7 @@ public class Player : MonoBehaviour {
 	float idle;
 	float wall;
 	float fall;
+	float stick;
 
 
 	bool forward;
@@ -81,6 +82,9 @@ public class Player : MonoBehaviour {
 			JumpingWall ();
 		}
 		Falling ();
+		Sticking ();
+
+
 
 		medicineDelay -= Time.deltaTime;
 		if (Input.GetButton ("FirstAid")) {
@@ -166,6 +170,7 @@ public class Player : MonoBehaviour {
 		anim.SetFloat ("Walk", walk);
 		anim.SetFloat ("Wall", wall);
 		anim.SetFloat ("Fall",fall);
+		anim.SetFloat ("Stick", stick);
 
 		animTransform.rotation = currentRotation;	
 		animTransform.localPosition = Vector3.zero * Time.deltaTime;
@@ -232,6 +237,20 @@ public class Player : MonoBehaviour {
 		} else {
 			walk = 0.0F;
 		}
+	}
+
+	void Sticking(){
+		if (!controller.collisions.below && (controller.collisions.left || controller.collisions.right)) {
+			stick = 0.2F;
+			if (forward && controller.collisions.left) {
+				stick = 0.0F;
+			}else if(!forward && controller.collisions.right){
+				stick = 0.0F;
+			}
+		} else {
+			stick = 0.0F;
+		}
+
 	}
 
 	void RotateCarl(){
