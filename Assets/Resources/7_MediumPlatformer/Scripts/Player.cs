@@ -238,11 +238,11 @@ public class Player : MonoBehaviour {
 
 		if (Input.GetButton("Horizontal") && playerDir < 0 && forward) {
 			print ("izquierda");
-			animTransform.Rotate (0, 180,0);
+			animTransform.Rotate (0, 160,0);
 			forward = false;
 		} else if(Input.GetButton("Horizontal") && playerDir > 0 && !forward) {
 			print ("derecha");
-			animTransform.Rotate (0, 180,0);
+			animTransform.Rotate (0, 200,0);
 			forward = true;
 		}
 	}
