@@ -72,7 +72,7 @@ public class Controller2D : RaycastController {
 		//Detect Death Zone
 		hit = Physics2D.Raycast(rayOrigin,target, rayLength,collisionMask[3]);
 		if (hit) {
-			Gamestate.EstadoJuego.health = 0;
+			Gamestate.EstadoJuego.ChangeHealth (0);
 		}
 		//Actualizr interfaz	
 		GameObject.Find ("PlayerStatus").SendMessage ("UpdateScreen");
@@ -89,7 +89,8 @@ public class Controller2D : RaycastController {
 			collisions.inTrap = true;
 				if (trapWaitingTime >= trapDamageDelay) {
 					trapWaitingTime = 0;
-					Gamestate.EstadoJuego.health -= Gamestate.EstadoJuego.Dificult * 10;
+				Gamestate.EstadoJuego.ChangeHealth (-5 + 2*(2 - Gamestate.EstadoJuego.Dificult));
+					//Gamestate.EstadoJuego.health -= Gamestate.EstadoJuego.Dificult * 10;
 				} else {
 					trapWaitingTime += Time.deltaTime; 
 				}
@@ -100,7 +101,7 @@ public class Controller2D : RaycastController {
 			collisions.inTrap = true;
 			if (trapWaitingTime >= trapDamageDelay) {
 				trapWaitingTime = 0;
-				Gamestate.EstadoJuego.health -= Gamestate.EstadoJuego.Dificult * 10;
+				Gamestate.EstadoJuego.ChangeHealth (-7 + 2*(2 - Gamestate.EstadoJuego.Dificult));
 			} else {
 				trapWaitingTime += Time.deltaTime; 
 			}
@@ -111,7 +112,7 @@ public class Controller2D : RaycastController {
 			collisions.inTrap = true;
 			if (trapWaitingTime >= trapDamageDelay) {
 				trapWaitingTime = 0;
-				Gamestate.EstadoJuego.health -= Gamestate.EstadoJuego.Dificult * 5;
+				Gamestate.EstadoJuego.ChangeHealth (-3 + 2*(2 - Gamestate.EstadoJuego.Dificult));
 			} else {
 				trapWaitingTime += Time.deltaTime; 
 			}
