@@ -44,7 +44,7 @@ public class PauseMenu : MonoBehaviour {
 				objectExit.SetActive (false);
 				objectOptions.SetActive (false);
 				objectpause.SetActive (true);
-
+				loadstate ();
 			}
 			else {
 				objectpause.SetActive (false);
