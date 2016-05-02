@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 487930}
   - 61: {fileID: 6188018}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Ammo_2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ GameObject:
   - 4: {fileID: 415044}
   - 33: {fileID: 3379950}
   - 23: {fileID: 2373718}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: AmmoBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,8 +52,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 176954}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -339.9574, y: 744.7073, z: -1041.1041}
+  m_LocalScale: {x: 22.37593, y: 22.37592, z: 22.37592}
   m_Children:
   - {fileID: 415044}
   m_Father: {fileID: 0}

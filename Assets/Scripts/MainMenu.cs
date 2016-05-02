@@ -1,72 +1,64 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI; // Required when Using UI elements.
-
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 	public GameObject MenuPpal;
 	public GameObject MainOption;
 	public GameObject MainExit;
 	public GameObject MainLoadPart;
-
 	public GameObject Credits;
 
 	public Text PreviewPart;
 
-
-	//public Slider SliVol;
 	public Slider SliVol;
 	public Text TextValorVol;
-
-
 	public Slider Slilight;
-	//public Light MainlLight;
 	public Text TextValorLight;
-
 	public Slider SliDificult;
 	public 	Text TxtValDificult;
 
+	private Light MainlLight;
 
+	public Button Btnprevi1;
 
-	// Use this for initialization
+	void Awake()
+	{
+		MainlLight = (Light)FindObjectOfType (typeof(Light));
+	
+		loadstate ();
+
+	}
 	void Start () {
 
+
 		loadstate ();
-	
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		/*
-		if (Input.GetKeyDown (KeyCode.Escape) && Time.timeScale == 1) {
-			MenuPpal.SetActive (false);
-			MainExit.SetActive (true);
-			//objectOptions.SetActive (false);
-			Time.timeScale = 0;
+
+		if (Input.GetKeyDown (KeyCode.Escape) ){
+			MainOption.SetActive (false);
+			MainExit.SetActive (false);
+			MainLoadPart.SetActive (false);
+			Credits.SetActive (false);
+			MenuPpal.SetActive(true);
+			Time.timeScale = 1;
+			loadstate ();
 
 		} 
-		else if(Input.GetKeyDown (KeyCode.Escape) && Time.timeScale == 0) {
-			if (objectExit.activeSelf||objectOptions.activeSelf) {
-				objectExit.SetActive (false);
-				objectOptions.SetActive (false);
-				objectpause.SetActive (true);
 
-			}
-			else {
-				objectpause.SetActive (false);
-				Time.timeScale = 1;
-			}
-
-		}
-	*/
 	}
 
 	public void PressBtnNewGame()
 	{
 		Gamestate.EstadoJuego.defaultValGame ();
 		Time.timeScale = 1;
-		Application.LoadLevel ("InGame");
-
+		SceneManager.LoadScene("Level_1");
+		//Application.LoadLevel ("Level_1");
 	}
 
 
@@ -75,7 +67,11 @@ public class MainMenu : MonoBehaviour {
 		Gamestate.EstadoJuego.LastDificult=Gamestate.EstadoJuego.Dificult;
 		MenuPpal.SetActive (false);
 		MainLoadPart.SetActive (true);
-		//objectExit.SetActive (false);
+
+		//Primer Partida
+		Gamestate.EstadoJuego.NumberSavegame = 1;
+		Gamestate.EstadoJuego.LoadGame ();
+		UpdatePreview ();
 
 	}
 
@@ -83,9 +79,8 @@ public class MainMenu : MonoBehaviour {
 	{
 		MenuPpal.SetActive (false);
 		MainOption.SetActive (true);
-		//objectExit.SetActive (false);
-		Gamestate.EstadoJuego.LastDificult=Gamestate.EstadoJuego.Dificult;
 
+		Gamestate.EstadoJuego.LastDificult=Gamestate.EstadoJuego.Dificult;
 	}
 
 
@@ -109,16 +104,12 @@ public class MainMenu : MonoBehaviour {
 		loadstate ();
 		Gamestate.EstadoJuego.defaultValGame();
 
-
 	}
 
 
 	public void PressBtnMenuExExit()
 	{
-		//Time.timeScale = 0;
 		Application.Quit();
-
-
 	}
 
 
@@ -131,7 +122,9 @@ public class MainMenu : MonoBehaviour {
 
 		Gamestate.EstadoJuego.VolumeSet = SliVol.value;
 		Gamestate.EstadoJuego.LightSet= Slilight.value;
-		Gamestate.EstadoJuego.Dificult=Mathf.FloorToInt( SliDificult.value);
+		Gamestate.EstadoJuego.Dificult=Mathf.FloorToInt(SliDificult.value);
+		Gamestate.EstadoJuego.LastDificult=Gamestate.EstadoJuego.Dificult;
+
 		Gamestate.EstadoJuego.SaveOptions();
 
 		loadstate ();
@@ -145,8 +138,9 @@ public class MainMenu : MonoBehaviour {
 
 	public void PressBtnMenuStartPart()
 	{
+		SceneManager.LoadScene("Level_"+ Gamestate.EstadoJuego.GameLevel);
 		//Application.LoadLevel ("Level_"+ Gamestate.EstadoJuego.GameLevel);
-		Application.LoadLevel ("InGame");
+		//Application.LoadLevel ("InGame");
 
 	}
 
@@ -158,22 +152,24 @@ public class MainMenu : MonoBehaviour {
 		Credits.SetActive (true);
 
 		Time.timeScale = 0;
-
 	
 	}
 
 
 	void loadstate()
 	{
-
+		
 		SliVol.value = Gamestate.EstadoJuego.VolumeSet;
 		Slilight.value = Gamestate.EstadoJuego.LightSet;
 		SliDificult.value = Gamestate.EstadoJuego.Dificult; 
 		updateDificult ();
 
-	TextValorVol.text = Mathf.Round( SliVol.value*100).ToString();
-	TextValorLight.text = Mathf.Round(Slilight.value).ToString();
-	AudioListener.volume = SliVol.value;
+		TextValorVol.text = Mathf.Round( SliVol.value*100).ToString();
+		TextValorLight.text = Mathf.Round(Slilight.value).ToString();
+		AudioListener.volume = SliVol.value;
+
+		//	print(Gamestate.EstadoJuego.LightSet.ToString());
+		MainlLight.intensity = Gamestate.EstadoJuego.LightSet/14;
 
 	}
 
@@ -189,7 +185,7 @@ public class MainMenu : MonoBehaviour {
 	public void updateLight()
 	{
 		TextValorLight.text = Mathf.Round(Slilight.value).ToString();
-
+		MainlLight.intensity = Slilight.value / 14;
 	}
 
 	public void updateDificult()
@@ -209,21 +205,31 @@ public class MainMenu : MonoBehaviour {
 
 	}
 
-
-	public void GuadarJuego()
+	public void GuadarJuego3()
 	{
-		Gamestate.EstadoJuego.NumberSavegame = 2;
+		Gamestate.EstadoJuego.NumberSavegame = 3;
 
-		Gamestate.EstadoJuego.health = 40;
-		Gamestate.EstadoJuego.mana = 20;
-		Gamestate.EstadoJuego.Dificult= 0;
-			
+		Gamestate.EstadoJuego.health = 70;
+		Gamestate.EstadoJuego.mana = 60;
+		Gamestate.EstadoJuego.Dificult= 2;
+
+		Gamestate.EstadoJuego.Medicine = 3;
+		Gamestate.EstadoJuego.Admo= 333;
+		Gamestate.EstadoJuego.Trident=false;
+		Gamestate.EstadoJuego.Points=3333;
+
+		Gamestate.EstadoJuego.GameLevel=3;
+		Gamestate.EstadoJuego.Checkpoint=3;
+		Gamestate.EstadoJuego.UserLevel=3;
 
 		Gamestate.EstadoJuego.SaveGame ();
+
 	}
+
 
 	public void PreviewGame1()
 	{
+		//Btnprevi1.selec;
 		Gamestate.EstadoJuego.NumberSavegame = 1;
 		Gamestate.EstadoJuego.LoadGame ();
 		UpdatePreview ();
@@ -248,11 +254,11 @@ public class MainMenu : MonoBehaviour {
 	public void UpdatePreview()
 	{
 		if (Gamestate.EstadoJuego.NumberSavegame != 0) {
-			PreviewPart.text = "Partida " + Gamestate.EstadoJuego.NumberSavegame + " Dificult: " + Gamestate.EstadoJuego.Dificult + " Salud: " + Gamestate.EstadoJuego.health+" Mana: " + Gamestate.EstadoJuego.mana;
+			PreviewPart.text = "Partida " + Gamestate.EstadoJuego.NumberSavegame + "\nDificult: " + Gamestate.EstadoJuego.Dificult + ";   Nivel: " + Gamestate.EstadoJuego.GameLevel + ";   Player Rank: " + Gamestate.EstadoJuego.UserLevel;
 		}else
 		{
 			PreviewPart.text = "No Existe Partida Guardada en este Slot";
-			}
+		}
 	}
 
 }

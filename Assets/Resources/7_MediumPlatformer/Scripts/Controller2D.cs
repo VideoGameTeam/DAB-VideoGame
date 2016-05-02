@@ -10,10 +10,13 @@ public class Controller2D : RaycastController {
 	[HideInInspector]
 	public Vector2 playerInput;
 
+	float trapDamageDelay = 3;
+	float trapWaitingTime = 0;
+
+
 	public override void Start() {
 		base.Start ();
-		collisions.faceDir = 1;
-
+		collisions.faceDir = 1;	
 	}
 
 	public void Move(Vector3 velocity, bool standingOnPlatform) {
@@ -45,6 +48,90 @@ public class Controller2D : RaycastController {
 			collisions.below = true;
 		}
 	}
+		
+
+	void DetectElement(Vector2 rayOrigin, Vector2 target, float rayLength){
+
+
+
+		//Detect Ammo
+		RaycastHit2D hit = Physics2D.Raycast(rayOrigin,target, rayLength,collisionMask[1]);
+		if (hit) {
+			Gamestate.EstadoJuego.Admo += 10;
+			hit.collider.gameObject.SetActive (false);
+		}
+
+		//Detect FirstAid
+		hit = Physics2D.Raycast(rayOrigin,target, rayLength,collisionMask[2]);
+		if (hit) {
+			Gamestate.EstadoJuego.Medicine += 1;
+			hit.collider.gameObject.SetActive (false);
+		}
+
+
+		//Detect Death Zone
+		hit = Physics2D.Raycast(rayOrigin,target, rayLength,collisionMask[3]);
+		if (hit) {
+			print ("muerto");
+			Gamestate.EstadoJuego.health = 0;
+		}
+		//Actualizr interfaz	
+		GameObject.Find ("PlayerStatus").SendMessage ("UpdateScreen");
+
+
+	} 
+
+	void DetectTrap(RaycastHit2D hit){
+		collisions.inTrap = false;
+
+
+		//Magma Trap 
+			if(hit.collider.CompareTag("MagmaTrap")){
+			collisions.inTrap = true;
+				if (trapWaitingTime >= trapDamageDelay) {
+					trapWaitingTime = 0;
+				Gamestate.EstadoJuego.ChangeHealth (-5 + 2*(2 - Gamestate.EstadoJuego.Dificult));
+					//Gamestate.EstadoJuego.health -= Gamestate.EstadoJuego.Dificult * 10;
+				} else {
+					trapWaitingTime += Time.deltaTime; 
+				}
+			}
+
+		//Poison Trap 
+		if(hit.collider.CompareTag("PoisonTrap")){
+			collisions.inTrap = true;
+			if (trapWaitingTime >= trapDamageDelay) {
+				trapWaitingTime = 0;
+				Gamestate.EstadoJuego.ChangeHealth (-7 + 2*(2 - Gamestate.EstadoJuego.Dificult));
+			} else {
+				trapWaitingTime += Time.deltaTime; 
+			}
+		}
+
+		//Water Trap 
+		if(hit.collider.CompareTag("WaterTrap")){
+			collisions.inTrap = true;
+			if (trapWaitingTime >= trapDamageDelay) {
+				trapWaitingTime = 0;
+				Gamestate.EstadoJuego.ChangeHealth (-3 + 2*(2 - Gamestate.EstadoJuego.Dificult));
+			} else {
+				trapWaitingTime += Time.deltaTime; 
+			}
+		}
+
+		//Energy Trap 
+		if(hit.collider.CompareTag("EnergyTrap")){
+			collisions.inTrap = true;
+			if (trapWaitingTime >= trapDamageDelay) {
+				trapWaitingTime = 0;
+				Gamestate.EstadoJuego.ChangeHealth (-4 + 2*(2 - Gamestate.EstadoJuego.Dificult));
+			} else {
+				trapWaitingTime += Time.deltaTime; 
+			}
+		}
+
+		
+	}
 
 	void HorizontalCollisions(ref Vector3 velocity) {
 		float directionX = collisions.faceDir;
@@ -57,15 +144,19 @@ public class Controller2D : RaycastController {
 		for (int i = 0; i < horizontalRayCount; i ++) {
 			Vector2 rayOrigin = (directionX == -1)?raycastOrigins.bottomLeft:raycastOrigins.bottomRight;
 			rayOrigin += Vector2.up * (horizontalRaySpacing * i);
-			RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionMask);
+			RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionMask[0]);
 
 			Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLength,Color.red);
 
-			if (hit) {
+			DetectElement (rayOrigin, Vector2.right * directionX, rayLength);
 
+			if (hit) {
+				
 				if (hit.distance == 0) {
 					continue;
 				}
+
+				DetectTrap (hit);
 
 				float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 
@@ -106,11 +197,16 @@ public class Controller2D : RaycastController {
 
 			Vector2 rayOrigin = (directionY == -1)?raycastOrigins.bottomLeft:raycastOrigins.topLeft;
 			rayOrigin += Vector2.right * (verticalRaySpacing * i + velocity.x);
-			RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, collisionMask);
+			RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, collisionMask[0]);
+
+			DetectElement (rayOrigin, Vector2.up * directionY, rayLength);
 
 			Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLength,Color.red);
 
 			if (hit) {
+				
+				DetectTrap (hit);
+
 				if (hit.collider.tag == "Through") {
 					if (directionY == 1 || hit.distance == 0) {
 						continue;
@@ -141,7 +237,7 @@ public class Controller2D : RaycastController {
 			float directionX = Mathf.Sign(velocity.x);
 			rayLength = Mathf.Abs(velocity.x) + skinWidth;
 			Vector2 rayOrigin = ((directionX == -1)?raycastOrigins.bottomLeft:raycastOrigins.bottomRight) + Vector2.up * velocity.y;
-			RaycastHit2D hit = Physics2D.Raycast(rayOrigin,Vector2.right * directionX,rayLength,collisionMask);
+			RaycastHit2D hit = Physics2D.Raycast(rayOrigin,Vector2.right * directionX,rayLength,collisionMask[0]);
 
 			if (hit) {
 				float slopeAngle = Vector2.Angle(hit.normal,Vector2.up);
@@ -169,7 +265,7 @@ public class Controller2D : RaycastController {
 	void DescendSlope(ref Vector3 velocity) {
 		float directionX = Mathf.Sign (velocity.x);
 		Vector2 rayOrigin = (directionX == -1) ? raycastOrigins.bottomRight : raycastOrigins.bottomLeft;
-		RaycastHit2D hit = Physics2D.Raycast (rayOrigin, -Vector2.up, Mathf.Infinity, collisionMask);
+		RaycastHit2D hit = Physics2D.Raycast (rayOrigin, -Vector2.up, Mathf.Infinity, collisionMask[0]);
 
 		if (hit) {
 			float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
@@ -204,6 +300,9 @@ public class Controller2D : RaycastController {
 		public Vector3 velocityOld;
 		public int faceDir;
 		public bool fallingThroughPlatform;
+
+		public bool inTrap;
+
 
 		public void Reset() {
 			above = below = false;
