@@ -1229,7 +1229,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1237,8 +1237,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 10000
-  field of view: 30
+  far clip plane: 8500
+  field of view: 29
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -1344,8 +1344,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionMask:
-    serializedVersion: 2
+  - serializedVersion: 2
     m_Bits: 256
+  - serializedVersion: 2
+    m_Bits: 32768
+  - serializedVersion: 2
+    m_Bits: 65536
+  - serializedVersion: 2
+    m_Bits: 4096
   horizontalRayCount: 20
   verticalRayCount: 20
   horizontalRaySpacing: 0
@@ -1367,11 +1373,12 @@ MonoBehaviour:
   minJumpHeight: 1
   timeToJumpApex: 0.4
   moveSpeed: 80
-  wallJumpClimb: {x: 7.5, y: 250}
+  wallJumpClimb: {x: 7.5, y: 170}
   wallJumpOff: {x: 100, y: 100}
-  wallLeap: {x: 250, y: 250}
-  wallSlideSpeedMax: 10
+  wallLeap: {x: 100, y: 250}
+  wallSlideSpeedMax: 4
   wallStickTime: 0.25
+  animSprint: {fileID: 11100000, guid: e4a00a4129fdc404faf634c619700370, type: 3}
 --- !u!124 &12453578
 Behaviour:
   m_ObjectHideFlags: 1

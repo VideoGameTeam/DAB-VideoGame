@@ -408,7 +408,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 481300, guid: 9b18ba32c8be25b4fb118d288cfdc43b, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 101948, guid: 9b18ba32c8be25b4fb118d288cfdc43b, type: 2}
       propertyPath: m_Name
@@ -4901,22 +4901,6 @@ Prefab:
     - target: {fileID: 435202, guid: 62cbf1fe9f34e42e3ad0d6bb0017eb8e, type: 2}
       propertyPath: m_RootOrder
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 21898044, guid: 62cbf1fe9f34e42e3ad0d6bb0017eb8e, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 124464, guid: 62cbf1fe9f34e42e3ad0d6bb0017eb8e, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 18298440, guid: 62cbf1fe9f34e42e3ad0d6bb0017eb8e, type: 2}
-      propertyPath: m_WindTurbulence
-      value: 19
-      objectReference: {fileID: 0}
-    - target: {fileID: 18298440, guid: 62cbf1fe9f34e42e3ad0d6bb0017eb8e, type: 2}
-      propertyPath: m_WindPulseMagnitude
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62cbf1fe9f34e42e3ad0d6bb0017eb8e, type: 2}
