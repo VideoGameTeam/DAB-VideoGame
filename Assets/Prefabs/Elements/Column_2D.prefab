@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 459050}
   - 61: {fileID: 6121738}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Column_2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,9 +40,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178482}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.3697468, w: 0.9291326}
+  m_LocalPosition: {x: 24.039, y: 90.624, z: -1173.4}
+  m_LocalScale: {x: 10.3276615, y: 16.346502, z: 10.327651}
   m_Children:
   - {fileID: 496436}
   m_Father: {fileID: 0}
