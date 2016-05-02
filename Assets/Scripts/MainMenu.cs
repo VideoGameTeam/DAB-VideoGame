@@ -21,6 +21,8 @@ public class MainMenu : MonoBehaviour {
 
 	private Light MainlLight;
 
+	public Button Btnprevi1;
+
 	void Awake()
 	{
 		MainlLight = (Light)FindObjectOfType (typeof(Light));
@@ -37,7 +39,18 @@ public class MainMenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+		if (Input.GetKeyDown (KeyCode.Escape) ){
+			MainOption.SetActive (false);
+			MainExit.SetActive (false);
+			MainLoadPart.SetActive (false);
+			Credits.SetActive (false);
+			MenuPpal.SetActive(true);
+			Time.timeScale = 1;
+			loadstate ();
+
+		} 
+
 	}
 
 	public void PressBtnNewGame()
@@ -216,6 +229,7 @@ public class MainMenu : MonoBehaviour {
 
 	public void PreviewGame1()
 	{
+		//Btnprevi1.selec;
 		Gamestate.EstadoJuego.NumberSavegame = 1;
 		Gamestate.EstadoJuego.LoadGame ();
 		UpdatePreview ();
