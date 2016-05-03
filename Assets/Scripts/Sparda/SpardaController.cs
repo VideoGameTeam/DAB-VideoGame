@@ -79,6 +79,7 @@ public class SpardaController : MonoBehaviour {
             }
             else
             {
+                // TODO Fix error with rotation of the GunCenter, why is failing?
                 var sign = Mathf.Sign(myTransform.position.x - enemyTarget.position.x);
                 Vector2 enemyPosition = enemyTarget.position;
                 gunRotationAngle = sign * Vector2.Angle(originalPosition, enemyPosition);

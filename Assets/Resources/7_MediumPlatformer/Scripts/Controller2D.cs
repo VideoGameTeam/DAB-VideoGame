@@ -52,8 +52,6 @@ public class Controller2D : RaycastController {
 
 	void DetectElement(Vector2 rayOrigin, Vector2 target, float rayLength){
 
-
-
 		//Detect Ammo
 		RaycastHit2D hit = Physics2D.Raycast(rayOrigin,target, rayLength,collisionMask[1]);
 		if (hit) {
