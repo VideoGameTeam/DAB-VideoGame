@@ -23,6 +23,7 @@ public class PlayerStatus : MonoBehaviour {
 	public GameObject PopSave;
 
 	public Text TxtGameover;
+	public Text TxtMsg;
 
 	private float timeh=0;
 	private float timeOver=0;
@@ -119,6 +120,12 @@ public class PlayerStatus : MonoBehaviour {
 		}
 
 	}
+
+	public void ShowMessage ()
+	{
+		TxtMsg.text = Gamestate.EstadoJuego.showmsg;
+	}
+
 
 	public void TolastCheckpoin ()
 	{

@@ -72,6 +72,10 @@ public class PauseMenu : MonoBehaviour {
 		//GameObject.Find ("PlayerStatus").SendMessage ("FinishLevel"); 
 		Gamestate.EstadoJuego.ChangeHealth(-20);
 		Gamestate.EstadoJuego.ChangeMana(+20);
+		//PlayerStatus.StatePlayer.FinishLevel ();
+
+		Gamestate.EstadoJuego.ChangeMsg("Hola", 3);
+
 	}
 
 

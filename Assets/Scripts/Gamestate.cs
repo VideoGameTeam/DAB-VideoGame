@@ -33,11 +33,12 @@ public class Gamestate : MonoBehaviour {
 	public bool Trident;
 	public int Points;
 	public int UserLevel;
+	public string showmsg = "";
 
+	private int HealthMod=0;
+	private int ManaMod=0;
+	private float tempmsg=0;
 
-
-	private float HealthMod=0;
-	private float ManaMod=0;
 
 	void Awake()
 	{
@@ -100,18 +101,34 @@ public class Gamestate : MonoBehaviour {
 			GameObject.Find ("PlayerStatus").SendMessage ("UpdateScreen");
 		}
 
+		if (tempmsg > 0) {
+			tempmsg = tempmsg - Time.deltaTime;
+			GameObject.Find ("PlayerStatus").SendMessage ("ShowMessage");
+		} else {
+			tempmsg = 0;
+			showmsg = "";
+			GameObject.Find ("PlayerStatus").SendMessage ("ShowMessage");
+		}
+
 
 	}
 
-	public void ChangeHealth(float value)
+	public void ChangeHealth(int value)
 	{
 		HealthMod = value;
 	}
 
 
-	public void ChangeMana(float value)
+	public void ChangeMana(int value)
 	{
 		ManaMod = value;
+	}
+
+	public void ChangeMsg(string msg, float temp)
+	{
+		tempmsg = temp;
+		showmsg = msg;
+
 	}
 
 	public void FindSavefile()
