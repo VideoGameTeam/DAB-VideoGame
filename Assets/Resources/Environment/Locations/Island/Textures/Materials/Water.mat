@@ -225,7 +225,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 0}
+        second: {r: 0.375, g: 0.586207, b: 1, a: 0}
       data:
         first:
           name: _emmis
