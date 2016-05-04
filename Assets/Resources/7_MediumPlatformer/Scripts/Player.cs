@@ -9,7 +9,9 @@ public class Player : MonoBehaviour {
 	public float timeToJumpApex = .4f;
 	float accelerationTimeAirborne = .2f;
 	float accelerationTimeGrounded = .1f;
-	public float moveSpeed = 6;
+	public float moveSpeed;
+
+	float originalMoveSpeed;
     
 	public Vector2 wallJumpClimb;
 	public Vector2 wallJumpOff;
@@ -53,6 +55,7 @@ public class Player : MonoBehaviour {
 	public Animation animSprint;
 
     void Start() {
+		originalMoveSpeed = moveSpeed;
 		controller = GetComponent<Controller2D> ();
 		forward = true;
 		animTransform = FindTransform ("Human");
@@ -207,9 +210,9 @@ public class Player : MonoBehaviour {
 	void Sprinting () {
 		if( input.x !=0 && !(controller.collisions.left || controller.collisions.right) && !Input.GetButton("Walk")) {
 			sprint = Mathf.Abs (input.x);
-			moveSpeed = 90;
+			moveSpeed = originalMoveSpeed;
 			if (controller.collisions.inTrap) {
-				moveSpeed = 40;
+				moveSpeed = originalMoveSpeed / 2;
 			}
 		}
 		else {
@@ -240,7 +243,7 @@ public class Player : MonoBehaviour {
 		if (Input.GetButton("Walk") && controller.collisions.below && Input.GetButton("Horizontal")) {
 			walk = 0.2F;
 			sprint = 0.0F;
-			moveSpeed = 30;
+			moveSpeed = originalMoveSpeed/3;
 		} else {
 			walk = 0.0F;
 		}
