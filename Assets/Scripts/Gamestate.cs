@@ -103,12 +103,12 @@ public class Gamestate : MonoBehaviour {
 
 		if (tempmsg > 0) {
 			tempmsg = tempmsg - Time.deltaTime;
+			if (tempmsg <= 0) {
+				tempmsg = 0;
+				showmsg = "";
+			}
 			GameObject.Find ("PlayerStatus").SendMessage ("ShowMessage");
-		} else {
-			tempmsg = 0;
-			showmsg = "";
-			GameObject.Find ("PlayerStatus").SendMessage ("ShowMessage");
-		}
+		} 
 
 
 	}

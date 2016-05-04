@@ -57,7 +57,7 @@ public class MainMenu : MonoBehaviour {
 	{
 		Gamestate.EstadoJuego.defaultValGame ();
 		Time.timeScale = 1;
-		SceneManager.LoadScene("Level_1");
+		SceneManager.LoadScene("Intro");
 		//Application.LoadLevel ("Level_1");
 	}
 
