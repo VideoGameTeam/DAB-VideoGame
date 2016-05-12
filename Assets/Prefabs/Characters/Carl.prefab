@@ -580,6 +580,7 @@ GameObject:
   - 61: {fileID: 6101268}
   - 114: {fileID: 11454536}
   - 114: {fileID: 11458052}
+  - 50: {fileID: 5060110}
   m_Layer: 9
   m_Name: Carl
   m_TagString: Player
@@ -839,7 +840,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163496}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 8.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 458810}
@@ -1200,8 +1201,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 189442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1693.9, y: 35, z: -1190.5}
-  m_LocalScale: {x: 19.639893, y: 19.639896, z: 19.639896}
+  m_LocalPosition: {x: 15.45, y: -5.83, z: -0.44}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 458810}
   - {fileID: 491118}
@@ -1229,7 +1230,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0.019607844}
+  m_BackGroundColor: {r: 0.31617647, g: 0.31617647, b: 0.31617647, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1287,6 +1288,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 189442}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!50 &5060110
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189442}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &6101268
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1369,13 +1387,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1513bc1cf2d524d71872636d55aac61b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxJumpHeight: 50
+  maxJumpHeight: 2
   minJumpHeight: 1
   timeToJumpApex: 0.4
-  moveSpeed: 80
-  wallJumpClimb: {x: 7.5, y: 170}
-  wallJumpOff: {x: 100, y: 100}
-  wallLeap: {x: 100, y: 250}
+  moveSpeed: 6
+  wallJumpClimb: {x: 7.5, y: 10}
+  wallJumpOff: {x: 10, y: 10}
+  wallLeap: {x: 10, y: 20}
   wallSlideSpeedMax: 4
   wallStickTime: 0.25
   animSprint: {fileID: 11100000, guid: e4a00a4129fdc404faf634c619700370, type: 3}
