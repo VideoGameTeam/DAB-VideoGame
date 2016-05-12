@@ -22,10 +22,19 @@ public class SpardaController : MonoBehaviour {
     public Transform enemyTarget;
     public Transform myTransform;
 
-    public Vector2 originalPosition;
     private LayerMask playerLayerMask;
     private Transform gunCenter;
     private Transform gun;
+
+    // Calculate monster - player rotation variables
+    Vector3 originalPosition;
+    Vector3 targetPosition;
+    Vector3 _targetPosition;
+    float temporal_y;
+    float base_rot;
+    float sign;
+    Quaternion _lookRotation;
+    Vector3 eulerRotation;
 
     // Shoot variables
     public float cadence;
@@ -79,12 +88,28 @@ public class SpardaController : MonoBehaviour {
             }
             else
             {
-                // TODO Fix error with rotation of the GunCenter, why is failing?
-                var sign = Mathf.Sign(myTransform.position.x - enemyTarget.position.x);
-                Vector2 enemyPosition = enemyTarget.position;
-                gunRotationAngle = sign * Vector2.Angle(originalPosition, enemyPosition);
-                gunRotation = Quaternion.Euler(gunCenter.rotation.x, gunCenter.rotation.y, gunRotationAngle);
-                gunCenter.localRotation = gunRotation;
+                originalPosition = gunCenter.position;
+                targetPosition = enemyTarget.position;
+                _targetPosition = targetPosition - originalPosition;
+                temporal_y = gunCenter.rotation.eulerAngles.y;
+                base_rot = 90.0f;
+                sign = -1;
+
+                _targetPosition.z = originalPosition.z;
+                _lookRotation = Quaternion.LookRotation(_targetPosition.normalized);
+                eulerRotation = _lookRotation.eulerAngles;
+
+                if (targetPosition.x - originalPosition.x > 0)
+                {
+                    base_rot = -90.0f;
+                    sign = 1;
+                }
+                
+                gunCenter.rotation = Quaternion.Euler(
+                    eulerRotation.z,
+                    temporal_y,
+                    base_rot + (eulerRotation.x * -sign)
+                );
 
                 if (!shootingStarted)
                 {
@@ -99,8 +124,6 @@ public class SpardaController : MonoBehaviour {
         }
 
         SetAnimationController(monsterState);
-
-
     }
 
     public void ReceiveDamage(float damage)

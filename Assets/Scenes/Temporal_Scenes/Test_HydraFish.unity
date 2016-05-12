@@ -369,7 +369,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1231309119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.48, y: 6.04, z: 0}
+  m_LocalPosition: {x: 17.86, y: 7.69, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -526,7 +526,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11437504, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
       propertyPath: radius
-      value: 8
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 11437504, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
       propertyPath: Velocity.x
@@ -546,11 +546,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11437504, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
       propertyPath: AttackDistance
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11437504, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
       propertyPath: attackTime
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11437504, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
+      propertyPath: maxFollowDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 11437504, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
+      propertyPath: stoppingDistance
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11151762, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}

@@ -7,7 +7,8 @@ public class PezHydraController : MonoBehaviour
     public float Health;
 
     private Transform myTransform;
-	public Transform targetTransform;
+	private Transform targetTransform;
+    private Vector3 originalPosition;
 	private LayerMask raycastLayer;
 	public float radius = 10;
 	private float originTime = .0f;
@@ -24,6 +25,9 @@ public class PezHydraController : MonoBehaviour
     public Vector2 MonsterInput;
     public float AttackDistance;
     public float moveSpeed;
+    public float maxFollowDistance;
+    public float stoppingDistance;
+    private bool goingBack;
     float velocityXSmoothing;
     float jump;
     private float lastAttackTime;
@@ -36,6 +40,7 @@ public class PezHydraController : MonoBehaviour
 	void Start () 
 	{
 		myTransform = transform;
+        originalPosition = myTransform.position;
 		raycastLayer = 1 << LayerMask.NameToLayer("Player");
 
         controller = GetComponent<PezHydra2D>();
@@ -46,9 +51,17 @@ public class PezHydraController : MonoBehaviour
 		StartCoroutine(DoCheck());
 	}
 
+    void Update()
+    {
+        if(targetTransform != null)
+        {
+            MoveToTarget();
+        }
+    }
+
 	void SearchForTarget()
 	{
-		if (targetTransform == null)
+        if (targetTransform == null)
 		{
 			Collider2D hitCollider = Physics2D.OverlapCircle(myTransform.position, radius, raycastLayer);
 
@@ -65,14 +78,13 @@ public class PezHydraController : MonoBehaviour
 	{
 		if (targetTransform != null)
 		{
-			SetNavDestination(targetTransform);
+			SetNavDestination(targetTransform.position);
 		}
 	}
 
-    void SetNavDestination(Transform dest)
+    void SetNavDestination(Vector3 targetPosition)
     {
         Vector2 myPosition = myTransform.position;
-        Vector2 targetPosition = dest.position;
 
         if (Mathf.Abs(targetPosition.y - myPosition.y) > 2)
         {
@@ -80,7 +92,14 @@ public class PezHydraController : MonoBehaviour
             return;
         }
 
-        if (Vector2.Distance(myPosition, targetPosition) < AttackDistance)
+        if (targetTransform == null && Mathf.Abs(Vector3.Distance(myPosition, targetPosition)) <= stoppingDistance)
+        {
+            goingBack = false;
+            print("No need to move");
+            return;
+        }
+
+        if (targetTransform != null && Vector2.Distance(myPosition, targetPosition) < AttackDistance)
         {
             AttackTarget();
             return;
@@ -90,14 +109,18 @@ public class PezHydraController : MonoBehaviour
         anim.CrossFade("Walk");
 
         // TODO Set rotation based on MonsterInput
+        print(myPosition.x);
+        print(targetPosition.x);
         if (myPosition.x - targetPosition.x < 0)
         {
-            MonsterInput.x = 1;
+            modelGO.transform.Rotate(0, 180, 0);
+            MonsterInput.x = 0.5f;
             MonsterInput.y = 0;
         }
         else
         {
-            MonsterInput.x = -1;
+            modelGO.transform.Rotate(0, 180, 0);
+            MonsterInput.x = -0.5f;
             MonsterInput.y = 0;
         }
 
@@ -108,6 +131,7 @@ public class PezHydraController : MonoBehaviour
         bool wallSliding = false;
         if ((controller.collisions.left || controller.collisions.right) && !controller.collisions.below && velocity.y < 0)
         {
+            print("wall sliding?");
             wallSliding = true;
 
             if (velocity.y < -wallSlideSpeedMax)
@@ -133,7 +157,6 @@ public class PezHydraController : MonoBehaviour
                 jump = 0.2F;
             }
         }
-
         controller.Move(velocity, MonsterInput);
     }
 
@@ -164,19 +187,30 @@ public class PezHydraController : MonoBehaviour
 
 	IEnumerator DoCheck()
 	{
-        // TODO Optimize iteration, move every frame but chase only certain frames
         for (;;)
 		{
-			yield return new WaitForSeconds(0.02f);
-			if (targetTransform != null)
-			{
-				if (Time.time - originTime >= followTime)
-				{
-					targetTransform = null;
-				}
-			}
-			SearchForTarget();
-			MoveToTarget();
+			yield return new WaitForSeconds(1.0f);
+            bool checkIfTarget = false;
+
+            if (Mathf.Abs(Vector3.Distance(originalPosition, myTransform.position)) >= maxFollowDistance)
+            {
+                targetTransform = null;
+                velocity = new Vector3(0, 0, 0);
+                goingBack = true;
+            } else
+            {
+                checkIfTarget = true;
+            }
+
+            if (checkIfTarget && !goingBack)
+            {
+                SearchForTarget();
+            }
+            else
+            {
+                print("Paso por aca");
+                SetNavDestination(originalPosition);
+            }
 		}
 	}
 
