@@ -154,7 +154,7 @@ public class Controller2D : RaycastController {
 					continue;
 				}
 
-				DetectTrap (hit);
+				//DetectTrap (hit);
 
 				float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 
