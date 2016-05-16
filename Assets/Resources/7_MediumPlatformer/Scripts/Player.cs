@@ -43,6 +43,7 @@ public class Player : MonoBehaviour {
 	float wall;
 	float fall;
 	float stick;
+	float shoot;
 
 
 	bool forward;
@@ -86,6 +87,7 @@ public class Player : MonoBehaviour {
 			JumpingWall ();
 		}
 		Falling ();
+		Shooting ();
 
 
 
@@ -182,6 +184,7 @@ public class Player : MonoBehaviour {
 		anim.SetFloat ("Wall", wall);
 		anim.SetFloat ("Fall",fall);
 		anim.SetFloat ("Stick", stick);
+		anim.SetFloat ("Shoot", shoot);
 
 		animTransform.rotation = currentRotation;	
 		animTransform.localPosition = Vector3.zero * Time.deltaTime;
@@ -199,6 +202,15 @@ public class Player : MonoBehaviour {
 		return null;
 	}
 
+	void Shooting(){
+		if (Input.GetButton ("Fire1")) {
+			shoot = 0.2F;
+			moveSpeed = 0.0F;
+		} else {
+			shoot = 0.0F;
+		}
+	}
+
 	void Falling(){
 		if (!controller.collisions.below) {
 			fall = 0.1F;
@@ -208,7 +220,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void Sprinting () {
-		if( input.x !=0 && !(controller.collisions.left || controller.collisions.right) && !Input.GetButton("Walk")) {
+		if( input.x !=0 && !(controller.collisions.left || controller.collisions.right) && !Input.GetButton("Walk") && shoot == 0.0F) {
 			sprint = Mathf.Abs (input.x);
 			moveSpeed = originalMoveSpeed;
 			if (controller.collisions.inTrap) {
@@ -240,7 +252,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void Walking(){
-		if (Input.GetButton("Walk") && controller.collisions.below && Input.GetButton("Horizontal")) {
+		if (Input.GetButton("Walk") && controller.collisions.below && Input.GetButton("Horizontal") && shoot == 0.0F) {
 			walk = 0.2F;
 			sprint = 0.0F;
 			moveSpeed = originalMoveSpeed/3;
