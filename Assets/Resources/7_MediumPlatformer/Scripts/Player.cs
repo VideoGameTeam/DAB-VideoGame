@@ -218,6 +218,7 @@ public class Player : MonoBehaviour {
 
 			fireCadence -=Time.deltaTime;
 			if (fireCadence <= 0) {
+				
 				GameObject bullet = Instantiate (shootPrefab, shootTransform.position, Quaternion.identity) as GameObject;
 				fireCadence = 0.5F;
 			}
