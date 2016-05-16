@@ -55,6 +55,7 @@ public class Player : MonoBehaviour {
 	float playerDir;
 
 	float medicineDelay =0;
+	float fireCadence =0;
 
 	Transform animTransform;
 	Transform shootTransform;
@@ -214,7 +215,13 @@ public class Player : MonoBehaviour {
 		if (Input.GetButton ("Fire1")) {
 			shoot = 0.2F;
 			moveSpeed = 0.0F;
-			GameObject bullet = Instantiate (shootPrefab, shootTransform.position, Quaternion.identity) as GameObject;
+
+			fireCadence -=Time.deltaTime;
+			if (fireCadence <= 0) {
+				GameObject bullet = Instantiate (shootPrefab, shootTransform.position, Quaternion.identity) as GameObject;
+				fireCadence = 0.5F;
+			}
+
 		} else {
 			shoot = 0.0F;
 		}

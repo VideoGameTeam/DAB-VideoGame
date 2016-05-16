@@ -3,8 +3,10 @@ using System.Collections;
 
 public class BulletMovement : MonoBehaviour {
 	public float bulletSpeed;
+	float duration = 5;
 
 	Vector3 direction;
+
 	
 	void Start () {
 		/*
@@ -28,5 +30,12 @@ public class BulletMovement : MonoBehaviour {
 		Vector3 dir = (Input.mousePosition - sp).normalized;
 		GetComponent<Rigidbody2D>().AddForce (dir * bulletSpeed);
 
+		StartCoroutine(WaitAndDestroy());
+	}
+
+
+	IEnumerator WaitAndDestroy(){
+		yield return new WaitForSeconds(5);	
+		Object.Destroy (this.gameObject);
 	}
 }
