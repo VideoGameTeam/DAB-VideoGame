@@ -46,12 +46,19 @@ public class Player : MonoBehaviour {
 	float shoot;
 
 
+	// Shoot variables
+	public float cadence;
+	public GameObject shootPrefab;
+
+
 	bool forward;
 	float playerDir;
 
 	float medicineDelay =0;
 
 	Transform animTransform;
+	Transform shootTransform;
+
 
 	public Animation animSprint;
 
@@ -60,6 +67,7 @@ public class Player : MonoBehaviour {
 		controller = GetComponent<Controller2D> ();
 		forward = true;
 		animTransform = FindTransform ("Human");
+		shootTransform = animTransform.Find("ShootSpawner");
 
 		if (animTransform != null) {
 			anim = animTransform.GetComponent<Animator> ();
@@ -206,6 +214,7 @@ public class Player : MonoBehaviour {
 		if (Input.GetButton ("Fire1")) {
 			shoot = 0.2F;
 			moveSpeed = 0.0F;
+			GameObject bullet = Instantiate (shootPrefab, shootTransform.position, Quaternion.identity) as GameObject;
 		} else {
 			shoot = 0.0F;
 		}

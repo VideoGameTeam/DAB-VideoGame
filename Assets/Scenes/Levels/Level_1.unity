@@ -1940,50 +1940,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2041210, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
-      propertyPath: far clip plane
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 11458052, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
-      propertyPath: moveSpeed
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 495448, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 495448, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 495448, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 11458052, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
-      propertyPath: maxJumpHeight
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 11458052, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
-      propertyPath: wallJumpClimb.y
-      value: 170
-      objectReference: {fileID: 0}
-    - target: {fileID: 11458052, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
-      propertyPath: wallJumpOff.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 11458052, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
-      propertyPath: wallJumpOff.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 11458052, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
-      propertyPath: wallLeap.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 11458052, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
-      propertyPath: wallLeap.y
-      value: 250
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
   m_IsPrefabParent: 0
@@ -6038,6 +5994,8 @@ MonoBehaviour:
   wallLeap: {x: 250, y: 250}
   wallSlideSpeedMax: 10
   wallStickTime: 0.25
+  cadence: 0
+  shootPrefab: {fileID: 0}
   animSprint: {fileID: 0}
 --- !u!114 &667356053
 MonoBehaviour:
@@ -7193,7 +7151,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22465060, guid: 8f5f7140ca06449499b8c2573c5ef40a, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 22465060, guid: 8f5f7140ca06449499b8c2573c5ef40a, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -11074,7 +11032,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 415020, guid: 2e0196f2f377e4c4383b4d4ad5ee256a, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6878690, guid: 2e0196f2f377e4c4383b4d4ad5ee256a, type: 2}
       propertyPath: m_Points.Array.data[126].x
@@ -22372,7 +22330,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 481300, guid: 9b18ba32c8be25b4fb118d288cfdc43b, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b18ba32c8be25b4fb118d288cfdc43b, type: 2}
