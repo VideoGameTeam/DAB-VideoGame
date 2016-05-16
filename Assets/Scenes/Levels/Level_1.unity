@@ -660,6 +660,10 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 455016, guid: 8b36be6608e1d4ff3be69b0f43d99ead, type: 2}
   m_PrefabInternal: {fileID: 1827382083}
+--- !u!4 &152222203 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 458810, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
+  m_PrefabInternal: {fileID: 708300844}
 --- !u!1 &154705330
 GameObject:
   m_ObjectHideFlags: 0
@@ -6672,6 +6676,33 @@ Transform:
   - {fileID: 2079316544}
   m_Father: {fileID: 798372688}
   m_RootOrder: 2
+--- !u!1 &864598706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 864598707}
+  m_Layer: 9
+  m_Name: Trident
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &864598707
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 864598706}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.391, y: 1.02, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1888830748}
+  m_RootOrder: 2
 --- !u!1001 &864693027
 Prefab:
   m_ObjectHideFlags: 0
@@ -7195,15 +7226,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22475406, guid: 8f5f7140ca06449499b8c2573c5ef40a, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 22475406, guid: 8f5f7140ca06449499b8c2573c5ef40a, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22447928, guid: 8f5f7140ca06449499b8c2573c5ef40a, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11472618, guid: 8f5f7140ca06449499b8c2573c5ef40a, type: 2}
       propertyPath: deltat
@@ -8252,6 +8283,60 @@ Tree:
   m_GameObject: {fileID: 1168482612}
   m_SpeedTreeWindAsset: {fileID: 0}
   m_TreeData: {fileID: 11483972, guid: a0a511126f5f6f4449ec80434dc3dfe8, type: 2}
+--- !u!1001 &1176772824
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 152222203}
+    m_Modifications:
+    - target: {fileID: 443566, guid: 3b8a7c28c90514f6f864f8584715916e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.022
+      objectReference: {fileID: 0}
+    - target: {fileID: 443566, guid: 3b8a7c28c90514f6f864f8584715916e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.831
+      objectReference: {fileID: 0}
+    - target: {fileID: 443566, guid: 3b8a7c28c90514f6f864f8584715916e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.054
+      objectReference: {fileID: 0}
+    - target: {fileID: 443566, guid: 3b8a7c28c90514f6f864f8584715916e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.3886955
+      objectReference: {fileID: 0}
+    - target: {fileID: 443566, guid: 3b8a7c28c90514f6f864f8584715916e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.6535991
+      objectReference: {fileID: 0}
+    - target: {fileID: 443566, guid: 3b8a7c28c90514f6f864f8584715916e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.5554717
+      objectReference: {fileID: 0}
+    - target: {fileID: 443566, guid: 3b8a7c28c90514f6f864f8584715916e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.33641523
+      objectReference: {fileID: 0}
+    - target: {fileID: 443566, guid: 3b8a7c28c90514f6f864f8584715916e, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 443566, guid: 3b8a7c28c90514f6f864f8584715916e, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.18390463
+      objectReference: {fileID: 0}
+    - target: {fileID: 443566, guid: 3b8a7c28c90514f6f864f8584715916e, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.18390465
+      objectReference: {fileID: 0}
+    - target: {fileID: 443566, guid: 3b8a7c28c90514f6f864f8584715916e, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.18390466
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3b8a7c28c90514f6f864f8584715916e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &1177441827 stripped
 Transform:
   m_PrefabParentObject: {fileID: 445158, guid: b9ac95d356d3c46ad82ddeaa39f2244c, type: 2}
@@ -21178,6 +21263,10 @@ Tree:
   m_GameObject: {fileID: 1874191053}
   m_SpeedTreeWindAsset: {fileID: 0}
   m_TreeData: {fileID: 11483972, guid: a0a511126f5f6f4449ec80434dc3dfe8, type: 2}
+--- !u!4 &1888830748 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 495448, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
+  m_PrefabInternal: {fileID: 708300844}
 --- !u!1 &1891338276
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,6 +44,7 @@ public class Player : MonoBehaviour {
 	float fall;
 	float stick;
 	float shoot;
+	float magic;
 
 
 	// Shoot variables
@@ -97,9 +98,6 @@ public class Player : MonoBehaviour {
 		}
 		Falling ();
 		Shooting ();
-
-
-
 
 		medicineDelay -= Time.deltaTime;
 		if (Input.GetButton ("FirstAid") && medicineDelay <=0) {
@@ -194,6 +192,7 @@ public class Player : MonoBehaviour {
 		anim.SetFloat ("Fall",fall);
 		anim.SetFloat ("Stick", stick);
 		anim.SetFloat ("Shoot", shoot);
+		anim.SetFloat ("Magic", magic);
 
 		animTransform.rotation = currentRotation;	
 		animTransform.localPosition = Vector3.zero * Time.deltaTime;
@@ -212,7 +211,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void Shooting(){
-		if (Input.GetButton ("Fire1") && (Gamestate.EstadoJuego.Admo > 0)) {
+		if (Input.GetButton ("Fire1") && (Gamestate.EstadoJuego.Admo > 0) &&(!Gamestate.EstadoJuego.Trident)&& !(controller.collisions.right || controller.collisions.left)){
 			
 			shoot = 0.2F;
 			moveSpeed = 0.0F;
@@ -224,8 +223,21 @@ public class Player : MonoBehaviour {
 				fireCadence = 0.5F;
 			}
 
-		} else {
+		}else if(Input.GetButton ("Fire1") && (Gamestate.EstadoJuego.mana > 0) &&(Gamestate.EstadoJuego.Trident) && !(controller.collisions.right || controller.collisions.left)){
+			magic = 0.2F;
+			moveSpeed = 0.0F;
+
+			fireCadence -=Time.deltaTime;
+			if (fireCadence <= 0) {
+				GameObject bullet = Instantiate (shootPrefab, shootTransform.position, Quaternion.identity) as GameObject;
+				Gamestate.EstadoJuego.mana -= 10;
+				fireCadence = 1.0F;
+			}
+
+		}
+		else {
 			shoot = 0.0F;
+			magic = 0.0F;
 		}
 	}
 
