@@ -212,14 +212,15 @@ public class Player : MonoBehaviour {
 	}
 
 	void Shooting(){
-		if (Input.GetButton ("Fire1")) {
+		if (Input.GetButton ("Fire1") && (Gamestate.EstadoJuego.Admo > 0)) {
+			
 			shoot = 0.2F;
 			moveSpeed = 0.0F;
 
 			fireCadence -=Time.deltaTime;
 			if (fireCadence <= 0) {
-				
 				GameObject bullet = Instantiate (shootPrefab, shootTransform.position, Quaternion.identity) as GameObject;
+				Gamestate.EstadoJuego.Admo -= 1;
 				fireCadence = 0.5F;
 			}
 
