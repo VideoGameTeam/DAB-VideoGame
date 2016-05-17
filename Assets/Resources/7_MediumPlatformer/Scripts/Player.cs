@@ -43,14 +43,24 @@ public class Player : MonoBehaviour {
 	float wall;
 	float fall;
 	float stick;
+	float shoot;
+	float magic;
+
+
+	// Shoot variables
+	public float cadence;
+	public GameObject shootPrefab;
 
 
 	bool forward;
 	float playerDir;
 
 	float medicineDelay =0;
+	float fireCadence =0;
 
 	Transform animTransform;
+	Transform shootTransform;
+
 
 	public Animation animSprint;
 
@@ -59,6 +69,7 @@ public class Player : MonoBehaviour {
 		controller = GetComponent<Controller2D> ();
 		forward = true;
 		animTransform = FindTransform ("Human");
+		shootTransform = animTransform.Find("ShootSpawner");
 
 		if (animTransform != null) {
 			anim = animTransform.GetComponent<Animator> ();
@@ -86,9 +97,7 @@ public class Player : MonoBehaviour {
 			JumpingWall ();
 		}
 		Falling ();
-
-
-
+		Shooting ();
 
 		medicineDelay -= Time.deltaTime;
 		if (Input.GetButton ("FirstAid") && medicineDelay <=0) {
@@ -182,6 +191,8 @@ public class Player : MonoBehaviour {
 		anim.SetFloat ("Wall", wall);
 		anim.SetFloat ("Fall",fall);
 		anim.SetFloat ("Stick", stick);
+		anim.SetFloat ("Shoot", shoot);
+		anim.SetFloat ("Magic", magic);
 
 		animTransform.rotation = currentRotation;	
 		animTransform.localPosition = Vector3.zero * Time.deltaTime;
@@ -199,6 +210,37 @@ public class Player : MonoBehaviour {
 		return null;
 	}
 
+	void Shooting(){
+		if (Input.GetButton ("Fire1") && (Gamestate.EstadoJuego.Admo > 0) &&(!Gamestate.EstadoJuego.Trident)&& !(controller.collisions.right || controller.collisions.left)){
+			
+			shoot = 0.2F;
+			moveSpeed = 0.0F;
+
+			fireCadence -=Time.deltaTime;
+			if (fireCadence <= 0) {
+				GameObject bullet = Instantiate (shootPrefab, shootTransform.position, Quaternion.identity) as GameObject;
+				Gamestate.EstadoJuego.Admo -= 1;
+				fireCadence = 0.5F;
+			}
+
+		}else if(Input.GetButton ("Fire1") && (Gamestate.EstadoJuego.mana > 0) &&(Gamestate.EstadoJuego.Trident) && !(controller.collisions.right || controller.collisions.left)){
+			magic = 0.2F;
+			moveSpeed = 0.0F;
+
+			fireCadence -=Time.deltaTime;
+			if (fireCadence <= 0) {
+				GameObject bullet = Instantiate (shootPrefab, shootTransform.position, Quaternion.identity) as GameObject;
+				Gamestate.EstadoJuego.mana -= 10;
+				fireCadence = 1.0F;
+			}
+
+		}
+		else {
+			shoot = 0.0F;
+			magic = 0.0F;
+		}
+	}
+
 	void Falling(){
 		if (!controller.collisions.below) {
 			fall = 0.1F;
@@ -208,7 +250,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void Sprinting () {
-		if( input.x !=0 && !(controller.collisions.left || controller.collisions.right) && !Input.GetButton("Walk")) {
+		if( input.x !=0 && !(controller.collisions.left || controller.collisions.right) && !Input.GetButton("Walk") && shoot == 0.0F) {
 			sprint = Mathf.Abs (input.x);
 			moveSpeed = originalMoveSpeed;
 			if (controller.collisions.inTrap) {
@@ -240,7 +282,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void Walking(){
-		if (Input.GetButton("Walk") && controller.collisions.below && Input.GetButton("Horizontal")) {
+		if (Input.GetButton("Walk") && controller.collisions.below && Input.GetButton("Horizontal") && shoot == 0.0F) {
 			walk = 0.2F;
 			sprint = 0.0F;
 			moveSpeed = originalMoveSpeed/3;
