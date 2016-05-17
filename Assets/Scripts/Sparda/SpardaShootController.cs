@@ -22,6 +22,7 @@ public class SpardaShootController : MonoBehaviour {
         {
             Debug.Log("Target hit");
             // Add Damage to player
+            Destroy(gameObject);
         }
     }
 }

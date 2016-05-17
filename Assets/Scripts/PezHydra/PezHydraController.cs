@@ -37,7 +37,6 @@ public class PezHydraController : MonoBehaviour
     private Transform modelGO; 
     private Animation anim;
 
-
 	void Start () 
 	{
 		myTransform = transform;
@@ -158,17 +157,6 @@ public class PezHydraController : MonoBehaviour
             anim.wrapMode = WrapMode.Loop;
             anim.CrossFadeQueued("Idle");
             // TODO Add code to damage player
-        }
-    }
-
-    public void ReceiveDamage(float damage)
-    {
-        Health -= damage;
-        if (damage <= 0)
-        {
-            anim.wrapMode = WrapMode.Once;
-            anim.CrossFade("Dead");
-            Destroy(gameObject, 1.5f);
         }
     }
 
