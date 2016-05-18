@@ -10,6 +10,8 @@ public class SpardaController : MonoBehaviour {
         DEAD
     };
 
+    public float health;
+    
     public float visionDistance;
     public float followDistance;
     public float gunRotationAngle;
@@ -122,6 +124,16 @@ public class SpardaController : MonoBehaviour {
         }
 
         SetAnimationController(monsterState);
+    }
+
+    public void ReceiveDamage(float damage)
+    {
+        health -= damage;
+
+        if (health > 0) return;
+
+        monsterState = MonsterState.DEAD;
+        Destroy(gameObject, 4.0f);
     }
 
     private IEnumerator ShootPlayer()

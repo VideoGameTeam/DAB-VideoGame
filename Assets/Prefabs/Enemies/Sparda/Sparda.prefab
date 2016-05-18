@@ -446,10 +446,9 @@ GameObject:
   - 4: {fileID: 471736}
   - 61: {fileID: 6144354}
   - 114: {fileID: 11483160}
-  - 114: {fileID: 11436026}
   m_Layer: 0
   m_Name: Sparda
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1543,7 +1542,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140304}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.469533, y: -2.2548106, z: 0}
+  m_LocalPosition: {x: 0, y: 1.294, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 460840}
@@ -1793,7 +1792,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: -0.008103162, y: 0.20611322}
   serializedVersion: 2
@@ -1827,18 +1826,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11436026
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 140304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15c92ee8e25c6ac41bffed4f41b4bbff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
 --- !u!114 &11483160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1850,12 +1837,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09694827d6a6fe9498cbc30195192324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
   visionDistance: 5
   followDistance: 6
   gunRotationAngle: 0
   shootingStarted: 0
   enemyTarget: {fileID: 0}
   myTransform: {fileID: 0}
+  originalPosition: {x: 0, y: 0}
   cadence: 2
   shootPrefab: {fileID: 185198, guid: 172a48969048804469f276acbc8260d1, type: 2}
 --- !u!137 &13726338

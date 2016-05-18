@@ -33,16 +33,6 @@ public class BulletMovement : MonoBehaviour {
 		StartCoroutine(WaitAndDestroy());
 	}
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "Enemy")
-        {
-            MonsterHealth monsterScript = other.gameObject.GetComponent<MonsterHealth>();
-            monsterScript.ReceiveDamage(40);
-            StopAllCoroutines();
-            Destroy(gameObject);
-        }
-    }
 
 	IEnumerator WaitAndDestroy(){
 		yield return new WaitForSeconds(5);	
