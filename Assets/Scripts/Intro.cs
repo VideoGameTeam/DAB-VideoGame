@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Intro : MonoBehaviour {
 
@@ -19,6 +20,8 @@ public class Intro : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if( movie.isPlaying == false ){
+			SceneManager.LoadScene("Level_"+ Gamestate.EstadoJuego.GameLevel);	
+		}
 	}
 }
