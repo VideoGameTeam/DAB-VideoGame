@@ -156,7 +156,7 @@ public class PezHydraController : MonoBehaviour
             anim.CrossFade("Attack");
             anim.wrapMode = WrapMode.Loop;
             anim.CrossFadeQueued("Idle");
-            // TODO Add code to damage player
+			Gamestate.EstadoJuego.ChangeHealth (-10);
         }
     }
 

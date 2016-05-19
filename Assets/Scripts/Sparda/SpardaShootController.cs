@@ -21,7 +21,7 @@ public class SpardaShootController : MonoBehaviour {
         if (other.transform.tag == "Player")
         {
             Debug.Log("Target hit");
-            // Add Damage to player
+			Gamestate.EstadoJuego.ChangeHealth (-5);
         }
     }
 }
