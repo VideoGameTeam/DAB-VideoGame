@@ -9,21 +9,9 @@ public class BulletMovement : MonoBehaviour {
 
 	
 	void Start () {
-		/*
-		RaycastHit hit;
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		if (Physics.Raycast(ray, out hit))
-		{
-			Vector2 target = new Vector2 (hit.point.x, hit.point.y);
+		AudioSource audio = GetComponent<AudioSource>();
 
-			direction = target - new Vector2(transform.position.x, transform.position.y);
-			direction.Normalize();
-
-			GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
-
-		}
-		*/
-		//Vector2 target = Camera.main.ScreenToWorldPoint( Input.mousePosition );
+		audio.Play();
 
 
 		Vector3 sp = Camera.main.WorldToScreenPoint(transform.position);
