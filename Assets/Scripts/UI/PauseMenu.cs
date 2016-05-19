@@ -24,7 +24,8 @@ public class PauseMenu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		MainlLight =(Light)  FindObjectOfType (typeof(Light));
+		//MainlLight =(Light)  FindObjectOfType (typeof(Light));
+		MainlLight = GameObject.FindGameObjectWithTag("MainLight").GetComponent<Light>();
 		loadstate ();
 					
 	}
