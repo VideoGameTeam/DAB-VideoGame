@@ -116,6 +116,7 @@ public class PauseMenu : MonoBehaviour {
 	{
 		objectpause.SetActive (false);
 		objectExit.SetActive (false);
+		////////Gamestate.EstadoJuego.tempmsg = 0;
 		Time.timeScale = 1;
 		//Application.LoadLevel ("StartGame");
 		SceneManager.LoadScene("StartGame");

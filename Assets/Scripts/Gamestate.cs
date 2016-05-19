@@ -62,6 +62,8 @@ public class Gamestate : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//Backtxt=GameObject.Find ("Backtxt").GetComponent<RawImage>();
+
 	}
 	
 	// Update is called once per frame
@@ -106,6 +108,8 @@ public class Gamestate : MonoBehaviour {
 			if (tempmsg <= 0) {
 				tempmsg = 0;
 				showmsg = "";
+				GameObject.Find ("Backtxt").GetComponent<RawImage>().enabled = false;
+				//Backtxt.;
 			}
 			GameObject.Find ("PlayerStatus").SendMessage ("ShowMessage");
 		} 
@@ -115,7 +119,6 @@ public class Gamestate : MonoBehaviour {
 
 	public void ChangeHealth(int value)
 	{
-		HealthMod = value;
 	}
 
 
@@ -125,9 +128,10 @@ public class Gamestate : MonoBehaviour {
 	}
 
 	public void ChangeMsg(string msg, float temp)
-	{
+	{ 
 		tempmsg = temp;
 		showmsg = msg;
+		GameObject.Find ("Backtxt").GetComponent<RawImage>().enabled = true;
 
 	}
 

@@ -88,7 +88,7 @@ public class Controller2D : RaycastController {
 			collisions.inTrap = true;
 				if (trapWaitingTime >= trapDamageDelay) {
 					trapWaitingTime = 0;
-				Gamestate.EstadoJuego.ChangeHealth (-5 + 2*(2 - Gamestate.EstadoJuego.Dificult));
+				Gamestate.EstadoJuego.ChangeHealth (-5);
 					//Gamestate.EstadoJuego.health -= Gamestate.EstadoJuego.Dificult * 10;
 				} else {
 					trapWaitingTime += Time.deltaTime; 
@@ -100,7 +100,7 @@ public class Controller2D : RaycastController {
 			collisions.inTrap = true;
 			if (trapWaitingTime >= trapDamageDelay) {
 				trapWaitingTime = 0;
-				Gamestate.EstadoJuego.ChangeHealth (-7 + 2*(2 - Gamestate.EstadoJuego.Dificult));
+				Gamestate.EstadoJuego.ChangeHealth (-7);
 			} else {
 				trapWaitingTime += Time.deltaTime; 
 			}
@@ -111,7 +111,7 @@ public class Controller2D : RaycastController {
 			collisions.inTrap = true;
 			if (trapWaitingTime >= trapDamageDelay) {
 				trapWaitingTime = 0;
-				Gamestate.EstadoJuego.ChangeHealth (-3 + 2*(2 - Gamestate.EstadoJuego.Dificult));
+				Gamestate.EstadoJuego.ChangeHealth (-3 );
 			} else {
 				trapWaitingTime += Time.deltaTime; 
 			}
@@ -122,7 +122,7 @@ public class Controller2D : RaycastController {
 			collisions.inTrap = true;
 			if (trapWaitingTime >= trapDamageDelay) {
 				trapWaitingTime = 0;
-				Gamestate.EstadoJuego.ChangeHealth (-4 + 2*(2 - Gamestate.EstadoJuego.Dificult));
+				Gamestate.EstadoJuego.ChangeHealth (-4);
 			} else {
 				trapWaitingTime += Time.deltaTime; 
 			}

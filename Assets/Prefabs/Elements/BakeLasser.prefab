@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &139334
 GameObject:
@@ -25,14 +25,14 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 431220}
-  - 114: {fileID: 11400512}
   - 114: {fileID: 11469810}
+  - 58: {fileID: 5858694}
   m_Layer: 0
   m_Name: Laser
   m_TagString: NoBulletHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &196268
 GameObject:
@@ -47,7 +47,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &413062
 Transform:
@@ -120,23 +120,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 134386}
   m_Mesh: {fileID: 4300000, guid: d8cf9ba52095a4f4bb35e68774cfa634, type: 3}
---- !u!114 &11400512
-MonoBehaviour:
+--- !u!58 &5858694
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139334}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5efe3bc5e3edb3e42b0a9a45eec91b94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BeamColor: {r: 1, g: 0.1397059, b: 0.1397059, a: 1}
-  AnimationSpd: 0.1
-  Scale: 1
-  MaxLength: 1
-  bEnd: 1
-  bGero: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.17
 --- !u!114 &11469810
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -148,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb1ed19f474c9014baffc3d34726bd55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Shot2: {fileID: 100006, guid: 18e6997b0cea7f249bf0e687ba9da449, type: 2}
+  Shot2: {fileID: 100006, guid: 0fd578105e745c44cb5ed716e0a47e24, type: 2}
   Disturbance: 3
   ShotType: 3
 --- !u!1001 &100100000
