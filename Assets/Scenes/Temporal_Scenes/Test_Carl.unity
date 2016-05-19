@@ -162,7 +162,7 @@ Transform:
   m_LocalScale: {x: 20, y: 1, z: 20}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
 --- !u!50 &664529019
 Rigidbody2D:
   serializedVersion: 2
@@ -180,6 +180,48 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1001 &776645729
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 481186, guid: 4894138a365754e33a64bd206829fa7b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 481186, guid: 4894138a365754e33a64bd206829fa7b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 481186, guid: 4894138a365754e33a64bd206829fa7b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 481186, guid: 4894138a365754e33a64bd206829fa7b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 481186, guid: 4894138a365754e33a64bd206829fa7b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 481186, guid: 4894138a365754e33a64bd206829fa7b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 481186, guid: 4894138a365754e33a64bd206829fa7b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 481186, guid: 4894138a365754e33a64bd206829fa7b, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4894138a365754e33a64bd206829fa7b, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &847747731
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +282,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
 --- !u!1001 &1631168804
 Prefab:
   m_ObjectHideFlags: 0
@@ -376,7 +418,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &1989839377 stripped
 Transform:
   m_PrefabParentObject: {fileID: 460426, guid: 244e2e913df9ec8488fa7bd90d85eb8e, type: 2}
@@ -464,6 +506,9 @@ MonoBehaviour:
   wallLeap: {x: 18, y: 17}
   wallSlideSpeedMax: 3
   wallStickTime: 0.25
+  cadence: 0
+  shootPrefab: {fileID: 0}
+  animSprint: {fileID: 0}
 --- !u!114 &2123158618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,8 +522,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionMask:
-    serializedVersion: 2
-    m_Bits: 256
+  - serializedVersion: 2
+    m_Bits: 0
+  - serializedVersion: 2
+    m_Bits: 0
   horizontalRayCount: 4
   verticalRayCount: 4
   horizontalRaySpacing: 0
@@ -547,4 +594,4 @@ Transform:
   m_Children:
   - {fileID: 1989839377}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
