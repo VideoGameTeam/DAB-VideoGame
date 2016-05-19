@@ -51,8 +51,10 @@ public class PlayerStatus : MonoBehaviour {
 			}
 
 		} else if (Gamestate.EstadoJuego.health <= 0) {
+
+
 			Gamestate.EstadoJuego.health=0;
-			Time.timeScale = 0;
+			//Time.timeScale = 0;
 
 			if (timeOver>=(10)) {
 				timeOver = 0;
