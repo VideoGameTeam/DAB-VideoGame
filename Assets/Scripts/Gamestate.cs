@@ -119,6 +119,7 @@ public class Gamestate : MonoBehaviour {
 
 	public void ChangeHealth(int value)
 	{
+		HealthMod = value + (value/Mathf.Abs(value))*3 * (2 - Gamestate.EstadoJuego.Dificult);
 	}
 
 
