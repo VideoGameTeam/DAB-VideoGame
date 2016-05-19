@@ -60,7 +60,6 @@ public class PezHydraController : MonoBehaviour
 
         if (goingBack)
         {
-            print("Volviendo");
             SetNavDestination(originalPosition);
         }
     }

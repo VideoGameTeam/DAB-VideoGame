@@ -19,6 +19,10 @@ public class SpardaController : MonoBehaviour {
 
     public Transform enemyTarget;
     public Transform myTransform;
+    private Transform myModelTransform;
+    private Player enemyPlayer;
+    private bool attack;
+    public bool shouldCheckSpeed;
 
     private LayerMask playerLayerMask;
     private Transform gunCenter;
@@ -33,6 +37,7 @@ public class SpardaController : MonoBehaviour {
     float sign;
     Quaternion _lookRotation;
     Vector3 eulerRotation;
+    Quaternion spardaRotation;
 
     // Shoot variables
     public float cadence;
@@ -50,8 +55,10 @@ public class SpardaController : MonoBehaviour {
         shootingStarted = false;
         enemyTarget = null;
         myTransform = transform;
+        myModelTransform = myTransform.Find("SpardaModel").transform;
         originalPosition = myTransform.position;
         playerLayerMask = 1 << LayerMask.NameToLayer("Player");
+        attack = false;
 
         // Get the gun related components
         gunCenter = transform.FindChild("GunCenter");
@@ -64,6 +71,35 @@ public class SpardaController : MonoBehaviour {
         shootingHash = Animator.StringToHash("Shoot");
         deadHash = Animator.StringToHash("Dead");
     }
+
+    bool _checkEnemyPlayer(Player player)
+    {
+        if (player.moveSpeed > 4 || !shouldCheckSpeed)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    void _SetOrientation()
+    {
+        if (!enemyTarget)
+        {
+            spardaRotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            if (enemyTarget.position.x - myTransform.position.x > 0)
+            {
+                spardaRotation = Quaternion.Euler(0, 90, 0);
+            }
+            else
+            {
+                spardaRotation = Quaternion.Euler(0, 270, 0);
+            }
+        }
+        myModelTransform.rotation = spardaRotation;
+    }
 	
 	void Update ()
     {
@@ -73,14 +109,23 @@ public class SpardaController : MonoBehaviour {
             if(hitCollider)
             {
                 enemyTarget = hitCollider.transform;
+                enemyPlayer = enemyTarget.GetComponent<Player>();
+                attack = _checkEnemyPlayer(enemyPlayer);
             }
         }
 
-        else if (enemyTarget)
+        else if (enemyTarget && !attack)
         {
-            if(Vector2.Distance(myTransform.position, enemyTarget.position) > followDistance)
+            attack = _checkEnemyPlayer(enemyPlayer);
+        }
+
+        else if (enemyTarget && attack)
+        {
+            if(Vector2.Distance(myTransform.position, enemyTarget.position) >= followDistance)
             {
                 enemyTarget = null;
+                enemyPlayer = null;
+                attack = false;
                 shootingStarted = false;
                 StopAllCoroutines();
             }
@@ -120,7 +165,7 @@ public class SpardaController : MonoBehaviour {
                 }
             }
         }
-
+        _SetOrientation();
         SetAnimationController(monsterState);
     }
 
