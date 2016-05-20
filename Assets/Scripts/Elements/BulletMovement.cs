@@ -9,6 +9,8 @@ public class BulletMovement : MonoBehaviour {
 
 
 	void Start () {
+		AudioSource sound = GetComponent<AudioSource> ();
+		sound.Play ();
 
 		/*
 		RaycastHit hit;
@@ -31,7 +33,7 @@ public class BulletMovement : MonoBehaviour {
 		Vector3 dir = (Input.mousePosition - sp).normalized;
 		GetComponent<Rigidbody2D>().AddForce (dir * bulletSpeed);
 
-		StartCoroutine(WaitAndDestroy());
+		StartCoroutine(WaitAndDestroyTime(5.0F));
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
@@ -40,13 +42,13 @@ public class BulletMovement : MonoBehaviour {
 		{
 			MonsterHealth monsterScript = other.gameObject.GetComponent<MonsterHealth>();
 			monsterScript.ReceiveDamage(40);
-			StopAllCoroutines();
-			Destroy(gameObject);
+			transform.GetComponentInChildren<Renderer>().enabled=false;
+
 		}
 	}
 
-	IEnumerator WaitAndDestroy(){
-		yield return new WaitForSeconds(5);	
+	IEnumerator WaitAndDestroyTime(float time){
+		yield return new WaitForSeconds (time);	
 		Object.Destroy (this.gameObject);
 	}
 }
