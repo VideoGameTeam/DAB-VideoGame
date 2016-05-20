@@ -18523,6 +18523,7 @@ Transform:
   - {fileID: 1920660834}
   - {fileID: 1410157242}
   - {fileID: 1866029180}
+  - {fileID: 1596276619}
   m_Father: {fileID: 2068398105}
   m_RootOrder: 5
 --- !u!1 &1393799925
@@ -23491,6 +23492,68 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 117c20a91b86f324b8ce29b74601a044, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &1596276618
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1392845200}
+    m_Modifications:
+    - target: {fileID: 461156, guid: 4f3d45054ab8248be9e61e85140ea7e5, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 10951
+      objectReference: {fileID: 0}
+    - target: {fileID: 461156, guid: 4f3d45054ab8248be9e61e85140ea7e5, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 723.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 461156, guid: 4f3d45054ab8248be9e61e85140ea7e5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -1041.9003
+      objectReference: {fileID: 0}
+    - target: {fileID: 461156, guid: 4f3d45054ab8248be9e61e85140ea7e5, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461156, guid: 4f3d45054ab8248be9e61e85140ea7e5, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461156, guid: 4f3d45054ab8248be9e61e85140ea7e5, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 461156, guid: 4f3d45054ab8248be9e61e85140ea7e5, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 461156, guid: 4f3d45054ab8248be9e61e85140ea7e5, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 461156, guid: 4f3d45054ab8248be9e61e85140ea7e5, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 28.062502
+      objectReference: {fileID: 0}
+    - target: {fileID: 461156, guid: 4f3d45054ab8248be9e61e85140ea7e5, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.23712495
+      objectReference: {fileID: 0}
+    - target: {fileID: 170438, guid: 4f3d45054ab8248be9e61e85140ea7e5, type: 2}
+      propertyPath: m_Name
+      value: ShowText (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11474782, guid: 4f3d45054ab8248be9e61e85140ea7e5, type: 2}
+      propertyPath: text
+      value: 'Un inquietante sonido se escucha al intentar '
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4f3d45054ab8248be9e61e85140ea7e5, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1596276619 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 461156, guid: 4f3d45054ab8248be9e61e85140ea7e5, type: 2}
+  m_PrefabInternal: {fileID: 1596276618}
 --- !u!1 &1596414848
 GameObject:
   m_ObjectHideFlags: 0
