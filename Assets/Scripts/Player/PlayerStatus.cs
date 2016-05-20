@@ -33,6 +33,14 @@ public class PlayerStatus : MonoBehaviour {
 	void Start () {
 		UpdateScreen ();
 		deltat=Time.deltaTime;
+
+		//Posicion Inicial
+		GameObject objeto;
+		objeto = GameObject.FindGameObjectWithTag ("Player");
+		Gamestate.EstadoJuego.lastcheck [0]= objeto.transform.position.x;
+		Gamestate.EstadoJuego.lastcheck [1]= objeto.transform.position.y+2* objeto.gameObject.transform.localScale.y;
+		Gamestate.EstadoJuego.lastcheck [2]= objeto.transform.position.z;
+
 	}
 	
 	// Update is called once per frame
@@ -132,7 +140,10 @@ public class PlayerStatus : MonoBehaviour {
 	public void TolastCheckpoin ()
 	{
 		Gamestate.EstadoJuego.defaultValGame ();
+		GameObject.FindGameObjectWithTag ("Player").transform.position = new Vector3(Gamestate.EstadoJuego.lastcheck[0], Gamestate.EstadoJuego.lastcheck[1],Gamestate.EstadoJuego.lastcheck[2]);
 		UpdateScreen ();
+
+
 	}
 
 	public void FinishLevel()
