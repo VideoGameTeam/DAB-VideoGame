@@ -45,7 +45,6 @@ public class PlayerStatus : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	//	deltat=Time.deltaTime;
 		if (Gamestate.EstadoJuego.health >= 1 && Gamestate.EstadoJuego.health <= 20) {
 
 		 if (timeh>=(5-Gamestate.EstadoJuego.Dificult)) {
@@ -62,7 +61,7 @@ public class PlayerStatus : MonoBehaviour {
 
 
 			Gamestate.EstadoJuego.health=0;
-			//Time.timeScale = 0;
+			Time.timeScale = 0;
 
 			if (timeOver>=(10)) {
 				timeOver = 0;

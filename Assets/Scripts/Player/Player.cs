@@ -83,6 +83,9 @@ public class Player : MonoBehaviour {
 	}
 
 	void Update() {
+		if(Time.timeScale == 0){
+			return;
+		}
 		input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
 		int wallDirX = (controller.collisions.left) ? -1 : 1;
 
