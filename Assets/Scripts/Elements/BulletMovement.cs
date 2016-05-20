@@ -9,6 +9,7 @@ public class BulletMovement : MonoBehaviour {
 
 
 	void Start () {
+
 		/*
 		RaycastHit hit;
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
