@@ -7247,6 +7247,34 @@ Tree:
   m_GameObject: {fileID: 627048855}
   m_SpeedTreeWindAsset: {fileID: 0}
   m_TreeData: {fileID: 11483972, guid: a0a511126f5f6f4449ec80434dc3dfe8, type: 2}
+--- !u!1 &631815623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 631815624}
+  m_Layer: 0
+  m_Name: Enemies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &631815624
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 631815623}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1585.9097, y: 28.697796, z: -1165.2617}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1293081933}
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
 --- !u!1 &632462517
 GameObject:
   m_ObjectHideFlags: 0
@@ -7846,6 +7874,10 @@ Prefab:
     - target: {fileID: 6101268, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5060110, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
+      propertyPath: m_Constraints
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
@@ -9160,15 +9192,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22475406, guid: 8f5f7140ca06449499b8c2573c5ef40a, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22475406, guid: 8f5f7140ca06449499b8c2573c5ef40a, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22447928, guid: 8f5f7140ca06449499b8c2573c5ef40a, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11472618, guid: 8f5f7140ca06449499b8c2573c5ef40a, type: 2}
       propertyPath: deltat
@@ -13410,6 +13442,96 @@ Tree:
   m_GameObject: {fileID: 1281310499}
   m_SpeedTreeWindAsset: {fileID: 0}
   m_TreeData: {fileID: 11483972, guid: a0a511126f5f6f4449ec80434dc3dfe8, type: 2}
+--- !u!1001 &1293081932
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 631815624}
+    m_Modifications:
+    - target: {fileID: 440586, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 440586, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 21.302204
+      objectReference: {fileID: 0}
+    - target: {fileID: 440586, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -24.03833
+      objectReference: {fileID: 0}
+    - target: {fileID: 440586, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440586, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440586, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440586, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 440586, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440586, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 8.033556
+      objectReference: {fileID: 0}
+    - target: {fileID: 440586, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 8.033561
+      objectReference: {fileID: 0}
+    - target: {fileID: 440586, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 8.033561
+      objectReference: {fileID: 0}
+    - target: {fileID: 11437504, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
+      propertyPath: radius
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 11437504, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
+      propertyPath: AttackDistance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 11437504, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
+      propertyPath: moveSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11437504, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
+      propertyPath: maxFollowDistance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11437504, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
+      propertyPath: stoppingDistance
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11437504, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
+      propertyPath: deltay
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460704, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
+      propertyPath: verticalRayCount
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460704, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
+      propertyPath: horizontalRayCount
+      value: 20
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1293081933 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 440586, guid: 0f81d707ad4c0244dbbd0c0ebe9836ae, type: 2}
+  m_PrefabInternal: {fileID: 1293081932}
 --- !u!1 &1297369225
 GameObject:
   m_ObjectHideFlags: 0
