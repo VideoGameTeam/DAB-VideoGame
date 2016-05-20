@@ -57,6 +57,7 @@ public class Player : MonoBehaviour {
 
 	float medicineDelay =0;
 	float fireCadence =0;
+	float timetrap=10;
 
 	Transform animTransform;
 	Transform shootTransform;
@@ -199,6 +200,11 @@ public class Player : MonoBehaviour {
 
 		animTransform.rotation = currentRotation;	
 		animTransform.localPosition = Vector3.zero * Time.deltaTime;
+
+		if (timetrap < 10) {
+			timetrap += Time.deltaTime; 
+		}
+
 	}
 		
 
@@ -320,6 +326,33 @@ public class Player : MonoBehaviour {
 				forward = true;
 			}
 		}
+	}
+	//Trampas Collider
+
+
+	void OnTriggerStay2D(Collider2D objeto)
+	{
+		if (timetrap >= 1) {
+			timetrap = 0;
+			if (objeto.tag == "SpaceTrap") {
+				Gamestate.EstadoJuego.ChangeHealth (-10);
+
+
+			} else if (objeto.tag == "Lasser") {
+				Gamestate.EstadoJuego.ChangeHealth (-30);
+			}
+
+		}
+	
+	}
+
+	void OnTriggerExit2D(Collider2D objeto)
+	{
+		if (objeto.tag == "SpaceTrap"||objeto.tag == "Lasser")
+		{
+			timetrap=10;
+		}
+		
 	}
 
 

@@ -49,6 +49,7 @@ public class Gamestate : MonoBehaviour {
 
 			filename= Application.persistentDataPath +"/datadab.dat";
 			LoadOptions ();
+			lastcheck = new float[3];
 			defaultValGame ();
 
 		}
@@ -62,7 +63,7 @@ public class Gamestate : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		lastcheck = new float[3];
+		
 		//Backtxt=GameObject.Find ("Backtxt").GetComponent<RawImage>();
 
 	}
