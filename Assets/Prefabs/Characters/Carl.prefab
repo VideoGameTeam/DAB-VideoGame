@@ -1229,7 +1229,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 189442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1776.1, y: 45, z: -1189.3}
+  m_LocalPosition: {x: -1774.7, y: 38.5, z: -1189.3}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 458810}
@@ -1426,6 +1426,8 @@ MonoBehaviour:
   wallStickTime: 0.25
   cadence: 0
   shootPrefab: {fileID: 100254, guid: 7b64b92d08cf04041b2aa88bff8354d5, type: 2}
+  carlSounds:
+  - {fileID: 8300000, guid: 49219c75ad01b47449fe13a1abfb8f57, type: 3}
   animSprint: {fileID: 11100000, guid: e4a00a4129fdc404faf634c619700370, type: 3}
 --- !u!124 &12453578
 Behaviour:

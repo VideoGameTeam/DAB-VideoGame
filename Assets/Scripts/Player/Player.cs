@@ -63,9 +63,18 @@ public class Player : MonoBehaviour {
 	Transform shootTransform;
 
 
+	public AudioClip[] carlSounds;
+
 	public Animation animSprint;
 
+	private AudioSource jumpSound;
+
     void Start() {
+
+
+		jumpSound = gameObject.AddComponent<AudioSource> ();
+		jumpSound.clip = carlSounds [0];
+
 		originalMoveSpeed = moveSpeed;
 		controller = GetComponent<Controller2D> ();
 		forward = true;
@@ -273,6 +282,7 @@ public class Player : MonoBehaviour {
 	}
 	void JumpingWall(){
 		if (Input.GetButton("Jump") && (controller.collisions.left || controller.collisions.right)) {
+			jumpSound.Play ();
 			jump = 0.2F;
 			sprint = 0.0F;
 			wall = 0.1F;
@@ -284,6 +294,7 @@ public class Player : MonoBehaviour {
 
 	void Jumping(){
 		if (Input.GetButton("Jump") && controller.collisions.below && (input.x != 0 || input.x == 0)) {
+			jumpSound.Play ();
 			jump = 0.2F;
 		} else {
 			jump = 0.0F;
