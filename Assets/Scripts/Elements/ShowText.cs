@@ -9,6 +9,7 @@ public class ShowText : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
+		print (other.name);
 		Gamestate.EstadoJuego.ChangeMsg (text,5);
 		Object.Destroy (this.gameObject);
 	}
