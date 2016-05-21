@@ -271,7 +271,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void Sprinting () {
-		if( input.x !=0 && !(controller.collisions.left || controller.collisions.right) && !Input.GetButton("Walk") && shoot == 0.0F) {
+		if( input.x !=0 && !(controller.collisions.left || controller.collisions.right) && !Input.GetButton("Walk") && shoot == 0.0F && magic == 0.0F) {
 			sprint = Mathf.Abs (input.x);
 			moveSpeed = originalMoveSpeed;
 			if (controller.collisions.inTrap) {
