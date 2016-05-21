@@ -26,7 +26,7 @@ public class Lasser : MonoBehaviour {
 	
 			}
 
-
+	/*
 	void OnTriggerEnter2D(Collider2D objeto)
 	{
 
@@ -45,7 +45,7 @@ public class Lasser : MonoBehaviour {
 		}
 
 	}
-
+*/
 
 
 		

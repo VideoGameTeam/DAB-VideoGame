@@ -15,7 +15,7 @@ public class Gamestate : MonoBehaviour {
 	public float VolumeSet;
 	public float LightSet;
 	public int LastDificult=1;
-
+	public float[] lastcheck;
 	//Variabnles Ingame
 	//Las variables se modifican mediante la linea relacionada:
 	//Gamestate.EstadoJuego.VolumeSet = Valor;
@@ -49,6 +49,7 @@ public class Gamestate : MonoBehaviour {
 
 			filename= Application.persistentDataPath +"/datadab.dat";
 			LoadOptions ();
+			lastcheck = new float[3];
 			defaultValGame ();
 
 		}
@@ -62,6 +63,7 @@ public class Gamestate : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		
 		//Backtxt=GameObject.Find ("Backtxt").GetComponent<RawImage>();
 
 	}

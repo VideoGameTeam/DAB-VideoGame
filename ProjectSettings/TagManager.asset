@@ -13,6 +13,9 @@ TagManager:
   - NoBulletHit
   - Bullet
   - MainLight
+  - Enemy
+  - SpaceTrap
+  - Lasser
   layers:
   - Default
   - TransparentFX

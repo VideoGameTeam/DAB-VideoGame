@@ -33,11 +33,18 @@ public class PlayerStatus : MonoBehaviour {
 	void Start () {
 		UpdateScreen ();
 		deltat=Time.deltaTime;
+
+		//Posicion Inicial
+		GameObject objeto;
+		objeto = GameObject.FindGameObjectWithTag ("Player");
+		Gamestate.EstadoJuego.lastcheck [0]= objeto.transform.position.x;
+		Gamestate.EstadoJuego.lastcheck [1]= objeto.transform.position.y+2* objeto.gameObject.transform.localScale.y;
+		Gamestate.EstadoJuego.lastcheck [2]= objeto.transform.position.z;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	//	deltat=Time.deltaTime;
 		if (Gamestate.EstadoJuego.health >= 1 && Gamestate.EstadoJuego.health <= 20) {
 
 		 if (timeh>=(5-Gamestate.EstadoJuego.Dificult)) {
@@ -54,7 +61,7 @@ public class PlayerStatus : MonoBehaviour {
 
 
 			Gamestate.EstadoJuego.health=0;
-			//Time.timeScale = 0;
+			Time.timeScale = 0;
 
 			if (timeOver>=(10)) {
 				timeOver = 0;
@@ -132,7 +139,10 @@ public class PlayerStatus : MonoBehaviour {
 	public void TolastCheckpoin ()
 	{
 		Gamestate.EstadoJuego.defaultValGame ();
+		GameObject.FindGameObjectWithTag ("Player").transform.position = new Vector3(Gamestate.EstadoJuego.lastcheck[0], Gamestate.EstadoJuego.lastcheck[1],Gamestate.EstadoJuego.lastcheck[2]);
 		UpdateScreen ();
+
+
 	}
 
 	public void FinishLevel()

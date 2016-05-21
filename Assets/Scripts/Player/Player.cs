@@ -57,14 +57,24 @@ public class Player : MonoBehaviour {
 
 	float medicineDelay =0;
 	float fireCadence =0;
+	float timetrap=10;
 
 	Transform animTransform;
 	Transform shootTransform;
 
 
+	public AudioClip[] carlSounds;
+
 	public Animation animSprint;
 
+	private AudioSource jumpSound;
+
     void Start() {
+
+
+		jumpSound = gameObject.AddComponent<AudioSource> ();
+		jumpSound.clip = carlSounds [0];
+
 		originalMoveSpeed = moveSpeed;
 		controller = GetComponent<Controller2D> ();
 		forward = true;
@@ -83,6 +93,9 @@ public class Player : MonoBehaviour {
 	}
 
 	void Update() {
+		if(Time.timeScale == 0){
+			return;
+		}
 		input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
 		int wallDirX = (controller.collisions.left) ? -1 : 1;
 
@@ -196,6 +209,11 @@ public class Player : MonoBehaviour {
 
 		animTransform.rotation = currentRotation;	
 		animTransform.localPosition = Vector3.zero * Time.deltaTime;
+
+		if (timetrap < 10) {
+			timetrap += Time.deltaTime; 
+		}
+
 	}
 		
 
@@ -264,6 +282,7 @@ public class Player : MonoBehaviour {
 	}
 	void JumpingWall(){
 		if (Input.GetButton("Jump") && (controller.collisions.left || controller.collisions.right)) {
+			jumpSound.Play ();
 			jump = 0.2F;
 			sprint = 0.0F;
 			wall = 0.1F;
@@ -275,6 +294,7 @@ public class Player : MonoBehaviour {
 
 	void Jumping(){
 		if (Input.GetButton("Jump") && controller.collisions.below && (input.x != 0 || input.x == 0)) {
+			jumpSound.Play ();
 			jump = 0.2F;
 		} else {
 			jump = 0.0F;
@@ -317,6 +337,33 @@ public class Player : MonoBehaviour {
 				forward = true;
 			}
 		}
+	}
+	//Trampas Collider
+
+
+	void OnTriggerStay2D(Collider2D objeto)
+	{
+		if (timetrap >= 1) {
+			timetrap = 0;
+			if (objeto.tag == "SpaceTrap") {
+				Gamestate.EstadoJuego.ChangeHealth (-10);
+
+
+			} else if (objeto.tag == "Lasser") {
+				Gamestate.EstadoJuego.ChangeHealth (-30);
+			}
+
+		}
+	
+	}
+
+	void OnTriggerExit2D(Collider2D objeto)
+	{
+		if (objeto.tag == "SpaceTrap"||objeto.tag == "Lasser")
+		{
+			timetrap=10;
+		}
+		
 	}
 
 

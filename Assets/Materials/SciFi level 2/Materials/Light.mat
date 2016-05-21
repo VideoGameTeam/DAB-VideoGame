@@ -9,7 +9,7 @@ Material:
   m_Name: Light
   m_Shader: {fileID: 10, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
-  m_LightmapFlags: 5
+  m_LightmapFlags: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
@@ -32,10 +32,14 @@ Material:
     m_Floats:
       data:
         first:
+          name: _Emission
+        second: 1
+      data:
+        first:
           name: _EmissionLM
         second: 3
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: 0.1140566, g: 0.42581785, b: 0.95522386, a: 1}
+        second: {r: 0.02789795, g: 0.11054882, b: 0.9485294, a: 1}

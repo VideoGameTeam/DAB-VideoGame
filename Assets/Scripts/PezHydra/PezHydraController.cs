@@ -37,6 +37,8 @@ public class PezHydraController : MonoBehaviour
     private Transform modelGO; 
     private Animation anim;
 
+	public float deltay;
+
 
 	void Start () 
 	{
@@ -81,7 +83,7 @@ public class PezHydraController : MonoBehaviour
     {
         Vector2 myPosition = myTransform.position;
 
-        if (Mathf.Abs(targetPosition.y - myPosition.y) > 5)
+        if (Mathf.Abs(targetPosition.y - myPosition.y) > deltay)
             return;
 
         if (targetTransform == null && Mathf.Abs(Vector3.Distance(myPosition, targetPosition)) <= stoppingDistance)
