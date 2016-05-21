@@ -50,6 +50,7 @@ public class Player : MonoBehaviour {
 	// Shoot variables
 	public float cadence;
 	public GameObject shootPrefab;
+	public GameObject magicPrefab;
 
 
 	bool forward;
@@ -61,6 +62,7 @@ public class Player : MonoBehaviour {
 
 	Transform animTransform;
 	Transform shootTransform;
+	Transform magicTransform;
 
 
 	public AudioClip[] carlSounds;
@@ -80,6 +82,7 @@ public class Player : MonoBehaviour {
 		forward = true;
 		animTransform = FindTransform ("Human");
 		shootTransform = animTransform.Find("ShootSpawner");
+		magicTransform = animTransform.Find ("MagicSpawner");
 
 		if (animTransform != null) {
 			anim = animTransform.GetComponent<Animator> ();
@@ -247,7 +250,7 @@ public class Player : MonoBehaviour {
 
 			fireCadence -=Time.deltaTime;
 			if (fireCadence <= 0) {
-				GameObject bullet = Instantiate (shootPrefab, shootTransform.position, Quaternion.identity) as GameObject;
+				GameObject bullet = Instantiate (magicPrefab, magicTransform.position, Quaternion.identity) as GameObject;
 				Gamestate.EstadoJuego.mana -= 10;
 				fireCadence = 1.0F;
 			}

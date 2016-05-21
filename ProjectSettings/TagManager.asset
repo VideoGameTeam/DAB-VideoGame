@@ -16,6 +16,7 @@ TagManager:
   - Enemy
   - SpaceTrap
   - Lasser
+  - Magic
   layers:
   - Default
   - TransparentFX
