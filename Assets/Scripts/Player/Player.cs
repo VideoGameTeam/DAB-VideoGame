@@ -57,6 +57,7 @@ public class Player : MonoBehaviour {
 	float playerDir;
 
 	float medicineDelay =0;
+	float weaponDelay =0;
 	float fireCadence =0;
 	float timetrap=10;
 
@@ -123,6 +124,11 @@ public class Player : MonoBehaviour {
 				Gamestate.EstadoJuego.ChangeHealth (30);
 			}
 
+		}
+		weaponDelay -= Time.deltaTime;
+		if (Input.GetButton ("ChangeWeapon") && weaponDelay <=0) {
+			Gamestate.EstadoJuego.Trident = !Gamestate.EstadoJuego.Trident;
+			weaponDelay = 2;
 		}
 
 		float targetVelocityX = input.x * moveSpeed;
