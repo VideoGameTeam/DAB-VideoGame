@@ -1194,6 +1194,68 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 442648, guid: cd5dc354e8f3d47cfad344c330e467d8, type: 2}
   m_PrefabInternal: {fileID: 323482725}
+--- !u!1001 &425488805
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 631815624}
+    m_Modifications:
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1135.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 6.9000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -24.03833
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451596, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: stoppingDistance
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451596, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: maxFollowDistance
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5057970, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 125140, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_Name
+      value: PezHydra2 (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &425488806 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+  m_PrefabInternal: {fileID: 425488805}
 --- !u!4 &442103752 stripped
 Transform:
   m_PrefabParentObject: {fileID: 430214, guid: 32a7ee37a7034424cab20955d8477dea, type: 2}
@@ -3329,12 +3391,82 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1293081933}
+  - {fileID: 1532189857}
+  - {fileID: 425488806}
+  - {fileID: 1448390290}
+  - {fileID: 1907608784}
+  - {fileID: 1511201758}
+  - {fileID: 1280340717}
+  - {fileID: 657222903}
+  - {fileID: 1503605072}
   m_Father: {fileID: 0}
   m_RootOrder: 8
 --- !u!4 &635256463 stripped
 Transform:
   m_PrefabParentObject: {fileID: 442648, guid: cd5dc354e8f3d47cfad344c330e467d8, type: 2}
   m_PrefabInternal: {fileID: 867160392}
+--- !u!1001 &657222902
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 631815624}
+    m_Modifications:
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 11076
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451596, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: stoppingDistance
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451596, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: maxFollowDistance
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5057970, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 125140, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_Name
+      value: PezHydra2 (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &657222903 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+  m_PrefabInternal: {fileID: 657222902}
 --- !u!4 &658728638 stripped
 Transform:
   m_PrefabParentObject: {fileID: 452522, guid: 1abeb3d39ecce4d1ea0eb8b83f1ab15e, type: 2}
@@ -6317,6 +6449,68 @@ Transform:
   - {fileID: 1787048757}
   m_Father: {fileID: 2068398105}
   m_RootOrder: 4
+--- !u!1001 &1280340716
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 631815624}
+    m_Modifications:
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4213.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 36.500004
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -24.03833
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451596, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: stoppingDistance
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451596, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: maxFollowDistance
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5057970, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 125140, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_Name
+      value: PezHydra2 (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1280340717 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+  m_PrefabInternal: {fileID: 1280340716}
 --- !u!1001 &1293081932
 Prefab:
   m_ObjectHideFlags: 0
@@ -8895,6 +9089,68 @@ BoxCollider2D:
   m_Offset: {x: 20.656248, y: 2.191917}
   serializedVersion: 2
   m_Size: {x: 5.651431, y: 4.3195477}
+--- !u!1001 &1448390289
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 631815624}
+    m_Modifications:
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1347.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 62.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -24.03833
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451596, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: stoppingDistance
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451596, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: maxFollowDistance
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5057970, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 125140, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_Name
+      value: PezHydra2 (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1448390290 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+  m_PrefabInternal: {fileID: 1448390289}
 --- !u!4 &1448504538 stripped
 Transform:
   m_PrefabParentObject: {fileID: 441344, guid: 4d9396abbefee4e8aac3c51824d75819, type: 2}
@@ -8945,6 +9201,192 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 32a7ee37a7034424cab20955d8477dea, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &1503605071
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 631815624}
+    m_Modifications:
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 11103
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451596, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: stoppingDistance
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451596, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: maxFollowDistance
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5057970, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 125140, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_Name
+      value: PezHydra2 (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1503605072 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+  m_PrefabInternal: {fileID: 1503605071}
+--- !u!1001 &1511201757
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 631815624}
+    m_Modifications:
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4185.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 36.500004
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -24.03833
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451596, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: stoppingDistance
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451596, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: maxFollowDistance
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5057970, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 125140, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_Name
+      value: PezHydra2 (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1511201758 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+  m_PrefabInternal: {fileID: 1511201757}
+--- !u!1001 &1532189856
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 631815624}
+    m_Modifications:
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 860
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 6.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -24.03833
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451596, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: stoppingDistance
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451596, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: maxFollowDistance
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5057970, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 125140, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_Name
+      value: PezHydra2 (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1532189857 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+  m_PrefabInternal: {fileID: 1532189856}
 --- !u!1 &1534275028
 GameObject:
   m_ObjectHideFlags: 0
@@ -13509,6 +13951,68 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 437922, guid: 07928834e28094337b306bfadaf0d71b, type: 2}
   m_PrefabInternal: {fileID: 1880148775}
+--- !u!1001 &1907608783
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 631815624}
+    m_Modifications:
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4140
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 36.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -24.03833
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451596, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: stoppingDistance
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451596, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: maxFollowDistance
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5057970, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 125140, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+      propertyPath: m_Name
+      value: PezHydra2 (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1907608784 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 440672, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
+  m_PrefabInternal: {fileID: 1907608783}
 --- !u!1001 &1920660833
 Prefab:
   m_ObjectHideFlags: 0
