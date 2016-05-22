@@ -12827,11 +12827,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11470526, guid: 07928834e28094337b306bfadaf0d71b, type: 2}
       propertyPath: localWaypoints.Array.data[1].x
-      value: 141.91
+      value: 232.8
       objectReference: {fileID: 0}
     - target: {fileID: 11470526, guid: 07928834e28094337b306bfadaf0d71b, type: 2}
       propertyPath: localWaypoints.Array.data[1].y
-      value: 89.22
+      value: 21.6
       objectReference: {fileID: 0}
     - target: {fileID: 11470526, guid: 07928834e28094337b306bfadaf0d71b, type: 2}
       propertyPath: localWaypoints.Array.data[2].x
@@ -14066,8 +14066,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11474782, guid: 4f3d45054ab8248be9e61e85140ea7e5, type: 2}
       propertyPath: text
-      value: ton izquierdo del mouse izquierdo del mouse. Cambia de arma con la tecla
-        Z
+      value: Dispara presionando el boton izquierdo del mouse izquierdo del mouse.
+        Cambia de arma con la tecla Z
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f3d45054ab8248be9e61e85140ea7e5, type: 2}
