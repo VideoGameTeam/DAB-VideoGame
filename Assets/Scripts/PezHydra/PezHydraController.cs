@@ -146,6 +146,7 @@ public class PezHydraController : MonoBehaviour
                 jump = 0.2F;
             }
         }
+		velocity.y = -100;
         controller.Move(velocity, MonsterInput);
     }
 
