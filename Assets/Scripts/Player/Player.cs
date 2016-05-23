@@ -357,18 +357,19 @@ public class Player : MonoBehaviour {
 			if (objeto.tag == "SpaceTrap") {
 				Gamestate.EstadoJuego.ChangeHealth (-10);
 
-
 			} else if (objeto.tag == "Lasser") {
 				Gamestate.EstadoJuego.ChangeHealth (-30);
-			}
 
+			} else if (objeto.tag == "Enemy") {
+				Gamestate.EstadoJuego.ChangeHealth (-30);
+			}
 		}
 	
 	}
 
 	void OnTriggerExit2D(Collider2D objeto)
 	{
-		if (objeto.tag == "SpaceTrap"||objeto.tag == "Lasser")
+		if (objeto.tag == "SpaceTrap"||objeto.tag == "Lasser" ||objeto.tag == "Enemy")
 		{
 			timetrap=10;
 		}
