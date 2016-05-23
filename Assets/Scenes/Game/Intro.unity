@@ -350,12 +350,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!114 &767476251 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11485124, guid: 38545dbed86d39046b2cee3c85be3ecb,
-    type: 2}
-  m_PrefabInternal: {fileID: 1239208096}
-  m_Script: {fileID: 11500000, guid: 0bf17faacafde4841b6ae05511e7d64c, type: 3}
 --- !u!1001 &1239208096
 Prefab:
   m_ObjectHideFlags: 0
@@ -435,22 +429,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11458728, guid: 38545dbed86d39046b2cee3c85be3ecb, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+    - target: {fileID: 11485124, guid: 38545dbed86d39046b2cee3c85be3ecb, type: 2}
+      propertyPath: Loading
       value: 
-      objectReference: {fileID: 767476251}
-    - target: {fileID: 11458728, guid: 38545dbed86d39046b2cee3c85be3ecb, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PressBtnSkip
-      objectReference: {fileID: 0}
-    - target: {fileID: 22402822, guid: 38545dbed86d39046b2cee3c85be3ecb, type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -88.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 22402822, guid: 38545dbed86d39046b2cee3c85be3ecb, type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -54
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1580749842}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38545dbed86d39046b2cee3c85be3ecb, type: 2}
   m_IsPrefabParent: 0
@@ -503,7 +485,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -540,3 +522,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!1 &1580749842 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 161232, guid: 38545dbed86d39046b2cee3c85be3ecb, type: 2}
+  m_PrefabInternal: {fileID: 1239208096}

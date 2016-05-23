@@ -6,7 +6,7 @@ public class Lasser : MonoBehaviour {
 		//public GameObject Shot1;
 		public GameObject Shot2;
 		//public GameObject Wave;
-		public float Disturbance = 0;
+		private float Disturbance;
 
 		public int ShotType = 0;
 

@@ -58,11 +58,11 @@ public class PauseMenu : MonoBehaviour {
 
 	public void PressBtnPause()
 	{
-		//objectpause.SetActive (true);
-		//Time.timeScale = 0;
+		objectpause.SetActive (true);
+		Time.timeScale = 0;
 
 		//TEST
-	//	Gamestate.EstadoJuego.health=Gamestate.EstadoJuego.health-10;
+	/*	Gamestate.EstadoJuego.health=Gamestate.EstadoJuego.health-10;
 	//	Gamestate.EstadoJuego.mana--;
 		Gamestate.EstadoJuego.Admo--;
 		Gamestate.EstadoJuego.Medicine--;
@@ -76,7 +76,7 @@ public class PauseMenu : MonoBehaviour {
 		//PlayerStatus.StatePlayer.FinishLevel ();
 
 		Gamestate.EstadoJuego.ChangeMsg("Hola", 3);
-
+	*/
 	}
 
 

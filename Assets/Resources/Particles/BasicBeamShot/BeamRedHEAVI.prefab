@@ -64,7 +64,7 @@ GameObject:
   - 120: {fileID: 12000000}
   - 114: {fileID: 11400014}
   m_Layer: 0
-  m_Name: BeamRed
+  m_Name: BeamRedHEAVI
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -327,10 +327,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52555774763cf14fb551beb1115676b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HitEffect: {fileID: 100004}
+  HitEffect: {fileID: 0}
   MaxLength: 160
   AddLength: 0.05
-  Width: 0.3
+  Width: 0.2
   NowLengthGlobal: 0
 --- !u!114 &11400008
 MonoBehaviour:
@@ -385,9 +385,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5efe3bc5e3edb3e42b0a9a45eec91b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BeamColor: {r: 0.9191176, g: 0.020274673, b: 0.020274673, a: 1}
+  BeamColor: {r: 0.5441177, g: 0, b: 0, a: 1}
   AnimationSpd: 0.1
-  Scale: 1.5
+  Scale: 4
   MaxLength: 32
   bEnd: 0
   bGero: 1
