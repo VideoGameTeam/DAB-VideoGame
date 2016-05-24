@@ -168,8 +168,8 @@ public class SpardaController : MonoBehaviour {
                     monsterState = MonsterState.IDLE;
                 }
             }
+			_SetOrientation();
         }
-        _SetOrientation();
         SetAnimationController(monsterState);
     }
 
