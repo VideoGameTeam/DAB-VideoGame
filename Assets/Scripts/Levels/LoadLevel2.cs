@@ -4,6 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class LoadLevel2 : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D objeto){
-		SceneManager.LoadScene ("Level_2");
+		GameObject.Find ("PlayerStatus").SendMessage ("FinishLevel");
 	}
 }
