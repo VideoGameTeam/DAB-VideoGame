@@ -136,11 +136,13 @@ public class SpardaController : MonoBehaviour {
                 originalPosition = gunCenter.position;
                 targetPosition = enemyTarget.position;
                 _targetPosition = targetPosition - originalPosition;
+                //_targetPosition.z = 0;
+                print(_targetPosition);
                 temporal_y = gunCenter.rotation.eulerAngles.y;
                 base_rot = 90.0f;
                 sign = -1;
 
-                _targetPosition.z = originalPosition.z;
+                _targetPosition.z = 0;
                 _lookRotation = Quaternion.LookRotation(_targetPosition.normalized);
                 eulerRotation = _lookRotation.eulerAngles;
 
