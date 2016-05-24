@@ -4584,11 +4584,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 425890, guid: b51cc7b419180497d983a6170dd1b0ad, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 18.9
+      value: 183.2
       objectReference: {fileID: 0}
     - target: {fileID: 425890, guid: b51cc7b419180497d983a6170dd1b0ad, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -4.1
+      value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 425890, guid: b51cc7b419180497d983a6170dd1b0ad, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4612,7 +4612,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 425890, guid: b51cc7b419180497d983a6170dd1b0ad, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2314026, guid: b51cc7b419180497d983a6170dd1b0ad, type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -8467,10 +8467,6 @@ Prefab:
     - target: {fileID: 186512, guid: e42e600a1a3ef465499c06290398b29a, type: 2}
       propertyPath: m_Name
       value: manaStoneUp
-      objectReference: {fileID: 0}
-    - target: {fileID: 491222, guid: e42e600a1a3ef465499c06290398b29a, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e42e600a1a3ef465499c06290398b29a, type: 2}
