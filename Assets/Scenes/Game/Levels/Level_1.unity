@@ -12791,7 +12791,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11470526, guid: 07928834e28094337b306bfadaf0d71b, type: 2}
       propertyPath: localWaypoints.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 437922, guid: 07928834e28094337b306bfadaf0d71b, type: 2}
       propertyPath: m_LocalPosition.x

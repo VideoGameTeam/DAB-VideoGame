@@ -1810,10 +1810,10 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   MonsterInput: {x: 0, y: 0}
   AttackDistance: 30
-  moveSpeed: 3
+  moveSpeed: 1.5
   maxFollowDistance: 100
   stoppingDistance: 90
-  attackTime: 2
+  attackTime: 4
   deltay: 1000
 --- !u!114 &11456004
 MonoBehaviour:
