@@ -17,6 +17,7 @@ TagManager:
   - SpaceTrap
   - Lasser
   - Magic
+  - BigLasser
   layers:
   - Default
   - TransparentFX

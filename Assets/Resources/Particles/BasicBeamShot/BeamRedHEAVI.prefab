@@ -65,7 +65,7 @@ GameObject:
   - 114: {fileID: 11400014}
   m_Layer: 0
   m_Name: BeamRedHEAVI
-  m_TagString: Bullet
+  m_TagString: BigLasser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,9 +167,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -1, y: 0.00000016292063, z: 0.00000016292063, w: -0.0000003258414}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalScale: {x: 2.08128, y: 3.2113788, z: 1.2155923}
   m_Children:
   - {fileID: 400012}
   - {fileID: 400010}
@@ -330,7 +330,7 @@ MonoBehaviour:
   HitEffect: {fileID: 0}
   MaxLength: 160
   AddLength: 0.05
-  Width: 0.2
+  Width: 0.3
   NowLengthGlobal: 0
 --- !u!114 &11400008
 MonoBehaviour:

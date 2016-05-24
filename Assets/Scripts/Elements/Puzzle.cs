@@ -42,6 +42,8 @@ public class Puzzle : MonoBehaviour {
 			if (timerem < 0) {
 				timerem = timegame + 0.5f * (2 - Gamestate.EstadoJuego.Dificult);		
 				playon = false;
+				lastplat = 0;
+				plat = 0;
 		}
 		}
 		else
