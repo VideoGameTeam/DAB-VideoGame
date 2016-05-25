@@ -78,6 +78,8 @@ public class Player : MonoBehaviour {
 		jumpSound = gameObject.AddComponent<AudioSource> ();
 		jumpSound.clip = carlSounds [0];
 
+
+
 		originalMoveSpeed = moveSpeed;
 		controller = GetComponent<Controller2D> ();
 		forward = true;
