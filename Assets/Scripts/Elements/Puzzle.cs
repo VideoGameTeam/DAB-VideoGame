@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Puzzle : MonoBehaviour {
 
-	public float PosYInit;
-	public Vector3 PosY1,PosY2,PosY3,PosY4;
+	private float PosYInit;
+	private Vector3 PosY1,PosY2,PosY3,PosY4;
 	public GameObject Platform1;
 	public GameObject Platform2;
 	public GameObject Platform3;
@@ -123,13 +123,11 @@ public class Puzzle : MonoBehaviour {
 	{
 
 		if (objeto.tag == "Player") {
-			
 			btndown = true;
 
-
+			AudioSource audio = GetComponent<AudioSource> ();
+			audio.Play ();
 	
-
-
 		}
 	}
 
