@@ -95,7 +95,7 @@ public class Player : MonoBehaviour {
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		maxJumpVelocity = Mathf.Abs (gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
-		print ("Gravity: " + gravity + "  Jump Velocity: " + maxJumpVelocity);
+//		print ("Gravity: " + gravity + "  Jump Velocity: " + maxJumpVelocity);
 	}
 
 	void Update() {
@@ -339,11 +339,11 @@ public class Player : MonoBehaviour {
 	void RotateCarl(){
 		if (Time.timeScale != 0) {
 			if (Input.GetButton ("Horizontal") && playerDir < 0 && forward) {
-				print ("izquierda");
+//				print ("izquierda");
 				animTransform.Rotate (0, 160, 0);
 				forward = false;
 			} else if (Input.GetButton ("Horizontal") && playerDir > 0 && !forward) {
-				print ("derecha");
+//				print ("derecha");
 				animTransform.Rotate (0, 200, 0);
 				forward = true;
 			}
@@ -360,10 +360,10 @@ public class Player : MonoBehaviour {
 				Gamestate.EstadoJuego.ChangeHealth (-10);
 
 			} else if (objeto.tag == "Lasser") {
-				Gamestate.EstadoJuego.ChangeHealth (-30);
+				Gamestate.EstadoJuego.ChangeHealth (-20);
 
 			} else if (objeto.tag == "Enemy") {
-				Gamestate.EstadoJuego.ChangeHealth (-30);
+				Gamestate.EstadoJuego.ChangeHealth (-10);
 			}
 		}
 	

@@ -32,51 +32,41 @@ public class PauseMenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Escape) && Time.timeScale == 1) {
+		if (Input.GetKeyDown (KeyCode.Escape) )
+			{
+			PressBtnPause ();
+			}
+
+	}
+
+	public void PressBtnPause()
+	{
+		if (Gamestate.EstadoJuego.health<=0)
+		{
+			return;
+		}
+
+		if (Time.timeScale == 1) {
 			objectpause.SetActive (true);
 			objectExit.SetActive (false);
 			objectOptions.SetActive (false);
 
 			Time.timeScale = 0;
 
-		} 
-		else if(Input.GetKeyDown (KeyCode.Escape) && Time.timeScale == 0) {
-			if (objectExit.activeSelf||objectOptions.activeSelf) {
+		} else if (Time.timeScale == 0) {
+			if (objectExit.activeSelf || objectOptions.activeSelf) {
 				objectExit.SetActive (false);
 				objectOptions.SetActive (false);
 				objectpause.SetActive (true);
 				loadstate ();
-			}
-			else {
+			} else {
 				objectpause.SetActive (false);
 				Time.timeScale = 1;
 			}
+			 
 
 		}
-
-	}
-
-	public void PressBtnPause()
-	{
-		objectpause.SetActive (true);
-		Time.timeScale = 0;
-
-		//TEST
-	/*	Gamestate.EstadoJuego.health=Gamestate.EstadoJuego.health-10;
-	//	Gamestate.EstadoJuego.mana--;
-		Gamestate.EstadoJuego.Admo--;
-		Gamestate.EstadoJuego.Medicine--;
-		Gamestate.EstadoJuego.Trident = !Gamestate.EstadoJuego.Trident;
-
-		GameObject.Find ("PlayerStatus").SendMessage ("UpdateScreen"); 
-
-		//GameObject.Find ("PlayerStatus").SendMessage ("FinishLevel"); 
-		Gamestate.EstadoJuego.ChangeHealth(-20);
-		Gamestate.EstadoJuego.ChangeMana(+20);
-		//PlayerStatus.StatePlayer.FinishLevel ();
-
-		Gamestate.EstadoJuego.ChangeMsg("Hola", 3);
-	*/
+	
 	}
 
 
@@ -119,7 +109,6 @@ public class PauseMenu : MonoBehaviour {
 		objectExit.SetActive (false);
 		////////Gamestate.EstadoJuego.tempmsg = 0;
 		Time.timeScale = 1;
-		//Application.LoadLevel ("StartGame");
 		SceneManager.LoadScene("StartGame");
 	}
 
@@ -149,7 +138,7 @@ public class PauseMenu : MonoBehaviour {
 		TextValorVol.text = Mathf.Round( SliVol.value*100).ToString();
 		TextValorLight.text = Mathf.Round(Slilight.value).ToString();
 		AudioListener.volume = SliVol.value;
-			print(Gamestate.EstadoJuego.LightSet.ToString());
+
 		MainlLight.intensity = Gamestate.EstadoJuego.LightSet/14;
 
 		switch (Mathf.FloorToInt(Gamestate.EstadoJuego.Dificult)) {
