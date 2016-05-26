@@ -3,16 +3,38 @@ using System.Collections;
 
 public class BulletMovement : MonoBehaviour {
 	public float bulletSpeed;
-	float duration = 5;
+	public Vector3 dir;
 
-	Vector3 direction;
+	//public Player scriptplayer;
 
 
 	void Start () {
 		AudioSource sound = GetComponent<AudioSource> ();
 		sound.Play ();
 
-		/*
+		Vector3 sp = Camera.main.WorldToScreenPoint(transform.position);
+		dir = (Input.mousePosition - sp).normalized;
+		GetComponent<Rigidbody2D>().AddForce (dir * bulletSpeed);
+
+		Destroy (gameObject,3);
+
+
+
+	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.tag == "Enemy")
+		{
+			MonsterHealth monsterScript = other.gameObject.GetComponent<MonsterHealth>();
+			monsterScript.ReceiveDamage(40);
+			Destroy (gameObject);
+		}
+	}
+
+}
+
+/*
 		RaycastHit hit;
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		if (Physics.Raycast(ray, out hit))
@@ -26,29 +48,4 @@ public class BulletMovement : MonoBehaviour {
 
 		}
 		*/
-		//Vector2 target = Camera.main.ScreenToWorldPoint( Input.mousePosition );
-
-
-		Vector3 sp = Camera.main.WorldToScreenPoint(transform.position);
-		Vector3 dir = (Input.mousePosition - sp).normalized;
-		GetComponent<Rigidbody2D>().AddForce (dir * bulletSpeed);
-
-		StartCoroutine(WaitAndDestroyTime(5.0F));
-	}
-
-	void OnTriggerEnter2D(Collider2D other)
-	{
-		if (other.tag == "Enemy")
-		{
-			MonsterHealth monsterScript = other.gameObject.GetComponent<MonsterHealth>();
-			monsterScript.ReceiveDamage(40);
-			transform.GetComponentInChildren<Renderer>().enabled=false;
-
-		}
-	}
-
-	IEnumerator WaitAndDestroyTime(float time){
-		yield return new WaitForSeconds (time);	
-		Object.Destroy (this.gameObject);
-	}
-}
+//Vector2 target = Camera.main.ScreenToWorldPoint( Input.mousePosition );

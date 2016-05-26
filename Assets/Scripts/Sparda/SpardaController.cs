@@ -93,17 +93,7 @@ public class SpardaController : MonoBehaviour {
         {
 			float aux = 0;
 			aux = myTransform.position.x-enemyTarget.position.x ;
-			print(aux.ToString());
 			spardaRotation = Quaternion.Euler (0, 90 *( (aux / followDistance)+2) , 0);
-
-            /*if (enemyTarget.position.x - myTransform.position.x > 0)
-            {
-                spardaRotation = Quaternion.Euler(0, 90, 0);
-            }
-            else
-            {
-                spardaRotation = Quaternion.Euler(0, 270, 0);
-            }*/
         }
         myModelTransform.rotation = spardaRotation;
     }
