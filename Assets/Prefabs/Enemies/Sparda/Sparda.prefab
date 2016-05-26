@@ -1851,7 +1851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  visionDistance: 5
+  visionDistance: 6
   followDistance: 7
   gunRotationAngle: 0
   shootingStarted: 0

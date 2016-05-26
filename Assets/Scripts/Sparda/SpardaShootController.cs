@@ -5,6 +5,7 @@ public class SpardaShootController : MonoBehaviour {
 
     public float velocity;
     public float proyectileLife;
+	public GameObject Explosion;
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class SpardaShootController : MonoBehaviour {
         {
        		Gamestate.EstadoJuego.ChangeHealth (-5);
 			//Instanciar Explosion
+			Instantiate (Explosion, transform.position, Quaternion.identity);
 			Destroy (gameObject);
 
         }
