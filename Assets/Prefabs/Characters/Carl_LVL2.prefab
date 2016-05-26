@@ -1652,8 +1652,8 @@ MonoBehaviour:
   wallSlideSpeedMax: 4
   wallStickTime: 0.25
   cadence: 0
-  shootPrefab: {fileID: 100254, guid: 7b64b92d08cf04041b2aa88bff8354d5, type: 2}
-  magicPrefab: {fileID: 141584, guid: c979626e7ecbf49c5b3dcb9c7e50920a, type: 2}
+  shootPrefab: {fileID: 177252, guid: 734b03166e08e4d2692ea64ba4c9ccd6, type: 2}
+  magicPrefab: {fileID: 158292, guid: bb6af4348b35140b2a2a16ecbcf04114, type: 2}
   carlSounds:
   - {fileID: 8300000, guid: 49219c75ad01b47449fe13a1abfb8f57, type: 3}
   - {fileID: 8300000, guid: 36a7cb9772124a2459c2447a4d980a5f, type: 3}
