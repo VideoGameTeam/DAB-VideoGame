@@ -20,8 +20,10 @@ public class SpardaShootController : MonoBehaviour {
     {
         if (other.transform.tag == "Player")
         {
-       //     Debug.Log("Target hit");
-			Gamestate.EstadoJuego.ChangeHealth (-5);
+       		Gamestate.EstadoJuego.ChangeHealth (-5);
+			//Instanciar Explosion
+			Destroy (gameObject);
+
         }
     }
 }
