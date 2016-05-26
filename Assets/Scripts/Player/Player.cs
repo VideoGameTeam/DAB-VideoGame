@@ -376,7 +376,7 @@ public class Player : MonoBehaviour {
     // Player damage Sound
     public void PlayPlayerDamage()
     {
-        receiveDamage.Play();
+      //  receiveDamage.Play();
     }
 
     // Player first aid Sound
@@ -392,13 +392,20 @@ public class Player : MonoBehaviour {
 			timetrap = 0;
 			if (objeto.tag == "SpaceTrap") {
 				Gamestate.EstadoJuego.ChangeHealth (-10);
-
+				receiveDamage.Play();
 			} else if (objeto.tag == "Lasser") {
 				Gamestate.EstadoJuego.ChangeHealth (-20);
-
+				receiveDamage.Play();
 			} else if (objeto.tag == "Enemy") {
 				Gamestate.EstadoJuego.ChangeHealth (-10);
+				//receiveDamage.Play();
+				receiveDamage.Play();
+			}else if (objeto.tag == "Fireball") {
+				Gamestate.EstadoJuego.ChangeHealth (-5);
+				receiveDamage.Play();
+				Destroy (objeto.gameObject);
 			}
+		
 		}
 	
 	}

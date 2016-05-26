@@ -1648,6 +1648,9 @@ MonoBehaviour:
   magicPrefab: {fileID: 158292, guid: bb6af4348b35140b2a2a16ecbcf04114, type: 2}
   carlSounds:
   - {fileID: 8300000, guid: 49219c75ad01b47449fe13a1abfb8f57, type: 3}
+  - {fileID: 8300000, guid: 36a7cb9772124a2459c2447a4d980a5f, type: 3}
+  - {fileID: 8300000, guid: 546fd96342a5c844283353bdc2fa1fd0, type: 3}
+  - {fileID: 8300000, guid: 8616f5b25bcd69c4c81af95b1e7e62d9, type: 3}
   animSprint: {fileID: 11100000, guid: e4a00a4129fdc404faf634c619700370, type: 3}
 --- !u!114 &11485914
 MonoBehaviour:

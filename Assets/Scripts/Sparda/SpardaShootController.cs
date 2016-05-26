@@ -21,10 +21,9 @@ public class SpardaShootController : MonoBehaviour {
     {
         if (other.transform.tag == "Player")
         {
-       		Gamestate.EstadoJuego.ChangeHealth (-5);
-			//Instanciar Explosion
+       	   
 			Instantiate (Explosion, transform.position, Quaternion.identity);
-			Destroy (gameObject);
+
 
         }
     }

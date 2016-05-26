@@ -14,13 +14,16 @@ public class BulletMovement : MonoBehaviour {
 
 		Vector3 sp = Camera.main.WorldToScreenPoint(transform.position);
 		dir = (Input.mousePosition - sp).normalized;
-		GetComponent<Rigidbody2D>().AddForce (dir * bulletSpeed);
-
 		Destroy (gameObject,3);
 
 
-
 	}
+
+	void Update ()
+	{
+		transform.Translate(dir * Time.deltaTime * bulletSpeed);
+	}
+
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
@@ -33,19 +36,3 @@ public class BulletMovement : MonoBehaviour {
 	}
 
 }
-
-/*
-		RaycastHit hit;
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		if (Physics.Raycast(ray, out hit))
-		{
-			Vector2 target = new Vector2 (hit.point.x, hit.point.y);
-
-			direction = target - new Vector2(transform.position.x, transform.position.y);
-			direction.Normalize();
-
-			GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
-
-		}
-		*/
-//Vector2 target = Camera.main.ScreenToWorldPoint( Input.mousePosition );
