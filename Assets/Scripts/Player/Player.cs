@@ -386,27 +386,44 @@ public class Player : MonoBehaviour {
     }
 
 	//Trampas Collider
+
+	void OnTriggerEnter2D(Collider2D objeto)
+	{
+		damage (objeto);
+		timetrap = 0;
+	}
+
+	void damage(Collider2D objeto)
+	{
+		if (objeto.tag == "SpaceTrap") {
+			Gamestate.EstadoJuego.ChangeHealth (-10);
+			receiveDamage.Play();
+		} else if (objeto.tag == "Lasser") {
+			Gamestate.EstadoJuego.ChangeHealth (-20);
+			receiveDamage.Play();
+		} else if (objeto.tag == "Enemy") {
+			Gamestate.EstadoJuego.ChangeHealth (-10);
+			receiveDamage.Play();
+		}else if (objeto.tag == "Fireball") {
+			Gamestate.EstadoJuego.ChangeHealth (-5);
+			receiveDamage.Play();
+			Destroy (objeto.gameObject);
+		}
+	}
 	void OnTriggerStay2D(Collider2D objeto)
 	{
-		if (timetrap >= 1) {
-			timetrap = 0;
-			if (objeto.tag == "SpaceTrap") {
-				Gamestate.EstadoJuego.ChangeHealth (-10);
-				receiveDamage.Play();
-			} else if (objeto.tag == "Lasser") {
-				Gamestate.EstadoJuego.ChangeHealth (-20);
-				receiveDamage.Play();
-			} else if (objeto.tag == "Enemy") {
-				Gamestate.EstadoJuego.ChangeHealth (-10);
-				//receiveDamage.Play();
-				receiveDamage.Play();
-			}else if (objeto.tag == "Fireball") {
-				Gamestate.EstadoJuego.ChangeHealth (-5);
-				receiveDamage.Play();
-				Destroy (objeto.gameObject);
-			}
-		
+
+
+
+		if (objeto.tag == "SpaceTrap"||objeto.tag == "Lasser" ||objeto.tag == "Enemy")
+		{
+			if (timetrap >= 1) {
+				timetrap = 0;
+				damage (objeto);
+			}	
 		}
+
+
 	
 	}
 
@@ -415,6 +432,7 @@ public class Player : MonoBehaviour {
 		if (objeto.tag == "SpaceTrap"||objeto.tag == "Lasser" ||objeto.tag == "Enemy")
 		{
 			timetrap=10;
+		
 		}
 		
 	}
