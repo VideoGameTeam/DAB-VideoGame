@@ -677,6 +677,7 @@ GameObject:
   - 114: {fileID: 11454536}
   - 114: {fileID: 11458052}
   - 50: {fileID: 5060110}
+  - 81: {fileID: 8145242}
   m_Layer: 9
   m_Name: Carl
   m_TagString: Player
@@ -1311,8 +1312,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186600}
-  m_LocalRotation: {x: -0.09932003, y: 0, z: 0, w: -0.99505556}
-  m_LocalPosition: {x: -0.20113121, y: 5.3036985, z: -13.820247}
+  m_LocalRotation: {x: 0.12489862, y: 0.005194964, z: -0.0006539738, w: 0.99215573}
+  m_LocalPosition: {x: 1.06, y: 5.7, z: -13.820247}
   m_LocalScale: {x: 0.030643575, y: 0.030643556, z: 0.03064356}
   m_Children: []
   m_Father: {fileID: 495448}
@@ -1375,7 +1376,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 189442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1774.7, y: 38.5, z: -1189.3}
+  m_LocalPosition: {x: -1743.6, y: 74.9, z: -1189.3}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 458810}
@@ -1565,6 +1566,13 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186600}
+  m_Enabled: 0
+--- !u!81 &8145242
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189442}
   m_Enabled: 1
 --- !u!92 &9221446
 Behaviour:
@@ -1674,6 +1682,9 @@ MonoBehaviour:
   magicPrefab: {fileID: 141584, guid: c979626e7ecbf49c5b3dcb9c7e50920a, type: 2}
   carlSounds:
   - {fileID: 8300000, guid: 49219c75ad01b47449fe13a1abfb8f57, type: 3}
+  - {fileID: 8300000, guid: 36a7cb9772124a2459c2447a4d980a5f, type: 3}
+  - {fileID: 8300000, guid: 546fd96342a5c844283353bdc2fa1fd0, type: 3}
+  - {fileID: 8300000, guid: 8616f5b25bcd69c4c81af95b1e7e62d9, type: 3}
   animSprint: {fileID: 11100000, guid: e4a00a4129fdc404faf634c619700370, type: 3}
 --- !u!124 &12453578
 Behaviour:

@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!241 &24100000
+AudioMixerController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: NewAudioMixer
+  m_OutputGroup: {fileID: 0}
+  m_MasterGroup: {fileID: 24300001}
+  m_Snapshots:
+  - {fileID: 24500003}
+  m_StartSnapshot: {fileID: 24500003}
+  m_SuspendThreshold: -80
+  m_EnableSuspend: 1
+  m_ExposedParameters: []
+  m_AudioMixerGroupViews:
+  - guids:
+    - 20d375feb240f2e42b70e340b8b65bfc
+    name: View - Copy
+  m_CurrentViewIndex: 0
+  m_TargetSnapshot: {fileID: 24500003}
+--- !u!243 &24300001
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Master
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 20d375feb240f2e42b70e340b8b65bfc
+  m_Children: []
+  m_Volume: 2a66f39963bb32c4c9966053f4f0f705
+  m_Pitch: a0e3f89a3c962de4695d4215e76810b0
+  m_Effects:
+  - {fileID: 24400002}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &24400002
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_EffectID: 8c468a42a49a2494faf8fdcc07c974ef
+  m_EffectName: Attenuation
+  m_MixLevel: 2275d0f34ddd5524a8e4e6b61c785117
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!245 &24500003
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Snapshot
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: 3a83057cf1cd5d24191cc99517d95d83
+  m_FloatValues:
+    a7567be2b0c4d69489984855990bdb04: 10
+    708c45f27b58e5941818554800f9344b: 0.1
+    0f9fff737b9d2ef4594f6c588d774f78: 0.1
+    e26b825400d8daf4ea1a1c57ed0aca8d: 2.2000015
+    b8ffca2568cef914f90c418d43a1b3c4: 4214
+    d4411016c2a9a344b8bd1d18c46a3bdf: -10
+    3e0541094c00b394ba8621e9e83dc2e2: 0.1
+    61da08795cc1c9a46a43b6d120b1356a: 20
+    2a66f39963bb32c4c9966053f4f0f705: 19.10771
+  m_TransitionOverrides: {}

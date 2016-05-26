@@ -13,10 +13,13 @@ public class Controller2D : RaycastController {
 	float trapDamageDelay = 3;
 	float trapWaitingTime = 0;
 
+    private Player playerScript;
+
 
 	public override void Start() {
 		base.Start ();
-		collisions.faceDir = 1;	
+		collisions.faceDir = 1;
+        playerScript = GetComponent<Player>();
 	}
 
 	public void Move(Vector3 velocity, bool standingOnPlatform) {
@@ -57,14 +60,16 @@ public class Controller2D : RaycastController {
 		if (hit) {
 			Gamestate.EstadoJuego.Admo += 10;
 			hit.collider.gameObject.SetActive (false);
-		}
+            playerScript.PlayPickUpSound();
+        }
 
 		//Detect FirstAid
 		hit = Physics2D.Raycast(rayOrigin,target, rayLength,collisionMask[2]);
 		if (hit) {
 			Gamestate.EstadoJuego.Medicine += 1;
 			hit.collider.gameObject.SetActive (false);
-		}
+            playerScript.PlayPickUpSound();
+        }
 
 
 		//Detect Death Zone
@@ -89,8 +94,9 @@ public class Controller2D : RaycastController {
 				if (trapWaitingTime >= trapDamageDelay) {
 					trapWaitingTime = 0;
 				Gamestate.EstadoJuego.ChangeHealth (-5);
-					//Gamestate.EstadoJuego.health -= Gamestate.EstadoJuego.Dificult * 10;
-				} else {
+                playerScript.PlayPlayerDamage();
+                    //Gamestate.EstadoJuego.health -= Gamestate.EstadoJuego.Dificult * 10;
+            } else {
 					trapWaitingTime += Time.deltaTime; 
 				}
 			}
@@ -101,7 +107,8 @@ public class Controller2D : RaycastController {
 			if (trapWaitingTime >= trapDamageDelay) {
 				trapWaitingTime = 0;
 				Gamestate.EstadoJuego.ChangeHealth (-7);
-			} else {
+                playerScript.PlayPlayerDamage();
+            } else {
 				trapWaitingTime += Time.deltaTime; 
 			}
 		}
@@ -112,7 +119,8 @@ public class Controller2D : RaycastController {
 			if (trapWaitingTime >= trapDamageDelay) {
 				trapWaitingTime = 0;
 				Gamestate.EstadoJuego.ChangeHealth (-3 );
-			} else {
+                playerScript.PlayPlayerDamage();
+            } else {
 				trapWaitingTime += Time.deltaTime; 
 			}
 		}
@@ -123,12 +131,11 @@ public class Controller2D : RaycastController {
 			if (trapWaitingTime >= trapDamageDelay) {
 				trapWaitingTime = 0;
 				Gamestate.EstadoJuego.ChangeHealth (-4);
-			} else {
+                playerScript.PlayPlayerDamage();
+            } else {
 				trapWaitingTime += Time.deltaTime; 
 			}
 		}
-
-		
 	}
 
 	void HorizontalCollisions(ref Vector3 velocity) {

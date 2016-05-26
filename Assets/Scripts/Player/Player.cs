@@ -65,22 +65,30 @@ public class Player : MonoBehaviour {
 	Transform shootTransform;
 	Transform magicTransform;
 
-
 	public AudioClip[] carlSounds;
 
 	public Animation animSprint;
 
 	private AudioSource jumpSound;
+    private AudioSource pickUpObject;
+    private AudioSource receiveDamage;
+    private AudioSource useBandage;
 
     void Start() {
-
 
 		jumpSound = gameObject.AddComponent<AudioSource> ();
 		jumpSound.clip = carlSounds [0];
 
+        pickUpObject = gameObject.AddComponent<AudioSource>();
+        pickUpObject.clip = carlSounds[2];
 
+        receiveDamage = gameObject.AddComponent<AudioSource>();
+        receiveDamage.clip = carlSounds[1];
 
-		originalMoveSpeed = moveSpeed;
+        useBandage = gameObject.AddComponent<AudioSource>();
+        useBandage.clip = carlSounds[3];
+
+        originalMoveSpeed = moveSpeed;
 		controller = GetComponent<Controller2D> ();
 		forward = true;
 		animTransform = FindTransform ("Human");
@@ -124,8 +132,8 @@ public class Player : MonoBehaviour {
 			if (Gamestate.EstadoJuego.Medicine > 0) {
 				Gamestate.EstadoJuego.Medicine -=1;	
 				Gamestate.EstadoJuego.ChangeHealth (30);
-			}
-
+                useBandage.Play();
+            }
 		}
 		weaponDelay -= Time.deltaTime;
 		if (Input.GetButton ("ChangeWeapon") && weaponDelay <=0) {
@@ -226,8 +234,6 @@ public class Player : MonoBehaviour {
 		}
 
 	}
-		
-
 
 	Transform FindTransform(string name){
 		Component[] transforms = transform.GetComponentsInChildren<Transform>();
@@ -347,9 +353,20 @@ public class Player : MonoBehaviour {
 			}
 		}
 	}
+
+    // Player damage Sound
+    public void PlayPlayerDamage()
+    {
+        receiveDamage.Play();
+    }
+
+    // Player first aid Sound
+    public void PlayPickUpSound()
+    {
+        pickUpObject.Play();
+    }
+
 	//Trampas Collider
-
-
 	void OnTriggerStay2D(Collider2D objeto)
 	{
 		if (timetrap >= 1) {

@@ -8,6 +8,7 @@ public class PezHydraController : MonoBehaviour
 
     private Transform myTransform;
 	public Transform targetTransform;
+    private Player playerScript;
     private Vector3 originalPosition;
 	private LayerMask raycastLayer;
 	public float radius = 10;
@@ -159,7 +160,8 @@ public class PezHydraController : MonoBehaviour
             anim.CrossFade("Attack");
             anim.wrapMode = WrapMode.Loop;
             anim.CrossFadeQueued("Idle");
-			Gamestate.EstadoJuego.ChangeHealth (-10);
+            playerScript.PlayPlayerDamage();
+            Gamestate.EstadoJuego.ChangeHealth (-10);
         }
     }
 
@@ -183,6 +185,7 @@ public class PezHydraController : MonoBehaviour
             if (hitCollider)
             {
                 targetTransform = hitCollider.transform;
+                playerScript = targetTransform.GetComponent<Player>();
                 originTime = Time.time;
                 lastAttackTime = 0;
             }
