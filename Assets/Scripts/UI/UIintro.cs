@@ -6,6 +6,8 @@ public class UIintro : MonoBehaviour {
 
 	private GameObject video;
 	public GameObject Loading;
+	public GameObject btnskip;
+
 	// Use this for initialization
 	void Start () {
 
@@ -29,6 +31,7 @@ public class UIintro : MonoBehaviour {
 	void loadLevel()
 	{
 		video.SetActive (false);
+		btnskip.SetActive (false);
 		SceneManager.LoadScene("Level_"+ Gamestate.EstadoJuego.GameLevel);
 		Loading.SetActive (true);
 

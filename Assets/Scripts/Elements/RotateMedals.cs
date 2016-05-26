@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class RotateMedals : MonoBehaviour {
-	private float vel=40;
+	public float vel=40;
 	// Use this for initialization
 	void Start () {
 	
@@ -15,10 +15,19 @@ public class RotateMedals : MonoBehaviour {
 	
 		if (vel>40)
 		{
-			vel=vel+100;
+			
 			if (vel > 4000) {
+				vel = vel + Time.deltaTime;
+				if (vel>4053.5f)
+				{
+					Time.timeScale = 0;
+				GameObject.Find ("PlayerStatus").SendMessage ("FinishLevel");
 				Destroy (gameObject);
+				}
+				return;
+
 			}
+			vel=vel+100;
 		}
 	}
 
@@ -28,9 +37,16 @@ public class RotateMedals : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D objeto)
 	{
 		if (vel == 40) {
+			Gamestate.EstadoJuego.GameLevel = 2;/// Solo requerido en Modo depuracion
 			if (objeto.tag == "Player") {
 
 				vel = 150;
+				AudioSource audio=GetComponent<AudioSource> ();
+				audio.Play ();
+				Destroy (gameObject.GetComponent<Collider2D> ());// .isTrigger = false;
+
+
+
 
 			}
 		}

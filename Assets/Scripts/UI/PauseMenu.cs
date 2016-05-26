@@ -238,8 +238,9 @@ public class PauseMenu : MonoBehaviour {
 		objectSave.SetActive (false);
 		Gamestate.EstadoJuego.NumberSavegame = 0;
 		objSaveOK.SetActive (false);
-		SceneManager.LoadScene("Level_"+ Gamestate.EstadoJuego.GameLevel);
 		Time.timeScale = 1;
+		SceneManager.LoadScene("Level_"+ Gamestate.EstadoJuego.GameLevel);
+
 	}
 
 
