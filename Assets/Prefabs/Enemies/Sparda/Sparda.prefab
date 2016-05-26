@@ -1543,7 +1543,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140304}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.14211, y: 3.9960308, z: -12.29818}
+  m_LocalPosition: {x: -15.7400055, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 460840}
@@ -1851,7 +1851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  visionDistance: 5
+  visionDistance: 6
   followDistance: 7
   gunRotationAngle: 0
   shootingStarted: 0
@@ -1859,7 +1859,7 @@ MonoBehaviour:
   myTransform: {fileID: 0}
   shouldCheckSpeed: 1
   cadence: 2
-  shootPrefab: {fileID: 185198, guid: 172a48969048804469f276acbc8260d1, type: 2}
+  shootPrefab: {fileID: 148216, guid: 503fe062c5e9e8646b0a691716f39ddf, type: 2}
 --- !u!137 &13726338
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

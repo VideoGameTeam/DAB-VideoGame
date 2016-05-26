@@ -5,6 +5,7 @@ public class SpardaShootController : MonoBehaviour {
 
     public float velocity;
     public float proyectileLife;
+	public GameObject Explosion;
 
     void Start()
     {
@@ -20,8 +21,11 @@ public class SpardaShootController : MonoBehaviour {
     {
         if (other.transform.tag == "Player")
         {
-       //     Debug.Log("Target hit");
-			Gamestate.EstadoJuego.ChangeHealth (-5);
+       		Gamestate.EstadoJuego.ChangeHealth (-5);
+			//Instanciar Explosion
+			Instantiate (Explosion, transform.position, Quaternion.identity);
+			Destroy (gameObject);
+
         }
     }
 }

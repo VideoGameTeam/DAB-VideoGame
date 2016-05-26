@@ -93,10 +93,6 @@ Material:
         second: 0.5
       data:
         first:
-          name: _Metallic
-        second: 0.365
-      data:
-        first:
           name: _Parallax
         second: 0.02
       data:
@@ -127,6 +123,10 @@ Material:
         first:
           name: _Mode
         second: 0
+      data:
+        first:
+          name: _Metallic
+        second: 0.365
     m_Colors:
       data:
         first:
@@ -135,4 +135,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0.21983135, g: 0.364497, b: 0.78676474, a: 1}
+        second: {r: 0.58823526, g: 0.3627252, b: 0.12110727, a: 1}

@@ -245,9 +245,27 @@ public class Player : MonoBehaviour {
 		return null;
 	}
 
+
+	void correctdir()
+	{
+		Vector3 sp = Camera.main.WorldToScreenPoint(transform.position);
+		Vector3 dir = (Input.mousePosition - sp).normalized;
+
+		if (dir.x<0 && forward) {
+			animTransform.Rotate (0, 160, 0);
+			forward = false;
+		} else if (dir.x>0 && !forward) {
+			animTransform.Rotate (0, 200, 0);
+			forward = true;
+		}
+
+	}
+
 	void Shooting(){
+		
+
 		if (Input.GetButton ("Fire1") && (Gamestate.EstadoJuego.Admo > 0) &&(!Gamestate.EstadoJuego.Trident)&& !(controller.collisions.right || controller.collisions.left)){
-			
+			correctdir ();
 			shoot = 0.2F;
 			moveSpeed = 0.0F;
 
@@ -259,6 +277,7 @@ public class Player : MonoBehaviour {
 			}
 
 		}else if(Input.GetButton ("Fire1") && (Gamestate.EstadoJuego.mana > 0) &&(Gamestate.EstadoJuego.Trident) && !(controller.collisions.right || controller.collisions.left)){
+			correctdir ();
 			magic = 0.2F;
 			moveSpeed = 0.0F;
 
