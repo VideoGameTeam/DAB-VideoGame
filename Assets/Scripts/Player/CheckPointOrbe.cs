@@ -42,7 +42,8 @@ public class CheckPointOrbe : MonoBehaviour {
 
 			Checkp = true;
 
-
+			AudioSource audio=GetComponent<AudioSource> ();
+			audio.Play ();
 
 
 		}

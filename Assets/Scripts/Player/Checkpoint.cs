@@ -23,11 +23,11 @@ public class Checkpoint : MonoBehaviour {
 			Gamestate.EstadoJuego.lastcheck [0]= objeto.gameObject.transform.position.x;
 			Gamestate.EstadoJuego.lastcheck [1]= objeto.gameObject.transform.position.y+2* objeto.gameObject.transform.localScale.y;
 			Gamestate.EstadoJuego.lastcheck [2]= objeto.gameObject.transform.position.z;
-		//	print("Player OK");
+	
+			AudioSource audio=GetComponent<AudioSource> ();
+			audio.Play ();
 
-				//GameObject.Find ("Backtxt").GetComponent<RawImage>().enabled = true;
-
-
+			Destroy (gameObject.GetComponent<Collider2D> ());// .isTrigger = false;
 
 		}
 
