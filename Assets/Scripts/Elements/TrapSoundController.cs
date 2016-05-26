@@ -25,10 +25,7 @@ public class TrapSoundController : MonoBehaviour {
             playing = true;
             audioSource.Play();
         }
-        else if (distance < maxDistance && playing)
-        {
-            print("ya está sonando");
-        }
+     
         else if (distance > maxDistance)
         {
             playing = false;
