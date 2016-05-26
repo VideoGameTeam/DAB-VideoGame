@@ -18,7 +18,7 @@ public class CheckPointOrbe : MonoBehaviour {
 
 			gameObject.transform.Rotate(Vector3.down *velrotate* Time.deltaTime);
 			velrotate = velrotate + 20; 
-			if (velrotate > 2000) {
+			if (velrotate > 3000) {
 				
 					Destroy (gameObject);
 
@@ -44,6 +44,7 @@ public class CheckPointOrbe : MonoBehaviour {
 
 			AudioSource audio=GetComponent<AudioSource> ();
 			audio.Play ();
+			Destroy (gameObject.GetComponent<Collider2D> ());// .isTrigger = false;
 
 
 		}

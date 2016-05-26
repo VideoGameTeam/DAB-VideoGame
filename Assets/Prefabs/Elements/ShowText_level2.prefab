@@ -23,9 +23,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172358}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071067}
-  m_LocalPosition: {x: 19.1, y: -8.9, z: 0}
-  m_LocalScale: {x: 1.1930679, y: 0.010081287, z: 0.010081289}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.241068, y: 347.3534, z: -0.54}
+  m_LocalScale: {x: 2.4869797, y: 1.3054963, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -38,11 +38,11 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 4.379799, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 11.237129, y: 1}
+  m_Size: {x: 10, y: 1}
 --- !u!114 &11439350
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04b654171dda44d3fbff383b65b37999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: Muevete con (D->Derecha) , (A->Izquierda), (Space->Saltar), (C->Caminar)
+  text: 'Ten cuidado con esa Sparda, Utiliza C para caminar sin hacer ruido. '
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
