@@ -376,7 +376,7 @@ public class Player : MonoBehaviour {
     // Player damage Sound
     public void PlayPlayerDamage()
     {
-      //  receiveDamage.Play();
+        receiveDamage.Play();
     }
 
     // Player first aid Sound

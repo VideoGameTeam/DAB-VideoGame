@@ -3908,7 +3908,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 495448, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2337150, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -3938,6 +3938,10 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 5.7
       objectReference: {fileID: 0}
+    - target: {fileID: 11458052, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
+      propertyPath: shootPrefab
+      value: 
+      objectReference: {fileID: 177252, guid: 9d2479c148df1d04a999f6988db80f9b, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fcfb3890079fae42b1140ae0190d24b, type: 2}
   m_IsPrefabParent: 0
@@ -4558,7 +4562,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22465060, guid: 8f5f7140ca06449499b8c2573c5ef40a, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 22465060, guid: 8f5f7140ca06449499b8c2573c5ef40a, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -4602,15 +4606,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22475406, guid: 8f5f7140ca06449499b8c2573c5ef40a, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22475406, guid: 8f5f7140ca06449499b8c2573c5ef40a, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22447928, guid: 8f5f7140ca06449499b8c2573c5ef40a, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11472618, guid: 8f5f7140ca06449499b8c2573c5ef40a, type: 2}
       propertyPath: deltat
@@ -6895,18 +6899,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11451596, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
-      propertyPath: stoppingDistance
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 11451596, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
-      propertyPath: maxFollowDistance
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 5057970, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0521b8727b1a34fddbf9a2ece9a9ab49, type: 2}
   m_IsPrefabParent: 0
@@ -7193,7 +7185,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 415020, guid: 2e0196f2f377e4c4383b4d4ad5ee256a, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6878690, guid: 2e0196f2f377e4c4383b4d4ad5ee256a, type: 2}
       propertyPath: m_Points.Array.data[68].y
@@ -16748,7 +16740,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 481300, guid: 9b18ba32c8be25b4fb118d288cfdc43b, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b18ba32c8be25b4fb118d288cfdc43b, type: 2}

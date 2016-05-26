@@ -4,24 +4,26 @@ using System.Collections;
 public class BulletMovement : MonoBehaviour {
 	public float bulletSpeed;
 	public Vector3 dir;
-
-	//public Player scriptplayer;
-
+	private float todestroy=3;
 
 	void Start () {
 		AudioSource sound = GetComponent<AudioSource> ();
 		sound.Play ();
 
 		Vector3 sp = Camera.main.WorldToScreenPoint(transform.position);
-		dir = (Input.mousePosition - sp).normalized;
+		dir = (Input.mousePosition - sp);
+		dir=(new Vector3(dir.x,dir.y,0));
+		dir=dir.normalized;
+	
 		Destroy (gameObject,3);
-
 
 	}
 
 	void Update ()
 	{
 		transform.Translate(dir * Time.deltaTime * bulletSpeed);
+		todestroy = todestroy - Time.deltaTime;
+
 	}
 
 
@@ -31,7 +33,11 @@ public class BulletMovement : MonoBehaviour {
 		{
 			MonsterHealth monsterScript = other.gameObject.GetComponent<MonsterHealth>();
 			monsterScript.ReceiveDamage(40);
-			Destroy (gameObject);
+
+			if (todestroy < 2.98f && gameObject.tag=="Bullet") {
+				Destroy (gameObject);
+			}
+		
 		}
 	}
 
